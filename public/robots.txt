@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.ambaaritoursandtravels.com
+
+# Sitemaps
+Sitemap: https://www.ambaaritoursandtravels.com/sitemap.xml
