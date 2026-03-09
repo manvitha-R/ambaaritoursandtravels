@@ -114,6 +114,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+      <meta name="google-site-verification" content="NZenD1bzwikxgWiUx0cqmbds_ndigS6YYgVWWnxWbgA" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="geo.region" content="IN-KA" />
