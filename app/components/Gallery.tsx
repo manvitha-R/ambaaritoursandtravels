@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Download, Heart, Share2, Maximize2 } from "lucide-react";
+import Footer from "./Footer";
 
 // Define types
 interface GalleryImage {
@@ -368,6 +369,7 @@ export default function Gallery() {
   };
 
   return (
+    <>
     <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -623,5 +625,7 @@ export default function Gallery() {
         </AnimatePresence>
       </div>
     </section>
+    <Footer/>
+    </>
   );
 }

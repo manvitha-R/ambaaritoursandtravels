@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Globe, Plane, Building, Send, Clock, CheckCircle } from "lucide-react";
 import Navbar from "@/app/components/Navbar";
 import BackToTop from "../components/BackToTop";
+import Footer from "../components/Footer";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -216,14 +217,14 @@ export default function ContactPage() {
                                         },
                                         {
                                             icon: Mail,
-                                            title: "Email Addresses",
+                                            title: "Email Address",
                                             items: [
                                                 "ambaaritoursandtravels19@gmail.com"
                                             ]
                                         },
                                         {
                                             icon: MapPin,
-                                            title: "Our Offices",
+                                            title: "Our Office",
                                             items: [
                                                 "4th floor, No.879/e, next to Income tax office, 6th Block, Koramangala, Bengaluru, Karnataka 560034"
                                             ]
@@ -509,6 +510,8 @@ export default function ContactPage() {
                 </motion.div>
             </main>
             <BackToTop />
+
+            <Footer/>
         </>
     );
 

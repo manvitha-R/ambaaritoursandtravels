@@ -28,6 +28,7 @@ export default function HeroSlider() {
   }, []);
 
   return (
+    <>
     <section className="pt-16 h-screen relative overflow-hidden">
       {slides.map((slide, index) => (
         <Image
@@ -71,5 +72,8 @@ export default function HeroSlider() {
         ))}
       </div>
     </section>
+
+    </>
+    
   );
 }

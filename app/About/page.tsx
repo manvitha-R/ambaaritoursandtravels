@@ -28,6 +28,7 @@ import Navbar from "../components/Navbar";
 import AnimatedImage from "../components/AnimatedImage";
 import BackToTop from "../components/BackToTop";
 import router, { useRouter } from "next/navigation";
+import Footer from "../components/Footer";
 
 export default function AboutPage() {
   const [activeTab, setActiveTab] = useState("story");
@@ -717,6 +718,8 @@ const router = useRouter();
         </div>
       </main>
       <BackToTop />
+
+      <Footer/>
     </>
   );
 }

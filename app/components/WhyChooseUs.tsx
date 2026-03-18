@@ -1,6 +1,7 @@
 "use client";
 
 import { Shield, Award, Headphones, DollarSign } from "lucide-react";
+import Footer from "./Footer";
 
 const features = [
   {
@@ -27,6 +28,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
+    <>
     <section className="py-20 px-4 bg-gradient-to-b from-gray-900 via-black to-gray-900 ">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -62,5 +64,7 @@ export default function WhyChooseUs() {
         </div>
       </div>
     </section>
+    <Footer/>
+    </>
   );
 }

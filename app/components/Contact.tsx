@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Globe, Plane, Building, Send, Clock, CheckCircle } from "lucide-react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -488,6 +489,8 @@ export default function ContactPage() {
                     </div>
                 </motion.div>
             </main>
+
+            <Footer/>
         </>
     );
     

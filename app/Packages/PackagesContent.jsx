@@ -7,6 +7,7 @@ import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import BackToTop from "../components/BackToTop";
 import { useSearchParams } from "next/navigation";
+import Footer from "../components/Footer";
 
 const packages = [
   
@@ -1061,6 +1062,7 @@ export default function PackagesContent() {
         </div>
       </div>
       <BackToTop />
+      <Footer/>
     </>
   );
 }

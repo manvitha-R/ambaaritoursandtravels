@@ -6,6 +6,7 @@ import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Heart, Maximize2 } from "lucide-react";
 import BackToTop from "../components/BackToTop";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 // Define types
 interface GalleryImage {
@@ -447,6 +448,7 @@ export default function Gallery() {
       </div>
     </section>
     <BackToTop/>
+    <Footer/>
     </>
   );
 }
