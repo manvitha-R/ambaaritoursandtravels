@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Calendar, Users, MapPin, Clock, CheckCircle, Plane, Hotel, Utensils, Ticket, ChevronDown } from "lucide-react";
+import { Calendar, Users, MapPin, Clock, CheckCircle, Plane, Hotel, Utensils, Ticket, ChevronDown, Car } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import BackToTop from "../components/BackToTop";
+import Footer from "../components/Footer";
 import { useSearchParams } from "next/navigation";
 
 const packages = [
@@ -278,6 +279,102 @@ const packages = [
     tags: ["thailand", "no-flights", "complete-package"]
   },
 
+  {
+    id: 22,
+    title: "Cambodia Premium Escape",
+    description: "Experience the Magic of Hanoi & Halong Bay, immerse yourself in the perfect blend of culture, nature, and luxury",
+    price: "₹25,999",
+    duration: "4 Days 3 Nights",
+    group: "Max 20 People",
+    highlight: "Bestseller",
+    image: "/Images/combodia.png",
+    color: "from-blue-500 to-purple-600",
+    places: ["Angkor Temple", "Kampong Phluk Floating Village Tour", "Siem Reap Departure"],
+    inclusions: [
+      // { icon: Plane, text: "Return Flights" },
+      { icon: Hotel, text: "5-Star Hotels" },
+      // { icon: Utensils, text: "All Meals" },
+      // { icon: Ticket, text: "Entry Tickets" },
+    ],
+    details: [
+      "Hotel in Siem Reap",
+      "Angkor Temple Tour",
+      "Explore ancient city ruins",
+      "Enjoy breathtaking sunset views",
+      "Kampong Phluk Floating Village Tour"
+    ],
+    region: "international",
+    country: "Multiple",
+    category: "luxury",
+    tags: ["cambodia", "no-flight","e-visa", "luxury"]
+  },
+
+   {
+    id: 3,
+    title: "Nepal – Ayodhya – Varanasi ",
+    description: "Spiritual journey through the most sacred cities with complete temple darshan arrangements",
+    price: "₹34,999",
+    duration: "10 Days 11 Nights",
+    group: "All Age Groups",
+    highlight: "Spiritual",
+    image: "/Images/nepal.png",
+    color: "from-yellow-500 to-red-600",
+    places: [" Lumbini", "Pokhara", "Jomsom", "Kathmandu","Janakpur", "Ayodhya", "Varanasi"],
+    inclusions: [
+      { icon: Hotel, text: "Comfort Stay" },
+      { icon: Utensils, text: "Breakfast and Dinner" },
+      { icon: Ticket, text: "Pooja Arrangements" },
+      // { icon: Users, text: "Tour Guide" },
+    ],
+    details: [
+      "Scenic drive to Nepal",
+      "Visit Maya Devi Temple (Birthplace of Lord Buddha)",
+      "Scenic Himalayan drive to Jomsom",
+      "Continue drive to Kathmandu",
+      "Visit Janaki Temple",
+      "Ayodhya Ram Mandir visit",
+      "Ganga Aarti experience"
+    ],
+    region: "international",
+    zone: "north",
+    subType: "pilgrimage",
+    category: "spiritual",
+    tags: ["nepal", "temples", "spiritual"]
+  },
+   {
+    id: 21,
+    title: "KASHI, PRAYAGRAJ, AYODHYA ,GAYA PACKAGE",
+    description: "Spiritual journey through India's most sacred cities with complete temple darshan arrangements",
+    price: "₹38,000",
+    duration: "5 Nights/6 Days ",
+    group: "All Age Groups",
+    highlight: "Spiritual",
+    image: "/Images/prayagraj.jpg",
+    color: "from-yellow-500 to-red-600",
+    places: [" Varanasi ", "Prayagraj", "Ayodhya", "Gaya"],
+    inclusions: [
+      { icon: Hotel, text: "Comfort Stay" },
+      { icon: Utensils, text: "Breakfast" },
+      { icon: Ticket, text: "Pooja Arrangements" },
+      // {icon: Car, text: "Private Cab"}
+      // { icon: Users, text: "Tour Guide" },
+    ],
+    details: [
+      "Pickup from Airport / Railway Station",
+      "Visit Kashi Vishwanath Temple",
+      "Attend Ganga Aarti at Dashashwamedh Ghat",
+      "Visit Kal Bhairav Temple",
+      "Visit Hanuman Temple & local temples",
+      "Visit Ram Janmabhoomi",
+      "Visit Vishnupad Temple"
+    ],
+    region: "domestic",
+    zone: "north",
+    subType: "pilgrimage",
+    category: "spiritual",
+    tags: ["prayagraj", "temples", "spiritual"]
+  },
+
   // Karnataka Local Packages
   {
     id: 17,
@@ -428,36 +525,7 @@ const packages = [
     category: "luxury",
     tags: ["europe", "multi-country", "luxury"]
   },
-  {
-    id: 3,
-    title: "Varanasi & Ayodhya Pilgrimage",
-    description: "Spiritual journey through India's most sacred cities with complete temple darshan arrangements",
-    price: "₹38,899",
-    duration: "4 Days 3 Nights",
-    group: "All Age Groups",
-    highlight: "Spiritual",
-    image: "/Images/varanasi.png",
-    color: "from-yellow-500 to-red-600",
-    places: ["Kashi Vishwanath", "Ayodhya Ram Mandir", "Sarnath", "Hanuman Garhi"],
-    inclusions: [
-      { icon: Hotel, text: "Comfort Stay" },
-      { icon: Utensils, text: "Satvik Meals" },
-      { icon: Ticket, text: "Pooja Arrangements" },
-      { icon: Users, text: "Tour Guide" },
-    ],
-    details: [
-      "Special darshan at Kashi Vishwanath",
-      "Ayodhya Ram Mandir visit",
-      "Ganga Aarti experience",
-      "Sarnath Buddhist tour",
-      "All transportation included"
-    ],
-    region: "domestic",
-    zone: "north",
-    subType: "pilgrimage",
-    category: "spiritual",
-    tags: ["north-india", "temples", "spiritual"]
-  },
+ 
   {
     id: 4,
     title: "Turkey Adventure",
@@ -577,6 +645,7 @@ const packages = [
     category: "heritage",
     tags: ["south-india", "temples", "heritage", "cultural"]
   },
+  
 ];
 
 export default function PackagesContent() {
@@ -680,7 +749,7 @@ export default function PackagesContent() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-24">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-30">
         {/* Hero Section */}
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
@@ -1061,6 +1130,7 @@ export default function PackagesContent() {
         </div>
       </div>
       <BackToTop />
+      <Footer/>
     </>
   );
 }

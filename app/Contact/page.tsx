@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Globe, Plane, Building, Send, Clock, CheckCircle } from "lucide-react";
 import Navbar from "@/app/components/Navbar";
 import BackToTop from "../components/BackToTop";
+import Footer from "../components/Footer";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -106,7 +107,7 @@ export default function ContactPage() {
         <>
             <Navbar />
 
-            <main className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-24 pb-16 px-4">
+            <main className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-34 pb-16 px-4">
                 {/* Animated Background Elements */}
                 <div className="fixed inset-0 overflow-hidden pointer-events-none">
                     <motion.div
@@ -218,7 +219,8 @@ export default function ContactPage() {
                                             icon: Mail,
                                             title: "Email Addresses",
                                             items: [
-                                                "ambaaritoursandtravels19@gmail.com"
+                                                "ambaaritoursandtravels19@gmail.com",
+                                                "support@ambaaritoursandtravels.com"
                                             ]
                                         },
                                         {
@@ -286,6 +288,7 @@ export default function ContactPage() {
                                         <h4 className="font-bold text-red-400">Emergency Travel Assistance</h4>
                                         <p className="text-sm text-gray-300">Available 24/7 for all travelers</p>
                                         <p className="text-lg font-semibold text-white mt-1">+91-8073 097 430</p>
+                                        <p className="text-lg font-semibold text-white mt-1">support@ambaaritoursandtravels.com</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -509,6 +512,7 @@ export default function ContactPage() {
                 </motion.div>
             </main>
             <BackToTop />
+            <Footer />
         </>
     );
 

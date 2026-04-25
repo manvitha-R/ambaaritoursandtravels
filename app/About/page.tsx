@@ -28,6 +28,7 @@ import Navbar from "../components/Navbar";
 import AnimatedImage from "../components/AnimatedImage";
 import BackToTop from "../components/BackToTop";
 import router, { useRouter } from "next/navigation";
+import Footer from "../components/Footer";
 
 export default function AboutPage() {
   const [activeTab, setActiveTab] = useState("story");
@@ -39,6 +40,22 @@ export default function AboutPage() {
     }, 500);
     return () => clearTimeout(timer);
   }, []);
+
+
+  useEffect(() => {
+  const updateNavbarHeight = () => {
+    const navbar = document.querySelector('nav'); // or whatever selector matches your Navbar
+    if (navbar) {
+      const height = navbar.offsetHeight;
+      document.documentElement.style.setProperty('--navbar-height', `${height}px`);
+    }
+  };
+  
+  updateNavbarHeight();
+  window.addEventListener('resize', updateNavbarHeight);
+  
+  return () => window.removeEventListener('resize', updateNavbarHeight);
+}, []);
 
   // Animation variants
   const containerVariants = {
@@ -108,39 +125,56 @@ export default function AboutPage() {
     },
     {
       id: 2,
-      name: "Bhanushree",
-      // role: "Senior Travel Consultant",
+      name: "Manvitha R",
+      role: "Manager",
       // experience: "8+ years",
       bio: "Specializes in North India tours and pilgrimage packages."
     },
     {
       id: 3,
       name: "Arun Krishna",
-      role: "Adventure Guide",
+      role: "Video Editor",
       // experience: "6+ years",
       bio: "Expert trekker and adventure sports specialist for Himalayan expeditions."
     },
     {
       id: 4,
-      name: "Sonvi ",
-      role: "Domestic Destination Expert",
+      name: "Sameer Shaik ",
+      role: "Team Head",
       // experience: "5+ years",
       bio: "Ensures every traveler gets personalized attention and support."
     },
     {
       id: 5,
-      name: "Hanumath ",
-      role: "Content Creator , Video Editor",
+      name: "Janmitha",
+      role: "Tour Coordinator",
       // experience: "12+ years",
       bio: "Expert in editing and content creation of all travel itineraries."
     },
-    // {
-    //   id: 6,
-    //   name: "Meera Krishnan",
-    //   role: "South India Specialist",
-    //   experience: "7+ years",
-    //   bio: "Deep knowledge of South Indian temples, culture, and heritage sites."
-    // }
+    {
+       id: 6,
+       name: "Srinivas",
+       role: "TOUR COORDINATOR",
+      //  experience: "7+ years",
+       bio: "Deep knowledge of South Indian temples, culture, and heritage sites."
+     },
+     {
+       id: 7,
+       name: "Chaya",
+       role: "TOUR COORDINATOR",
+      //  experience: "7+ years",
+       bio: "Deep knowledge of South Indian temples, culture, and heritage sites."
+     },
+     {
+       id: 8,
+       name: "Tharun ",
+       role: "TOUR COORDINATOR",
+      //  experience: "7+ years",
+       bio: "Deep knowledge of South Indian temples, culture, and heritage sites."
+     },
+       
+
+     
   ];
 
   const tabContent = {
@@ -356,7 +390,7 @@ const router = useRouter();
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-24 pb-16 px-4">
+         <main  className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-34 pb-16 px-4">
         {/* Animated Background Elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -717,6 +751,7 @@ const router = useRouter();
         </div>
       </main>
       <BackToTop />
+      <Footer/>
     </>
   );
 }

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Heart, Maximize2 } from "lucide-react";
 import BackToTop from "../components/BackToTop";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 // Define types
 interface GalleryImage {
@@ -248,7 +249,7 @@ export default function Gallery() {
   return (
     <>
     <Navbar/>
-    <section className="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
+    <section className="py-20 pt-34 px-4 bg-gradient-to-b from-gray-900 to-black">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -447,6 +448,7 @@ export default function Gallery() {
       </div>
     </section>
     <BackToTop/>
+    <Footer/>
     </>
   );
 }

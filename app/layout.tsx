@@ -1,7 +1,9 @@
+// app/layout.tsx
 import "./globals.css";
 import TawkToChatbot from "./components/TawkToChatbot";
 import type { Metadata } from 'next'
 import OrganizationSchema from './components/OrganizationSchema'
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ambaaritoursandtravels.com'),
@@ -11,38 +13,15 @@ export const metadata: Metadata = {
   },
   description: 'Ambaari Tours and Travels organizes expertly guided treks, domestic travel packages, and custom group trips across India. We specialize in bringing people together through travel, offering specialized services for corporate team-building events and energetic college excursions. At Ambaari, we don\'t just plan trips; we create stories. Join us for a customized travel experience designed just for you.',
   keywords: [
-    'Ambaari Tours',
-    'Ambaari Travels',
-    'Mysuru Ambari Travels',
-    'travel agency India',
-    'domestic tour packages',
-    'guided treks India',
-    'corporate travel',
-    'college excursions',
-    'pilgrimage tours',
-    'Karnataka tour packages',
-    'South India tours',
-    'North India tours',
-    'Ladakh bike trips',
-    'Thailand packages',
-    'Europe tours',
-    'budget travel India',
-    'luxury travel packages',
-    'group tour operators',
-    'travel agency Bangalore',
-    'Mysore travel agency',
-    'WINTER SPITI 4x4 expedition',
-    'Leh Ladakh bike trip',
-    'Thailand ladies special tour',
-    'Dandeli Gokarna weekend trip',
-    'Murdeshwara scuba diving',
-    'Dharmasthala pilgrimage',
-    'Jog Falls day trip',
-    'Mantralaya day trip',
-    'South Karnataka temple tour',
-    'Varanasi Ayodhya pilgrimage',
-    'Turkey adventure tour',
-    'Europe dream tour'
+    'Ambaari Tours', 'Ambaari Travels', 'Mysuru Ambari Travels', 'travel agency India',
+    'domestic tour packages', 'guided treks India', 'corporate travel', 'college excursions',
+    'pilgrimage tours', 'Karnataka tour packages', 'South India tours', 'North India tours',
+    'Ladakh bike trips', 'Thailand packages', 'Europe tours', 'budget travel India',
+    'luxury travel packages', 'group tour operators', 'travel agency Bangalore', 'Mysore travel agency',
+    'WINTER SPITI 4x4 expedition', 'Leh Ladakh bike trip', 'Thailand ladies special tour',
+    'Dandeli Gokarna weekend trip', 'Murdeshwara scuba diving', 'Dharmasthala pilgrimage',
+    'Jog Falls day trip', 'Mantralaya day trip', 'South Karnataka temple tour',
+    'Varanasi Ayodhya pilgrimage', 'Turkey adventure tour', 'Europe dream tour'
   ],
   authors: [{ name: 'Ambaari Tours', url: 'https://www.ambaaritoursandtravels.com' }],
   creator: 'Ambaari Tours and Travels',
@@ -93,9 +72,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'googlec14c01a7816c0302.html', // Replace with actual code from Google Search Console
-    yandex: 'your-yandex-verification-code', // Optional
-    yahoo: 'your-yahoo-verification-code', // Optional
+    google: 'googlec14c01a7816c0302.html',
   },
   alternates: {
     canonical: 'https://www.ambaaritoursandtravels.com',
@@ -125,9 +102,11 @@ export default function RootLayout({
         <meta name="theme-color" content="#f59e0b" />
       </head>
       <body>
-        <OrganizationSchema />
-        {children}
-        <TawkToChatbot />
+        <Providers>
+          <OrganizationSchema />
+          {children}
+          <TawkToChatbot />
+        </Providers>
       </body>
     </html>
   );
