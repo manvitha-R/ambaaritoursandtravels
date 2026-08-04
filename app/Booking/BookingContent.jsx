@@ -536,9 +536,9 @@ export default function BookingContent() {
                                 <div key={num} className="flex flex-col items-center">
                                     <div
                                         className={`
-                        w-14 h-14 rounded-full flex items-center justify-center 
-                        text-lg font-bold transition-all duration-300 
-                        border-2 
+                        w-8 h-8 sm:w-14 sm:h-14 rounded-full flex items-center justify-center
+                        text-sm sm:text-lg font-bold transition-all duration-300
+                        border-2
                         ${num < step
                                                 ? "bg-gradient-to-r from-amber-500 to-orange-600 text-black border-amber-400 scale-110"
                                                 : num === step
@@ -548,13 +548,13 @@ export default function BookingContent() {
                     `}
                                     >
                                         {num < step ? (
-                                            <CheckCircle className="w-6 h-6" />
+                                            <CheckCircle className="w-4 h-4 sm:w-6 sm:h-6" />
                                         ) : (
-                                            <Icon className="w-6 h-6" />
+                                            <Icon className="w-4 h-4 sm:w-6 sm:h-6" />
                                         )}
                                     </div>
                                     <span
-                                        className={`mt-2 text-sm font-medium transition-colors ${num <= step ? "text-amber-400" : "text-gray-400"
+                                        className={`mt-2 text-sm font-medium text-center transition-colors hidden sm:block ${num <= step ? "text-amber-400" : "text-gray-400"
                                             }`}
                                     >
                                         {label}
@@ -568,7 +568,7 @@ export default function BookingContent() {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {/* Left Column - Form */}
                         <div className="lg:col-span-2">
-                            <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-amber-500/20 rounded-3xl p-8 shadow-2xl">
+                            <div className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-amber-500/20 rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl">
 
                                 {bookingComplete ? (
                                     // Success Screen
@@ -715,7 +715,7 @@ export default function BookingContent() {
                                                                     Change
                                                                 </Link>
                                                             </div>
-                                                            <div className="flex items-center gap-3 text-xs text-gray-400">
+                                                            <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400">
                                                                 <span>{selectedPackage.duration}</span>
                                                                 <span className="px-2 py-0.5 bg-gray-800 rounded-full">
                                                                     {selectedPackage.category}
@@ -855,7 +855,7 @@ export default function BookingContent() {
                                                                 }`}
                                                         >
                                                             <div className="text-3xl mb-2">{method.icon}</div>
-                                                            <div className="font-medium text-white">{method.name}</div>
+                                                            <div className="font-medium text-white break-words">{method.name}</div>
                                                             <div className="text-sm text-gray-400">{method.description}</div>
                                                         </div>
                                                     ))}
@@ -1172,12 +1172,12 @@ export default function BookingContent() {
 
                                         {/* Navigation Buttons */}
                                         {!bookingComplete && step !== 1 && (
-                                            <div className="flex justify-between mt-8 pt-6 border-t border-gray-800">
+                                            <div className="flex flex-col-reverse sm:flex-row sm:justify-between gap-3 mt-8 pt-6 border-t border-gray-800">
                                                 {step > 1 && (
                                                     <button
                                                         type="button"
                                                         onClick={() => setStep(step - 1)}
-                                                        className="px-8 py-3 border border-amber-500 text-amber-400 rounded-full hover:bg-amber-500/10 transition-colors"
+                                                        className="w-full sm:w-auto px-8 py-3 border border-amber-500 text-amber-400 rounded-full hover:bg-amber-500/10 transition-colors"
                                                     >
                                                         Back
                                                     </button>
@@ -1189,7 +1189,7 @@ export default function BookingContent() {
                                                         (step === 2 && (!formData.name || !formData.email || !formData.phone || !formData.travelDate)) ||
                                                         (step === 4 && (!paymentReference || paymentReference.length < 4))
                                                     }
-                                                    className={`px-8 py-3 rounded-full font-bold transition-all ml-auto ${(step === 2 && (!formData.name || !formData.email || !formData.phone || !formData.travelDate)) ||
+                                                    className={`w-full sm:w-auto px-8 py-3 rounded-full font-bold transition-all sm:ml-auto ${(step === 2 && (!formData.name || !formData.email || !formData.phone || !formData.travelDate)) ||
                                                         (step === 4 && (!paymentReference || paymentReference.length < 4))
                                                         ? "bg-gray-700 text-gray-400 cursor-not-allowed"
                                                         : "bg-gradient-to-r from-amber-500 to-orange-600 text-black hover:from-amber-400 hover:to-orange-500 hover:scale-105"
@@ -1267,9 +1267,9 @@ export default function BookingContent() {
                                                 <Phone className="w-4 h-4 text-amber-400" />
                                                 <span>+91 8073 097 430</span>
                                             </div>
-                                            <div className="flex items-center gap-2 text-gray-300">
-                                                <Mail className="w-4 h-4 text-amber-400" />
-                                                <span>ambaaritoursandtravels19@gmail.com</span>
+                                            <div className="flex items-center gap-2 text-gray-300 min-w-0">
+                                                <Mail className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                                                <span className="break-all">ambaaritoursandtravels19@gmail.com</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1294,7 +1294,7 @@ export default function BookingContent() {
             {/* Invoice Popup Modal */}
             {showInvoicePopup && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-                    <div className="relative max-w-md w-full">
+                    <div className="relative max-w-md w-full max-h-[90vh] overflow-y-auto">
                         <div className="bg-gradient-to-br from-gray-900 to-black border border-amber-500/20 rounded-2xl p-6 shadow-2xl">
                             {/* Close Button */}
                             <button

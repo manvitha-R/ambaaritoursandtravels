@@ -583,18 +583,18 @@ export default function Gallery() {
                 </div>
 
                 {/* Image Info */}
-                <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-md rounded-2xl p-6">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                <div className="absolute bottom-2 left-2 right-2 sm:bottom-6 sm:left-6 sm:right-6 bg-black/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 max-h-[45vh] overflow-y-auto">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-lg sm:text-2xl font-bold text-white mb-2 truncate">
                         {selectedImage.location}
                       </h3>
-                      <p className="text-gray-300 text-lg mb-1">{selectedImage.alt}</p>
-                      <p className="text-yellow-400 text-sm">
+                      <p className="text-gray-300 text-sm sm:text-lg mb-1 line-clamp-2">{selectedImage.alt}</p>
+                      <p className="text-yellow-400 text-xs sm:text-sm">
                         📸 Photographer: {selectedImage.photographer}
                       </p>
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 flex-shrink-0">
                       <button
                         onClick={() => toggleLike(selectedImage.id)}
                         className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"

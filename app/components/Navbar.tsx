@@ -121,9 +121,9 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
               <Image
                 src="/Images/logo_bg.png"
                 alt="Ambaari"
-                width={500}
-                height={70}
-                className="h-14 w-auto object-contain"
+                width={368}
+                height={133}
+                className="h-12 md:h-14 w-auto object-contain"
                 priority
               />
             </Link>

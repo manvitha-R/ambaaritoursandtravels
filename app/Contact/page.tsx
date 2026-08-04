@@ -255,11 +255,11 @@ export default function ContactPage() {
                                         >
                                             <div className="flex items-start gap-3">
                                                 <contact.icon className="w-5 h-5 text-yellow-400 mt-1 flex-shrink-0" />
-                                                <div>
+                                                <div className="min-w-0">
                                                     <h4 className="font-semibold text-gray-200">{contact.title}</h4>
                                                     <ul className="mt-2 space-y-1">
                                                         {contact.items.map((item, i) => (
-                                                            <li key={i} className="text-gray-400 text-sm">{item}</li>
+                                                            <li key={i} className="text-gray-400 text-sm break-all">{item}</li>
                                                         ))}
                                                     </ul>
                                                 </div>
@@ -281,14 +281,14 @@ export default function ContactPage() {
                                 }}
                             >
                                 <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
+                                    <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                                         <Phone className="w-6 h-6 text-red-400" />
                                     </div>
-                                    <div>
+                                    <div className="min-w-0">
                                         <h4 className="font-bold text-red-400">Emergency Travel Assistance</h4>
                                         <p className="text-sm text-gray-300">Available 24/7 for all travelers</p>
                                         <p className="text-lg font-semibold text-white mt-1">+91-8073 097 430</p>
-                                        <p className="text-lg font-semibold text-white mt-1">support@ambaaritoursandtravels.com</p>
+                                        <p className="text-lg font-semibold text-white mt-1 break-all">support@ambaaritoursandtravels.com</p>
                                     </div>
                                 </div>
                             </motion.div>

@@ -57,7 +57,7 @@ console.log("EMAIL:", process.env.SENDER_EMAIL);
 
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl w-full max-w-lg shadow-2xl">
+      <div className="bg-white rounded-xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
 
         {/* Header */}
         <div className="bg-amber-500 rounded-t-xl p-4 flex items-center justify-between">

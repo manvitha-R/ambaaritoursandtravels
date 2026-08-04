@@ -145,9 +145,9 @@ export default function WhyChooseUs() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-yellow-500/20 hover:border-yellow-500/50 transition-all duration-300"
+              className="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-yellow-500/20 hover:border-yellow-500/50 transition-all duration-300"
             >
-              <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-2">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
               <div className="text-gray-400 text-sm font-medium">{stat.label}</div>

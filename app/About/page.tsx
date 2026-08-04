@@ -261,12 +261,12 @@ export default function AboutPage() {
                   transition={{ duration: 0.8 }}
                 >
                   <motion.div
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-yellow-400/20 backdrop-blur-sm border border-yellow-500/30 rounded-full mb-6"
+                    className="inline-flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-6 sm:py-3 bg-yellow-400/20 backdrop-blur-sm border border-yellow-500/30 rounded-full mb-6 max-w-full"
                     animate={floatAnimation}
                   >
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full" />
-                    <span className="text-yellow-400 font-bold text-lg tracking-wider">AMBAARI TOURS AND TRAVELS</span>
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full" />
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0" />
+                    <span className="text-yellow-400 font-bold text-xs sm:text-base md:text-lg tracking-normal sm:tracking-wider whitespace-nowrap">AMBAARI TOURS AND TRAVELS</span>
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0" />
                   </motion.div>
 
                   <motion.h1
@@ -316,7 +316,7 @@ export default function AboutPage() {
 
           {/* Stats Section */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-20"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mb-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -325,7 +325,7 @@ export default function AboutPage() {
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-6 border border-yellow-500/20 text-center"
+                className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-yellow-500/20 text-center"
                 variants={itemVariants}
                 whileHover={{ y: -5, borderColor: "rgba(251, 191, 36, 0.5)" }}
               >
@@ -335,7 +335,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <motion.span
-                  className="text-3xl font-bold text-yellow-400"
+                  className="text-2xl sm:text-3xl font-bold text-yellow-400"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -534,7 +534,7 @@ export default function AboutPage() {
             </div>
 
             {/* Stats - keep as is, or optionally reduce size */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-10">
               {[
                 // { label: "Team Members", value: teamMembers.length },
                 { label: "Years Combined Experience", value: "4+" },

@@ -28,7 +28,7 @@ export default function Services() {
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-yellow-100">
             {/* Service Tabs */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
               {services.map((service) => {
                 const Icon = service.icon;
                 const isActive = active === service.id;
@@ -36,7 +36,7 @@ export default function Services() {
                   <button
                     key={service.id}
                     onClick={() => setActive(service.id)}
-                    className={`p-6 transition-all duration-500 hover:scale-105 ${
+                    className={`p-3 sm:p-4 md:p-6 transition-all duration-500 hover:scale-105 ${
                       isActive
                         ? `bg-gradient-to-br ${service.color} text-white shadow-lg`
                         : "bg-white text-gray-700 hover:bg-yellow-50"

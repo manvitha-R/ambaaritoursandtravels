@@ -158,8 +158,8 @@ export default function Footer() {
             <Image
               src="/Images/logo_bg.png"
               alt="Ambaari Tours"
-              width={180}
-              height={50}
+              width={368}
+              height={133}
               className="h-12 w-auto object-contain"
             />
           </Link>
@@ -264,9 +264,9 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-yellow-500/20 transition-colors">
                 <Mail className="w-4 h-4 text-yellow-400" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs text-gray-500 mb-0.5">Email Us</p>
-                <a href="mailto:ambaaritoursandtravels19@gmail.com" className="text-gray-300 hover:text-yellow-400 text-sm transition-colors whitespace-nowrap">
+                <a href="mailto:ambaaritoursandtravels19@gmail.com" className="text-gray-300 hover:text-yellow-400 text-sm transition-colors break-all">
                   ambaaritoursandtravels19@gmail.com
                 </a>
               </div>

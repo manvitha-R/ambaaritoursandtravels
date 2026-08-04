@@ -409,7 +409,7 @@ export default function ThailandExperience({
                     <Calendar className="w-3.5 h-3.5 text-amber-400" /> Select Departure Date
                   </span>
                   {upcomingDates.length > 0 ? (
-                    <div className="grid grid-cols-5 gap-1.5">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1.5">
                       {upcomingDates.map((d) => {
                         const start = new Date(d.startDate);
                         const isSelected = selectedDateId === d.id;

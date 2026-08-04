@@ -84,10 +84,10 @@ export default function Splash() {
         <Image
           src="/Images/logo.jpeg"
           alt="Ambaari Tours and Travels"
-          width={900}
-          height={400}
+          width={1248}
+          height={832}
           priority
-          className="animate-pulse"
+          className="animate-pulse w-[70vw] max-w-95 h-auto object-contain"
         />
 
         {/* Airplane icon that flies up as you scroll */}

@@ -7,6 +7,7 @@ import Link from "next/link";
 const destinations = [
   {
     id: "13",
+    slug: "thailand-4n-5d",
     name: "Thailand",
     image: "/Images/Thailand.png",
     description: "Sun, sand, and serenity on pristine beaches",
@@ -18,6 +19,7 @@ const destinations = [
   },
    {
     id: "24",
+    slug: "malaysia-kuala-lumpur-2n-3d-24",
     name: "Malaysia",
     image: "/Images/Malaysia.png",
     description: "Sun, sand, and serenity on pristine beaches",
@@ -29,6 +31,7 @@ const destinations = [
   },
    {
     id: "23",
+    slug: "vietnam-grand-tour-6n-7d",
     name: "Vietnam",
     image: "/Images/Vietnam.png",
     description: "Sun, sand, and serenity on pristine beaches",
@@ -40,6 +43,7 @@ const destinations = [
   },
    {
     id: "16",
+    slug: "dubai-5n-6d",
     name: "Dubai",
     image: "/Images/Dubai.png",
     description: "Sun, sand, and serenity on pristine beaches",
@@ -51,6 +55,7 @@ const destinations = [
   },
   {
     id: "25",
+    slug: "puri-jagannath-darshan-3n-4d",
     name: "Puri-Jagannath",
     image: "/Images/Puri.png",
     description: "The Jagannath Temple is a Hindu temple dedicated to Jagannath, a form of Vishnu.",
@@ -63,6 +68,7 @@ const destinations = [
 
  {
     id: "26",
+    slug: "shirdi-sai-baba-yatra-1n-2d",
     name: "Shirdi",
     image: "/Images/Shirdi.png",
     description: "Tropical paradise with rich heritage",
@@ -74,6 +80,7 @@ const destinations = [
   },
   {
     id: "27",
+    slug: "panchabhoota-yatra-3n-4d-srikalahasti-kanchipuram-thiruvannamalai-chidambaram-trichy-27",
     name: "Panchabhoota Sthalams",
     image: "/Images/Panchabhoota.png",
     description: "Spirituality and timeless culture by the Ganges",
@@ -85,6 +92,7 @@ const destinations = [
   },
    {
     id: "28",
+    slug: "do-dham-yatra-7n-8d-kedarnath-badrinath-28",
     name: "Do-Dham Yatra",
     image: "/Images/Do-dham.png",
     description: "Embark on a spiritual journey to the sacred shrines of Kedarnath and Badrinath.",
@@ -202,10 +210,10 @@ export default function PopularDestinations() {
                 {/* Buttons */}
                 <div className="flex items-center gap-2 pt-2 border-t border-yellow-500/10">
                   <Link
-                    href={`/Booking?package=${dest.id}`}
+                    href={`/Packages/${dest.slug}`}
                     className="flex-1 text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-2 rounded-full text-sm font-semibold hover:from-yellow-300 hover:to-yellow-400 transition-all shadow-lg"
                   >
-                    Book Now
+                    View Details
                   </Link>
                   <a
                     href={`https://wa.me/918073097430?text=Hi%2C%20I%20am%20interested%20in%20the%20${encodeURIComponent(dest.name)}%20package.%20Please%20share%20details.`}

@@ -114,7 +114,7 @@ const packages = [
     slug: "malaysia-kuala-lumpur-2n-3d-24",
     title: "Malaysia Kuala Lumpur 2N/3D",
     description: "Explore Kuala Lumpur with a Putrajaya photo stop, the KL Tower, sacred Batu Caves, a Genting Highlands cable car adventure, and the iconic Petronas Twin Towers",
-    price: "₹43,000",
+    price: "₹45,000",
     duration: "3 Days 2 Nights",
     date: "September 20th, 27th, October 18th, 11th, 25th",
     group: "Max 25 People",
@@ -178,7 +178,7 @@ const packages = [
     slug: "malaysia-singapore-combo-5n-6d-26",
     title: "Malaysia & Singapore Combo 5N/6D",
     description: "Double-country adventure from Putrajaya and Genting Highlands in Malaysia to Sentosa Island, Universal Studios, and Gardens by the Bay in Singapore",
-    price: "₹1,05,000",
+    price: "₹1,20,000",
     duration: "6 Days 5 Nights",
     date: "September 22nd",
     group: "Max 25 People",
@@ -584,7 +584,7 @@ export default function PackagesContent() {
 
         {/* Name + Duration overlay at bottom of image */}
         <div className="absolute bottom-3 left-3 right-3">
-          <div className="flex items-center gap-1.5 mb-0.5">
+          <div className="flex items-center gap-1.5 mb-0.5 min-w-0">
             <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0" />
             <h3 className="text-white text-lg font-bold leading-tight truncate">{pkg.title}</h3>
           </div>
@@ -613,9 +613,9 @@ export default function PackagesContent() {
           <p className="text-xs font-semibold text-amber-400 mb-1.5 uppercase tracking-wide">
             Tour Highlights
           </p>
-          <ul className="grid grid-cols-2 gap-x-2 gap-y-1">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1">
             {pkg.details.slice(0, 4).map((point, idx) => (
-              <li key={idx} className="flex items-start gap-1 text-gray-300 text-xs">
+              <li key={idx} className="flex items-start gap-1 text-gray-300 text-xs min-w-0">
                 <span className="text-amber-400 mt-0.5 flex-shrink-0">•</span>
                 <span className="truncate">{point}</span>
               </li>

@@ -157,7 +157,7 @@ export default function ContactPage() {
                                     <Globe className="w-6 h-6" />
                                     Select Your Journey Type
                                 </h3>
-                                <div className="flex space-x-4">
+                                <div className="flex flex-col sm:flex-row gap-4">
                                     {[
                                         { id: "international", label: "International Travel", icon: Plane },
                                         { id: "local", label: "Local Getaways", icon: Building }
