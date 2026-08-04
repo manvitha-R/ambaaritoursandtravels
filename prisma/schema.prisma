@@ -25,7 +25,7 @@ model User {
   @@map("users")
 }
 
-// Lead model (website inquiries)
+// Lead model
 model Lead {
   id          String   @id @default(cuid())
   name        String
@@ -46,34 +46,63 @@ model Lead {
   @@map("leads")
 }
 
-// Package model
+// Package/Tour model
 model Package {
-  id          String   @id @default(cuid())
-  title       String
-  slug        String   @unique
-  description String?
-  shortDesc   String?
-  duration    String   // e.g., "3N/4D"
-  destination String
-  price       Float
-  discountPrice Float?
-  images      String[] // Array of image URLs
-  inclusions  String[] // Array of inclusions
-  exclusions  String[] // Array of exclusions
-  itinerary   Json?    // JSON array of day-wise itinerary
-  startDate   DateTime?
-  endDate     DateTime?
-  isActive    Boolean  @default(true)
-  isOnSale    Boolean  @default(false)
-  totalSeats  Int?
-  bookedSeats Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id              String        @id @default(cuid())
+  title           String
+  slug            String        @unique
+  description     String?       @map("description")
+  shortDesc       String?       @map("short_desc")
+  duration        String        // e.g., "4N/5D"
+  destination     String
+  country         String        @default("Thailand")
+  price           Float
+  discountPrice   Float?        @map("discount_price")
+  bookingAmount   Float?        @default(20000) @map("booking_amount")
+  gst             Float         @default(5.0)
+  images          String[]      // Array of image URLs
+  inclusions      String[]      // Array of inclusions
+  exclusions      String[]      // Array of exclusions
+  itinerary       Json?         // JSON array of day-wise itinerary
+  startDate       DateTime?     @map("start_date")
+  endDate         DateTime?     @map("end_date")
+  isActive        Boolean       @default(true) @map("is_active")
+  isOnSale        Boolean       @default(false) @map("is_on_sale")
+  totalSeats      Int?          @map("total_seats")
+  bookedSeats     Int           @default(0) @map("booked_seats")
+  minAge          Int?          @default(19) @map("min_age")
+  accommodation   String?       // e.g., "3 or 4 Star Hotel"
+  transportation  String?       // e.g., "Private Vehicle - Toyota Commuter"
+  meals           String?       // e.g., "All Meals (Buffet)"
+  pickUpPoints    Json?         @map("pick_up_points") // Array of pick up locations
+ whatToCarry     String[]      @map("what_to_carry") 
+  additionalInfo  String?       @map("additional_info")
+  cancellationPolicy String?    @map("cancellation_policy")
+  termsConditions String?       @map("terms_conditions")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
   
-  bookings    Booking[]
-  categories  PackageCategory[] @relation("PackageCategories")
+  bookings        Booking[]
+  categories      PackageCategory[] @relation("PackageCategories")
+  availableDates  AvailableDate[]
   
   @@map("packages")
+}
+
+// Available Dates for each package
+model AvailableDate {
+  id        String   @id @default(cuid())
+  packageId String   @map("package_id")
+  startDate DateTime @map("start_date")
+  endDate   DateTime @map("end_date")
+  price     Float
+  isActive  Boolean  @default(true) @map("is_active")
+  
+  package   Package  @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  bookings  Booking[] // Add this line
+  
+  @@unique([packageId, startDate])
+  @@map("available_dates")
 }
 
 // Booking model
@@ -82,22 +111,24 @@ model Booking {
   bookingNumber String       @unique
   userId        String       @map("user_id")
   packageId     String       @map("package_id")
+  availableDateId String?    @map("available_date_id")
   travelers     Int
-  totalAmount   Float
-  paidAmount    Float        @default(0)
+  totalAmount   Float        @map("total_amount")
+  paidAmount    Float        @default(0) @map("paid_amount")
   status        BookingStatus @default(PENDING)
   paymentStatus PaymentStatus @default(UNPAID)
-  travelDate    DateTime
-  bookingDate   DateTime     @default(now())
-  specialRequests String?
-  customerName  String
-  customerEmail String
-  customerPhone String
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
+  travelDate    DateTime     @map("travel_date")
+  bookingDate   DateTime     @default(now()) @map("booking_date")
+  specialRequests String?    @map("special_requests")
+  customerName  String       @map("customer_name")
+  customerEmail String       @map("customer_email")
+  customerPhone String       @map("customer_phone")
+  createdAt     DateTime     @default(now()) @map("created_at")
+  updatedAt     DateTime     @updatedAt @map("updated_at")
   
   user          User         @relation(fields: [userId], references: [id])
   package       Package      @relation(fields: [packageId], references: [id])
+  availableDate AvailableDate? @relation(fields: [availableDateId], references: [id])
   transactions  Transaction[]
   
   @@map("bookings")
@@ -105,15 +136,15 @@ model Booking {
 
 // Transaction model
 model Transaction {
-  id          String          @id @default(cuid())
-  bookingId   String          @map("booking_id")
-  amount      Float
-  paymentMethod String
-  transactionId String?       @unique
-  status      TransactionStatus @default(PENDING)
-  createdAt   DateTime        @default(now())
+  id            String          @id @default(cuid())
+  bookingId     String          @map("booking_id")
+  amount        Float
+  paymentMethod String          @map("payment_method")
+  transactionId String?         @unique @map("transaction_id")
+  status        TransactionStatus @default(PENDING)
+  createdAt     DateTime        @default(now()) @map("created_at")
   
-  booking     Booking         @relation(fields: [bookingId], references: [id])
+  booking       Booking         @relation(fields: [bookingId], references: [id])
   
   @@map("transactions")
 }
@@ -174,4 +205,4 @@ enum TransactionStatus {
   SUCCESS
   FAILED
   REFUNDED
-}
+}   

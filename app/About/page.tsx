@@ -21,18 +21,22 @@ import {
   MapPin,
   Copyright,
   Award,
-  Star
+  Star,
+  Target,
+  Eye,
+  Shield,
+  Compass
 } from "lucide-react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import AnimatedImage from "../components/AnimatedImage";
 import BackToTop from "../components/BackToTop";
-import router, { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Footer from "../components/Footer";
 
 export default function AboutPage() {
-  const [activeTab, setActiveTab] = useState("story");
   const [visibleStats, setVisibleStats] = useState(Array(8).fill(false));
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,21 +45,20 @@ export default function AboutPage() {
     return () => clearTimeout(timer);
   }, []);
 
-
   useEffect(() => {
-  const updateNavbarHeight = () => {
-    const navbar = document.querySelector('nav'); // or whatever selector matches your Navbar
-    if (navbar) {
-      const height = navbar.offsetHeight;
-      document.documentElement.style.setProperty('--navbar-height', `${height}px`);
-    }
-  };
-  
-  updateNavbarHeight();
-  window.addEventListener('resize', updateNavbarHeight);
-  
-  return () => window.removeEventListener('resize', updateNavbarHeight);
-}, []);
+    const updateNavbarHeight = () => {
+      const navbar = document.querySelector('nav');
+      if (navbar) {
+        const height = navbar.offsetHeight;
+        document.documentElement.style.setProperty('--navbar-height', `${height}px`);
+      }
+    };
+
+    updateNavbarHeight();
+    window.addEventListener('resize', updateNavbarHeight);
+
+    return () => window.removeEventListener('resize', updateNavbarHeight);
+  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -78,7 +81,6 @@ export default function AboutPage() {
     }
   };
 
-  // Properly typed animations
   const floatAnimation = {
     y: [0, -10, 0],
     transition: {
@@ -107,255 +109,81 @@ export default function AboutPage() {
     }
   });
 
-  const tabs = [
-    { id: "story", label: "Our Story" },
-    { id: "mission", label: "Mission" },
-    { id: "values", label: "Values" },
-    { id: "team", label: "Team" }
-  ];
-
-  // Updated teamMembers without photos and social links
+  // Team members data
   const teamMembers = [
     {
       id: 1,
       name: "Sharath Naik H O",
-      role: "Founder & CEO",
-      // experience: "10+ years",
-      bio: "Passionate traveler with expertise in crafting unique experiences across India."
+      role: "FOUNDER & CEO",
+      bio: "Passionate traveler with expertise in crafting unique experiences across world."
     },
     {
       id: 2,
       name: "Manvitha R",
-      role: "Manager",
-      // experience: "8+ years",
-      bio: "Specializes in North India tours and pilgrimage packages."
+      role: "MANAGER",
+      bio: "Skilled in strategic planning and team leadership."
     },
-    {
-      id: 3,
-      name: "Arun Krishna",
-      role: "Video Editor",
-      // experience: "6+ years",
-      bio: "Expert trekker and adventure sports specialist for Himalayan expeditions."
-    },
+
     {
       id: 4,
-      name: "Sameer Shaik ",
-      role: "Team Head",
-      // experience: "5+ years",
-      bio: "Ensures every traveler gets personalized attention and support."
+      name: "Shivaram M S",
+      role: "DOMESTIC TEAM HEAD",
+      bio: "Specializing in the domestic market, excels at aligning localized team strategies with broader corporate objectives."
     },
     {
       id: 5,
-      name: "Janmitha",
-      role: "Tour Coordinator",
-      // experience: "12+ years",
-      bio: "Expert in editing and content creation of all travel itineraries."
+      name: "Akash R",
+      role: "INTERNATIONAL TEAM HEAD",
+      bio: "Driving cross-border initiatives and scaling high-performing, multicultural teams."
     },
     {
-       id: 6,
-       name: "Srinivas",
-       role: "TOUR COORDINATOR",
-      //  experience: "7+ years",
-       bio: "Deep knowledge of South Indian temples, culture, and heritage sites."
-     },
-     {
-       id: 7,
-       name: "Chaya",
-       role: "TOUR COORDINATOR",
-      //  experience: "7+ years",
-       bio: "Deep knowledge of South Indian temples, culture, and heritage sites."
-     },
-     {
-       id: 8,
-       name: "Tharun ",
-       role: "TOUR COORDINATOR",
-      //  experience: "7+ years",
-       bio: "Deep knowledge of South Indian temples, culture, and heritage sites."
-     },
-       
+      id: 3,
+      name: "Srinath",
+      role: "VIDEO EDITOR",
+      bio: "Expert in editing and content creation of all travel itineraries."
+    },
 
-     
+
   ];
 
-  const tabContent = {
-    story: (
-      <div className="prose prose-invert max-w-none">
-        <p className="text-gray-300 leading-relaxed mb-6">
-          Ambaari Tours and Travels organizes expertly guided treks, domestic travel packages,
-          and custom group trips across India. We specialize in bringing people together through
-          travel, offering specialized services for corporate team-building events and energetic
-          college excursions. At Ambaari, we don't just plan trips; we create stories. Join us
-          for a customized travel experience designed just for you.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-4 text-center">
-            <div className="text-3xl mb-2">🏔️</div>
-            <div className="font-bold text-white">100+ Treks</div>
-          </div>
-          <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-xl p-4 text-center">
-            <div className="text-3xl mb-2">🚌</div>
-            <div className="font-bold text-white">50+ Destinations</div>
-          </div>
-          <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-xl p-4 text-center">
-            <div className="text-3xl mb-2">🤝</div>
-            <div className="font-bold text-white">5000+ Travelers</div>
-          </div>
-        </div>
-      </div>
-    ),
-
-    mission: (
-      <div className="space-y-6">
-        <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-2xl p-8 text-center">
-          <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full flex items-center justify-center">
-            <svg className="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <p className="text-xl text-gray-200 leading-relaxed italic">
-            "To transform travel into transformative experiences that connect people, cultures,
-            and landscapes through expertly curated journeys across India's most breathtaking destinations."
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-xl p-6">
-            <h4 className="text-lg font-bold text-white mb-3">Our Vision</h4>
-            <p className="text-gray-300">
-              To become India's most trusted travel partner, known for creating unique,
-              personalized experiences that exceed expectations.
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl p-6">
-            <h4 className="text-lg font-bold text-white mb-3">Our Promise</h4>
-            <p className="text-gray-300">
-              Every journey with us is crafted with care, safety, and attention to detail,
-              ensuring memories that last a lifetime.
-            </p>
-          </div>
-        </div>
-      </div>
-    ),
-
-    values: (
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            {
-              title: "Integrity",
-              desc: "Honesty and transparency in every journey we plan and every interaction we have.",
-              icon: "🤝",
-              color: "from-blue-500 to-cyan-500"
-            },
-            {
-              title: "Passion",
-              desc: "Enthusiasm for exploration and creating unforgettable travel experiences.",
-              icon: "❤️",
-              color: "from-red-500 to-pink-500"
-            },
-            {
-              title: "Excellence",
-              desc: "Commitment to the highest quality service and attention to detail.",
-              icon: "⭐",
-              color: "from-yellow-500 to-amber-500"
-            },
-            {
-              title: "Sustainability",
-              desc: "Responsible travel practices that protect and preserve our destinations.",
-              icon: "🌱",
-              color: "from-green-500 to-emerald-500"
-            },
-            {
-              title: "Community",
-              desc: "Building lasting connections through shared travel experiences.",
-              icon: "👥",
-              color: "from-purple-500 to-indigo-500"
-            }
-          ].map((value, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-amber-500/20 rounded-xl p-6 hover:scale-105 transition-all duration-300"
-            >
-              <div className={`w-12 h-12 mb-4 bg-gradient-to-r ${value.color} rounded-lg flex items-center justify-center text-2xl`}>
-                {value.icon}
-              </div>
-              <h4 className="text-xl font-bold text-white mb-2">{value.title}</h4>
-              <p className="text-gray-300">{value.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-
-    team: (
-      <div className="space-y-8">
-        {/* Team Header */}
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-white mb-3">Our Expert Team</h3>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Meet the passionate individuals who make your travel dreams come true
-          </p>
-        </div>
-
-        {/* Team Grid - Without Photos and Social Links */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {teamMembers.map((member) => (
-            <div
-              key={member.id}
-              className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-amber-500/20 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 hover:scale-105"
-            >
-              {/* Decorative Header without image */}
-              <div className="h-24 bg-gradient-to-r from-amber-500/20 to-orange-500/20 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-2xl font-bold text-black">
-                    {member.name.charAt(0)}
-                  </div>
-                </div>
-              </div>
-
-              {/* Experience Badge - moved to top */}
-              {/* <div className="absolute mt-2 ml-2">
-                <span className="bg-amber-500 text-black px-3 py-1 rounded-full text-xs font-bold">
-                  {member.experience}
-                </span>
-              </div> */}
-
-              {/* Content */}
-              <div className="p-5 pt-8">
-                <h4 className="text-xl font-bold text-white mb-1 text-center">{member.name}</h4>
-                <p className="text-amber-400 text-sm font-medium mb-3 text-center">{member.role}</p>
-                <p className="text-gray-400 text-sm text-center">{member.bio}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Team Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-          {[
-            { label: "Team Members", value: teamMembers.length },
-            { label: "Years Combined Experience", value: "48+" },
-            { label: "Guided Tours", value: "500+" },
-            { label: "Happy Travelers", value: "5000+" },
-          ].map((stat, index) => (
-            <div key={index} className="text-center bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-xl p-4">
-              <div className="text-2xl font-bold text-amber-400">{stat.value}</div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Join Team CTA */}
-        {/* <div className="text-center mt-8 p-6 bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border border-amber-500/20 rounded-2xl">
-          <h4 className="text-lg font-bold text-white mb-2">Join Our Team</h4>
-          <p className="text-gray-300 mb-4">Passionate about travel? We're always looking for talented individuals.</p>
-          <button className="bg-gradient-to-r from-amber-500 to-orange-600 text-black px-6 py-2 rounded-full font-semibold hover:from-amber-400 hover:to-orange-500 transition-all">
-            View Careers
-          </button>
-        </div> */}
-      </div>
-    )
-  };
+  const coreValues = [
+    {
+      title: "Integrity",
+      desc: "Honesty and transparency in every journey we plan and every interaction we have.",
+      icon: "🤝",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "Passion",
+      desc: "Enthusiasm for exploration and creating unforgettable travel experiences.",
+      icon: "❤️",
+      color: "from-red-500 to-pink-500"
+    },
+    {
+      title: "Excellence",
+      desc: "Commitment to the highest quality service and attention to detail.",
+      icon: "⭐",
+      color: "from-yellow-500 to-amber-500"
+    },
+    {
+      title: "Sustainability",
+      desc: "Responsible travel practices that protect and preserve our destinations.",
+      icon: "🌱",
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      title: "Community",
+      desc: "Building lasting connections through shared travel experiences.",
+      icon: "👥",
+      color: "from-purple-500 to-indigo-500"
+    },
+    {
+      title: "Innovation",
+      desc: "Constantly evolving to bring you unique and contemporary travel experiences.",
+      icon: "💡",
+      color: "from-orange-500 to-red-500"
+    }
+  ];
 
   const stats = [
     { number: "100+", label: "Trips Organized", icon: <Map className="w-5 h-5" /> },
@@ -366,23 +194,18 @@ export default function AboutPage() {
 
   const features = [
     { icon: <Sparkles />, title: "Expert Guided Treks", desc: "Professional guides for safe and memorable mountain adventures" },
-    { icon: <Map />, title: "Domestic Packages", desc: "Curated itineraries across India's most beautiful destinations" },
+    { icon: <Map />, title: "International & Domestic Packages", desc: "Curated itineraries across world's most beautiful destinations" },
     { icon: <Users />, title: "Custom Group Trips", desc: "Tailored experiences for families, friends, and organizations" },
     { icon: <Building2 />, title: "Corporate Events", desc: "Team-building retreats and corporate getaways" },
     { icon: <GraduationCap />, title: "College Excursions", desc: "Energetic and educational trips for students" },
     { icon: <Heart />, title: "Personalized Service", desc: "Customized travel experiences designed just for you" }
   ];
 
-const router = useRouter();
-
   const handleViewPackages = () => {
-    // You can add tracking or analytics here
-    console.log("Navigating to packages page");
     router.push('/Packages');
   };
 
   const handleStartJourney = () => {
-    // You can add logic here
     router.push('/Booking');
   };
 
@@ -390,7 +213,7 @@ const router = useRouter();
     <>
       <Navbar />
 
-         <main  className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-34 pb-16 px-4">
+      <main className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-32 pb-16 px-4">
         {/* Animated Background Elements */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -414,7 +237,7 @@ const router = useRouter();
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Hero Section */}
           <motion.div
-            className="relative mb-16 rounded-3xl overflow-hidden"
+            className="relative mb-20 rounded-3xl overflow-hidden"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
@@ -452,7 +275,7 @@ const router = useRouter();
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2 }}
                   >
-                    Global Inspirations
+                    About Us
                   </motion.h1>
 
                   <motion.p
@@ -465,69 +288,69 @@ const router = useRouter();
                   </motion.p>
                 </motion.div>
               </div>
+            </div>
+          </motion.div>
 
-              {/* <motion.div
-                className="absolute top-8 left-8 w-12 h-12 rounded-full bg-yellow-400/10 border border-yellow-500/30 flex items-center justify-center"
-                animate={floatAnimation}
-              >
-                <Award className="w-6 h-6 text-yellow-400" />
-              </motion.div> */}
-              {/* <motion.div
-                className="absolute bottom-8 right-8 w-12 h-12 rounded-full bg-blue-400/10 border border-blue-500/30 flex items-center justify-center"
-                animate={{
-                  ...floatAnimation,
-                  transition: { ...floatAnimation.transition, delay: 1 }
-                }}
-              >
-                <Star className="w-6 h-6 text-blue-400" />
-              </motion.div> */}
+          {/* Our Story Section */}
+          <motion.div
+            className="mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold text-yellow-400 mb-4">Our Story</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto"></div>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-gray-300 leading-relaxed text-lg text-center">
+                Ambaari Tours and Travels organizes expertly guided treks, international and domestic travel packages,
+                and custom group trips across India. We specialize in bringing people together through
+                travel, offering specialized services for corporate team-building events and energetic
+                college excursions. At Ambaari, we don't just plan trips; we create stories. Join us
+                for a customized travel experience designed just for you.
+              </p>
             </div>
           </motion.div>
 
           {/* Stats Section */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-20"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-20"
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={containerVariants}
           >
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-4 border border-yellow-500/20"
+                className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-6 border border-yellow-500/20 text-center"
                 variants={itemVariants}
-                whileHover={{
-                  y: -5,
-                  borderColor: "rgba(251, 191, 36, 0.5)",
-                }}
-                onViewportEnter={() => {
-                  const newVisible = [...visibleStats];
-                  newVisible[index] = true;
-                  setVisibleStats(newVisible);
-                }}
+                whileHover={{ y: -5, borderColor: "rgba(251, 191, 36, 0.5)" }}
               >
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="p-1.5 bg-yellow-400/10 rounded-lg">
+                <div className="flex justify-center mb-3">
+                  <div className="p-2 bg-yellow-400/10 rounded-lg">
                     {stat.icon}
                   </div>
-                  <motion.span
-                    className="text-2xl font-bold text-yellow-400"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: visibleStats[index] ? 1 : 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    {stat.number}
-                  </motion.span>
                 </div>
-                <p className="text-gray-300 text-sm font-medium">{stat.label}</p>
+                <motion.span
+                  className="text-3xl font-bold text-yellow-400"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  {stat.number}
+                </motion.span>
+                <p className="text-gray-300 text-sm mt-1">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Image Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <motion.div
-              className="relative h-64 md:h-80 rounded-2xl overflow-hidden group"
+          {/* Journey & Mission Images Grid */}
+          <div className="grid md:grid-cols-2 gap-8 mb-20">
+            {/* <motion.div
+              className="relative h-80 rounded-2xl overflow-hidden group"
               whileInView={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.8 }}
@@ -535,18 +358,18 @@ const router = useRouter();
               <AnimatedImage
                 src="/Images/logo.jpeg"
                 alt="Ambaari Travel Experiences"
-                className="h-full"
+                className="h-full w-full"
                 hoverScale={1.1}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 z-10">
-                <h3 className="text-xl font-bold text-white">Our Journey</h3>
+                <h3 className="text-2xl font-bold text-white">Our Journey</h3>
                 <p className="text-gray-300 text-sm">Since 2025</p>
               </div>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div
-              className="relative h-64 md:h-80 rounded-2xl overflow-hidden group"
+            {/* <motion.div
+              className="relative h-80 rounded-2xl overflow-hidden group"
               whileInView={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: 50 }}
               transition={{ duration: 0.8 }}
@@ -554,156 +377,239 @@ const router = useRouter();
               <AnimatedImage
                 src="/Images/img20.jpg"
                 alt="Our Mission"
-                className="h-full"
+                className="h-full w-full"
                 hoverScale={1.1}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 z-10">
-                <h3 className="text-xl font-bold text-white">Our Mission</h3>
-                <p className="text-gray-300 text-sm">Creating memories since 2025</p>
+                <h3 className="text-2xl font-bold text-white">Our Mission</h3>
+                <p className="text-gray-300 text-sm">Creating memories since 2020</p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
 
-          {/* About Content Section */}
-          <div className="mb-20">
+          {/* Mission, Vision & Promise Section - all in one row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-20">
+            {/* Mission Card */}
             <motion.div
-              className="mb-12"
-              initial="hidden"
-              whileInView="visible"
+              className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              variants={containerVariants}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
             >
-              <h2 className="text-3xl font-bold text-yellow-400 mb-8 text-center">Our Journey</h2>
-
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
-                {tabs.map((tab) => (
-                  <motion.button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`px-6 py-3 rounded-full transition-all flex items-center gap-2 ${activeTab === tab.id
-                        ? 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-black'
-                        : 'bg-gray-800/50 text-gray-300 hover:bg-gray-800'
-                      }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="font-semibold">{tab.label}</span>
-                    {activeTab === tab.id && <ChevronRight className="w-4 h-4" />}
-                  </motion.button>
-                ))}
-              </div>
-
-              {/* Tab Content */}
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="bg-gray-800/30 backdrop-blur-sm rounded-3xl p-8 border border-yellow-500/20 max-w-4xl mx-auto"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="hidden md:block flex-shrink-0">
-                    <motion.div
-                      className="w-24 h-24 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-orange-400/20 flex items-center justify-center border border-yellow-500/30"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      {activeTab === "story" && <Map className="w-12 h-12 text-yellow-400" />}
-                      {activeTab === "mission" && <Flag className="w-12 h-12 text-yellow-400" />}
-                      {activeTab === "values" && <Heart className="w-12 h-12 text-yellow-400" />}
-                      {activeTab === "team" && <Users className="w-12 h-12 text-yellow-400" />}
-                    </motion.div>
-                  </div>
-
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-4">
-                      {tabs.find(t => t.id === activeTab)?.label}
-                    </h3>
-                    {tabContent[activeTab as keyof typeof tabContent]}
-
-                    {activeTab === "story" && (
-                      <motion.div
-                        className="mt-6 p-6 bg-gradient-to-r from-yellow-400/10 to-orange-400/5 rounded-2xl border border-yellow-500/20"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.3 }}
-                      >
-                        <div className="flex items-start gap-4">
-                          <Sparkles className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
-                          <div>
-                            <h4 className="font-bold text-yellow-400 mb-2">Our Philosophy</h4>
-                            <p className="text-gray-300">
-                              We believe travel should be transformative. Every journey with Ambaari is carefully crafted
-                              to create lasting memories, build connections, and inspire personal growth through exploration.
-                            </p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Target className="w-8 h-8 text-white" />
                 </div>
-              </motion.div>
+                <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  To transform travel into transformative experiences that connect people, cultures,
+                  and landscapes through expertly curated journeys across world's most breathtaking destinations.
+                </p>
+              </div>
             </motion.div>
 
-            {/* Features Grid */}
+            {/* Vision Card */}
             <motion.div
-              className="mt-16"
-              initial="hidden"
-              whileInView="visible"
+              className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-2xl p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              variants={containerVariants}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
             >
-              <h2 className="text-4xl font-bold text-center text-yellow-400 mb-12">
-                What We Specialize In
-              </h2>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Eye className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  To become world's most trusted travel partner, known for creating unique,
+                  personalized experiences that exceed expectations. We envision a world where
+                  travel is accessible, enjoyable, and transformative for everyone.
+                </p>
+              </div>
+            </motion.div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={feature.title}
-                    className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-yellow-500/20 group"
-                    variants={itemVariants}
-                    whileHover={{
-                      y: -8,
-                      borderColor: "rgba(251, 191, 36, 0.4)",
-                    }}
-                    animate={bounceAnimation(index)}
-                  >
-                    <motion.div
-                      className="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <div className="text-black">
-                        {feature.icon}
-                      </div>
-                    </motion.div>
-                    <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                    <p className="text-gray-400">{feature.desc}</p>
-                  </motion.div>
-                ))}
+            {/* Promise Card */}
+            <motion.div
+              className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 rounded-2xl p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Shield className="w-8 h-8 text-black" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Our Promise</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Every journey with us is crafted with care, safety, and attention to detail,
+                  ensuring memories that last a lifetime.
+                </p>
               </div>
             </motion.div>
           </div>
 
-          {/* Footer Section */}
+          {/* Values Section - Ultra Minimal & Elegant */}
           <motion.div
-            className="text-center relative rounded-3xl overflow-hidden mb-12"
-            initial={{ opacity: 0, y: 40 }}
+            className="mb-10"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="relative h-48 md:h-64">
-              <AnimatedImage
-                src="/Images/img10.jpg"
-                alt="Ambaari Tours"
-                className="h-full w-full"
-                hoverScale={1.03}
-                borderRadius="rounded-3xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent" />
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-semibold text-yellow-400 tracking-wide">Our Core Values</h2>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mt-2"></div>
+              <p className="text-gray-500 text-xs uppercase tracking-wider mt-2">
+                The principles that guide everything we do
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {coreValues.map((value, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white/[0.03] border border-white/5 rounded-lg px-4 py-3 hover:border-yellow-400/30 transition-all duration-200"
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.06 }}
+                  whileHover={{ y: -2, borderColor: "rgba(251, 191, 36, 0.3)" }}
+                >
+                  <h4 className="text-sm font-medium text-white mb-0.5">{value.title}</h4>
+                  <p className="text-gray-400 text-xs leading-relaxed">{value.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Team Section - All cards in one row */}
+          <motion.div
+            className="mb-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-yellow-400 mb-2">Meet Our Expert Team</h2>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto"></div>
+              <p className="text-gray-400 text-sm mt-3 max-w-xl mx-auto">
+                Passionate individuals who make your travel dreams come true
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {teamMembers.map((member, index) => (
+                <motion.div
+                  key={member.id}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-yellow-400/40 transition-all duration-300 hover:-translate-y-1"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                >
+                  <div className="h-16 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center text-lg font-bold text-black">
+                      {member.name.charAt(0)}
+                    </div>
+                  </div>
+                  <div className="p-3 text-center">
+                    <h4 className="text-sm font-semibold text-white whitespace-nowrap">
+                      {member.name}
+                    </h4>
+                    <p className="text-yellow-400 text-xs font-medium mt-0.5">{member.role}</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mt-1 line-clamp-2">
+                      {member.bio}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Stats - keep as is, or optionally reduce size */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-10">
+              {[
+                // { label: "Team Members", value: teamMembers.length },
+                { label: "Years Combined Experience", value: "4+" },
+                { label: "Guided Tours", value: "500+" },
+                { label: "Happy Travelers", value: "5000+" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center bg-white/5 border border-white/10 rounded-lg p-3"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  <div className="text-xl font-bold text-yellow-400">{stat.value}</div>
+                  <div className="text-xs text-gray-400">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          
+          {/* Philosophy Section */}
+          {/* <motion.div
+            className="mb-20 p-8 bg-gradient-to-r from-yellow-400/10 to-orange-400/5 rounded-2xl border border-yellow-500/20"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-start gap-6 max-w-4xl mx-auto">
+              <Compass className="w-12 h-12 text-yellow-400 flex-shrink-0" />
+              <div>
+                <h3 className="text-2xl font-bold text-yellow-400 mb-3">Our Philosophy</h3>
+                <p className="text-gray-300 leading-relaxed text-lg">
+                  We believe travel should be transformative. Every journey with Ambaari is carefully crafted
+                  to create lasting memories, build connections, and inspire personal growth through exploration.
+                </p>
+              </div>
+            </div>
+          </motion.div> */}
+
+          {/* Features/Specialties Section */}
+          <motion.div
+            className="mb-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-yellow-400 mb-4">What We Specialize In</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-yellow-500/20 group"
+                  variants={itemVariants}
+                  whileHover={{ y: -8, borderColor: "rgba(251, 191, 36, 0.4)" }}
+                  animate={bounceAnimation(index)}
+                >
+                  <motion.div
+                    className="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="text-black">{feature.icon}</div>
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                  <p className="text-gray-400">{feature.desc}</p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -737,21 +643,21 @@ const router = useRouter();
                   Start Your Journey
                 </motion.button>
 
-                <motion.button
+                {/* <motion.button
                   onClick={handleViewPackages}
                   className="bg-gray-800/50 border border-yellow-500/30 text-yellow-400 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   View Packages
-                </motion.button>
+                </motion.button> */}
               </div>
             </div>
           </motion.div>
         </div>
       </main>
       <BackToTop />
-      <Footer/>
+      <Footer />
     </>
   );
 }

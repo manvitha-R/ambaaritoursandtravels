@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Youtube, Twitter, Send, ArrowRight } from "lucide-react";
+import * as Lucide from "lucide-react";
+import { FaFacebook, FaYoutube, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { Phone, Mail, MapPin, Clock, Send, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 const quickLinks = [
@@ -12,23 +14,41 @@ const quickLinks = [
   { label: "Gallery", href: "/Gallery" },
   { label: "Contact", href: "/Contact" },
   { label: "Book Now", href: "/Booking" },
-  { label: "Privacy Policy", href: "/privacy-policy"}
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms and Conditions", href: "/Terms" }
 ];
 
 const internationalPackages = [
   { label: "Thailand Tours", href: "/Packages?region=international" },
-  { label: "Europe Tours", href: "/Packages?region=international" },
-  { label: "Sri Lanka Tours", href: "/Packages?region=international" },
-  { label: "Turkey Tours", href: "/Packages?region=international" },
+  { label: "Dubai", href: "/Packages?region=international" },
+  // { label: "Malaysia", href: "/Packages?region=international" },
+  { label: "Malaysia and Singapore", href: "/Packages?region=international" },
+  { label: "Vietnam", href: "Packages?region=international" },
+  // { label: "Europe Tours", href: "/Packages?region=international" },
+  // { label: "Sri Lanka Tours", href: "/Packages?region=international" },
+  // { label: "Turkey Tours", href: "/Packages?region=international" },
+  { label: "Andaman Coastal", href: "/Packages?region=international" },
 ];
 
 const domesticPackages = [
-  { label: "Ladakh", href: "/Packages?region=domestic&zone=north" },
-  { label: "Spiti Valley", href: "/Packages?region=domestic&zone=north" },
-  { label: "Varanasi", href: "/Packages?region=domestic&zone=north" },
-  { label: "Dandeli", href: "/Packages?region=domestic&zone=south" },
+  // { label: "Ladakh", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Spiti Valley", href: "/Packages?region=domestic&zone=north" },
+  // { label : "Do Dham Yatra", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Assam-Meghalaya", href: "/Packages?region=domestic&zone=north" },
+  { label: "Shirdi", href: "/Packages?region=domestic&zone=north" },
+  { label: "Puri Jagannath", href: "/Packages?region=domestic&zone=north" },
+  { label: "Kashi", href: "/Packages?region=domestic&zone=north" },
+  { label: "Char Dham Yatra", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Navashakthi Peetha", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Rajasthan", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Gujarat", href: "/Packages?region=domestic&zone=north" },
+  { label: "Vaishno Devi", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Odisha", href: "/Packages?region=domestic&zone=north" },
+  { label: "Panchabhootha Yaatra", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Varanasi", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Dandeli", href: "/Packages?region=domestic&zone=south" },
   { label: "Murdeshwara", href: "/Packages?region=domestic&zone=south" },
-  { label: "Dharmasthala", href: "/Packages?region=domestic&zone=south" },
+  // { label: "Dharmasthala", href: "/Packages?region=domestic&zone=south" },
 ];
 
 export default function Footer() {
@@ -60,7 +80,20 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-gray-900 via-black to-black text-gray-300 relative overflow-hidden">
+    <footer className="bg-black text-gray-300 relative overflow-hidden">
+      {/* Background photo with dark overlay so text stays readable */}
+      <div className="absolute inset-0">
+        <Image
+          src="/Images/4.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/85 to-black" />
+      </div>
+
+      <div className="relative z-10">
       {/* Top decorative line */}
       <div className="h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
 
@@ -136,10 +169,11 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex gap-3">
             {[
-              { icon: Instagram, href: "#", label: "Instagram", color: "hover:bg-pink-600" },
-              { icon: Facebook, href: "#", label: "Facebook", color: "hover:bg-blue-700" },
-              { icon: Youtube, href: "#", label: "YouTube", color: "hover:bg-red-600" },
-              { icon: Twitter, href: "#", label: "Twitter", color: "hover:bg-sky-500" },
+              { icon: FaInstagram, href: "#", label: "Instagram", color: "hover:bg-pink-600" },
+              { icon: FaFacebook, href: "#", label: "Facebook", color: "hover:bg-blue-700" },
+              { icon: FaWhatsapp, href: "#", label: "WhatsApp", color: "hover:bg-green-600" }
+              // { icon: FaYoutube, href: "#", label: "YouTube", color: "hover:bg-red-600" },
+              // { icon: FaTwitter, href: "#", label: "Twitter", color: "hover:bg-sky-500" },
             ].map(({ icon: Icon, href, label, color }) => (
               <a
                 key={label}
@@ -232,8 +266,8 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-xs text-gray-500 mb-0.5">Email Us</p>
-                <a href="mailto:ambaaritoursandtravels19@gmail.com" className="text-gray-300 hover:text-yellow-400 text-sm transition-colors break-all">
-                ambaaritoursandtravels19@gmail.com
+                <a href="mailto:ambaaritoursandtravels19@gmail.com" className="text-gray-300 hover:text-yellow-400 text-sm transition-colors whitespace-nowrap">
+                  ambaaritoursandtravels19@gmail.com
                 </a>
               </div>
             </li>
@@ -242,14 +276,14 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-yellow-400" />
               </div>
               <a
-                href="https://maps.app.goo.gl/jtJaTcpWxKCkXRTi9"
+                href="https://www.google.com/maps/dir//Ambaari+tours+and+travels,+XG8F%2BF74,+2nd+Block,+Govindaraja+Nagar+Ward,+Byraveshwaranagar,+Nagarbhavi,+Bengaluru,+Karnataka+560072/@12.976128,77.529088,2785m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x3bae3d007d282371:0xf802a8cff0a62e19!2m2!1d77.5232002!2d12.9661321?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">Visit Us</p>
                   <p className="text-gray-300 text-sm leading-relaxed">
-                  Buliding ,4th Floor, 897/E, 80 Feet Rd, near Income Tax office, next to aarthi scan & lab, National Games Village Complex, 6th Block, Koramangala, Bengaluru, Karnataka 560095
+                    1st A Main Rd, 2nd Block, Govindaraja Nagar Ward, Mudalapalya, Nagarbhavi, Bengaluru, Karnataka 560072
                   </p>
                 </div>
               </a>
@@ -276,6 +310,7 @@ export default function Footer() {
             <Link href="/Contact" className="hover:text-yellow-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );

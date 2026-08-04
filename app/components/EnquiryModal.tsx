@@ -85,7 +85,7 @@ console.log("EMAIL:", process.env.SENDER_EMAIL);
             </button>
           </div>
         ) : (
-          <div className="p-6 grid grid-cols-2 gap-4">
+          <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="text-sm font-medium text-black">Name*</label>
               <input name="name" onChange={handleChange} className="w-full border rounded px-3 py-2 mt-1 text-black" placeholder="Enter your full name" />
@@ -112,10 +112,10 @@ console.log("EMAIL:", process.env.SENDER_EMAIL);
             </div>
 
             {error && (
-              <div className="col-span-2 text-red-500 text-sm text-center">{error}</div>
+              <div className="sm:col-span-2 text-red-500 text-sm text-center">{error}</div>
             )}
 
-            <div className="col-span-2">
+            <div className="sm:col-span-2">
               <button
                 onClick={handleSubmit}
                 disabled={loading}

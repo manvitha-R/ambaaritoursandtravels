@@ -56,7 +56,7 @@ export default function Services() {
             </div>
 
             {/* Dynamic Form Section */}
-            <div className="p-8 bg-gradient-to-r from-yellow-30 via-orange-50 to-yellow-50">
+            <div className="p-4 sm:p-8 bg-gradient-to-r from-yellow-30 via-orange-50 to-yellow-50">
               {ActiveFormComponent ? (
                 <ActiveFormComponent />
               ) : (

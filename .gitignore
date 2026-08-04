@@ -41,3 +41,20 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
+
+
+node_modules
+
+.next
+
+.env
+
+.env.local
+
+.vercel
+
+dist
+
+build
+
+coverage

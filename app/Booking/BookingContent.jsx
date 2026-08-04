@@ -117,43 +117,43 @@ const packages = [
     },
     {
         id: "13",
-        name: "THAILAND 4N/5D WITH FLIGHT (Pattaya 3N, Bangkok 1N)",
-        price: 46999,
+        name: "THAILAND 4N/5D WITH FLIGHT",
+        price: 54000,
         duration: "5 Days 4 Nights",
         category: "Adventure",
-        image: "/Images/Thailand_pattaya.png",
+        image: "/Images/Thailand.png",
     },
     {
         id: "14",
-        name: "Budget Thailand 3N/4D Without Flight Package",
-        price: 18499,
+        name: "Thailand 3N/4D Without Flight",
+        price: 25999,
         duration: "4 Days 3 Nights",
         category: "Adventure",
         image: "/Images/Thailand_3N-4Dwf.png",
     },
+    // {
+    //     id: "15",
+    //     name: "Budget Thailand 3N/4D Without Flight Package (Only Breakfast)",
+    //     price: 12999,
+    //     duration: "4 Days 3 Nights",
+    //     category: "Adventure",
+    //     image: "/Images/Thailand_3N-4D.png",
+    // },
+    // {
+    //     id: "16",
+    //     name: "Thailand 4N/5D Without Flight Package",
+    //     price: 26999,
+    //     duration: "5 Days 4 Nights",
+    //     category: "Adventure",
+    //     image: "/Images/Thailand_4N-5D.png",
+    // },
     {
-        id: "15",
-        name: "Budget Thailand 3N/4D Without Flight Package (Only Breakfast)",
-        price: 12999,
-        duration: "4 Days 3 Nights",
-        category: "Adventure",
-        image: "/Images/Thailand_3N-4D.png",
-    },
-    {
-        id: "16",
-        name: "Thailand 4N/5D Without Flight Package",
-        price: 26999,
-        duration: "5 Days 4 Nights",
-        category: "Adventure",
-       image: "/Images/Thailand_4N-5D.png",
-    },
-     {
         id: "17",
         name: "DANDELI-GOKARNA 1N/2D TRIP",
         price: 4999,
         duration: "2 Days 1 Night",
         category: "Adventure",
-       image: "/Images/dandeli.png",
+        image: "/Images/dandeli.png",
     },
     {
         id: "18",
@@ -161,24 +161,128 @@ const packages = [
         price: 6999,
         duration: "2 Days 1 Night",
         category: "Adventure",
-      image: "/Images/MURDESHWRA_SCUBA.png",
+        image: "/Images/MURDESHWRA_SCUBA.png",
     },
     {
         id: "19",
-        name: "DHARMASTHALA Complete Divine Circuit In 01 Day Trip",
+        name: "DHARMASTHALA",
         price: 2499,
         duration: "1 Day",
         // category: "Adventure",
-      image: "/Images/Dharmasthala_.png",
+        image: "/Images/Dharmasthala_.png",
     },
-     {
+    {
         id: "20",
         name: "SIGANDUR (JOG FALLS) 01 DAY TRIP",
         price: 2599,
         duration: "1 Day",
         // category: "Adventure",
-      image: "/Images/Singadur_.png",
+        image: "/Images/Singadur_.png",
     },
+    {
+        id: "23",
+        name: "Vietnam Grand Tour 6N/7D ",
+        price: 105000,
+        duration: "7 Days 6 Nights",
+        category: "International",
+        image: "/Images/Vietnam.png"
+    },
+    {
+        id: "24",
+        name: "Malaysia Kuala Lumpur 2N/3D",
+        price: 43000,
+        duration: "3 Days 2 Nights",
+        category: "International",
+        image: "/Images/Malaysia.png"
+    },
+    {
+        id: "25",
+        name: "Thailand & Malaysia Combo 6N/7D ",
+        price: 0,
+        duration: "7 Days 6 Nights",
+        category: "International",
+        image: "/Images/Thailand.png"
+    },
+    {
+        id: "26",
+        name: "Malaysia & Singapore Combo 5N/6D",
+        price: 105000,
+        duration: "6 Days 5 Nights",
+        category: "International",
+        image: "/Images/Malaysia.png"
+    },
+    {
+        id: "27",
+        name: "Panchabhoota Yatra 3N/4D",
+        price: 14499,
+        duration: "4 Days 3 Nights",
+        category: "Spiritual",
+        image: "/Images/Panchabhoota.png"
+    },
+    {
+        id: "28",
+        name: "Do Dham Yatra 7N/8D",
+        price: 42499,
+        duration: "8 Days 7 Nights",
+        category: "Spiritual",
+        image: "/Images/Do-dham.png"
+    },
+    {
+        id: "29",
+        name: "Char Dham Yatra 14N/15D",
+        price: 61999,
+        duration: "15 Days 14 Nights",
+        category: "Spiritual",
+        image: "/Images/Char-dham.png"
+    },
+    {
+        id: "30",
+        name: "Kashi Yatra 8N/9D",
+        price: 43999,
+        duration: "9 Days 8 Nights",
+        category: "Spiritual",
+        image: "/Images/Kashi.png"
+    },
+    {
+        id: "31",
+        name: "Muktinath Yatra with Ayodhya Darshan 9N/10D",
+        price: 51999,
+        duration: "10 Days 9 Nights",
+        category: "International",
+        image: "/Images/Mukthinath-yatra.png"
+    },
+    {
+        id: "32",
+        name: "Shirdi Sai Baba Yatra 1N/2D",
+        price: 19999,
+        duration: "2 Days 1 Night",
+        category: "Spiritual",
+        image: "/Images/Shirdi.png"
+    },
+    {
+        id: "33",
+        name: "Ujjain Mahakal Yatra 2N/3D",
+        price: 30000,
+        duration: "3 Days 2 Nights",
+        category: "Spiritual",
+        image: "/Images/Ujjain.png"
+    },
+    {
+        id: "16",
+        name: "Dubai Tour 5N/6D",
+        price: 95000,
+        duration: "6 Days 5 Nights",
+        category: "Luxury",
+        image: "/Images/Dubai.png"
+    },
+    {
+        id: "puri",
+        name:"Puri-Jagannath Yatra 3N/4D",
+        price: 30000,
+        duration: "4 Days 3 Nights",
+        category: "Spiritual",
+        image: "/Images/Puri.png"
+    }
 ];
 
 const paymentMethods = [
@@ -305,10 +409,7 @@ export default function BookingContent() {
 
     const calculateTotal = () => {
         if (!selectedPackage) return 0;
-        const basePrice = selectedPackage.price;
-        const gst = basePrice * 0.05;
-        const convenienceFee = 299;
-        return basePrice * formData.travelers + gst + convenienceFee;
+        return selectedPackage.price * formData.travelers;
     };
 
     const handleSubmit = async (e) => {
@@ -411,12 +512,13 @@ export default function BookingContent() {
     return (
         <>
             <Navbar />
-            <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-24 pb-12">
+            <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 pt-32 pb-12">
                 <div className="max-w-6xl mx-auto px-4">
 
                     {/* Progress Steps */}
                     <div className="mb-12">
                         <div className="flex items-center justify-between relative">
+                            {/* Background line */}
                             <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-700 -translate-y-1/2 -z-10">
                                 <div
                                     className="h-full bg-gradient-to-r from-amber-500 to-orange-600 transition-all duration-500"
@@ -424,23 +526,38 @@ export default function BookingContent() {
                                 />
                             </div>
 
-                            {[1, 2, 3, 4, 5].map((stepNum) => (
-                                <div key={stepNum} className="flex flex-col items-center">
-                                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 ${stepNum < step
-                                            ? "bg-gradient-to-r from-amber-500 to-orange-600 text-black scale-110"
-                                            : stepNum === step
-                                                ? "bg-amber-500 text-black scale-110 ring-4 ring-amber-500/30"
-                                                : "bg-gray-800 text-gray-400"
-                                        }`}>
-                                        {stepNum < step ? <CheckCircle className="w-6 h-6" /> : stepNum}
+                            {[
+                                { num: 1, label: "Select Package", icon: Package },
+                                { num: 2, label: "Traveler Details", icon: User },
+                                { num: 3, label: "Payment", icon: CreditCard },
+                                { num: 4, label: "Verify Payment", icon: Shield },
+                                { num: 5, label: "Confirmation", icon: CheckCircle }
+                            ].map(({ num, label, icon: Icon }) => (
+                                <div key={num} className="flex flex-col items-center">
+                                    <div
+                                        className={`
+                        w-14 h-14 rounded-full flex items-center justify-center 
+                        text-lg font-bold transition-all duration-300 
+                        border-2 
+                        ${num < step
+                                                ? "bg-gradient-to-r from-amber-500 to-orange-600 text-black border-amber-400 scale-110"
+                                                : num === step
+                                                    ? "bg-amber-500 text-black border-amber-400 scale-110 ring-4 ring-amber-500/40"
+                                                    : "bg-gray-700 text-gray-300 border-gray-500"
+                                            }
+                    `}
+                                    >
+                                        {num < step ? (
+                                            <CheckCircle className="w-6 h-6" />
+                                        ) : (
+                                            <Icon className="w-6 h-6" />
+                                        )}
                                     </div>
-                                    <span className={`mt-2 text-sm font-medium transition-colors ${stepNum <= step ? "text-amber-400" : "text-gray-500"
-                                        }`}>
-                                        {stepNum === 1 && "Select Package"}
-                                        {stepNum === 2 && "Traveler Details"}
-                                        {stepNum === 3 && "Payment"}
-                                        {stepNum === 4 && "Verify Payment"}
-                                        {stepNum === 5 && "Confirmation"}
+                                    <span
+                                        className={`mt-2 text-sm font-medium transition-colors ${num <= step ? "text-amber-400" : "text-gray-400"
+                                            }`}
+                                    >
+                                        {label}
                                     </span>
                                 </div>
                             ))}
@@ -549,7 +666,7 @@ export default function BookingContent() {
                                                             </div>
 
                                                             {/* Quick Highlights */}
-                                                            <div className="grid grid-cols-2 gap-3 mb-4">
+                                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                                                                 <div className="flex items-center gap-2 text-gray-300">
                                                                     <CheckCircle className="w-4 h-4 text-green-500" />
                                                                     <span className="text-sm">Free cancellation</span>
@@ -988,14 +1105,14 @@ export default function BookingContent() {
                                                     {/* Traveler Details */}
                                                     <div className="bg-gradient-to-br from-blue-500/10 to-purple-600/10 border border-blue-500/20 rounded-2xl p-6">
                                                         <h3 className="text-lg font-bold text-white mb-4">Traveler Information</h3>
-                                                        <div className="grid grid-cols-2 gap-4">
+                                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                             <div>
                                                                 <div className="text-sm text-gray-400">Name</div>
                                                                 <div className="text-white">{formData.name}</div>
                                                             </div>
                                                             <div>
                                                                 <div className="text-sm text-gray-400">Email</div>
-                                                                <div className="text-white">{formData.email}</div>
+                                                                <div className="text-white break-all">{formData.email}</div>
                                                             </div>
                                                             <div>
                                                                 <div className="text-sm text-gray-400">Phone</div>
@@ -1073,9 +1190,9 @@ export default function BookingContent() {
                                                         (step === 4 && (!paymentReference || paymentReference.length < 4))
                                                     }
                                                     className={`px-8 py-3 rounded-full font-bold transition-all ml-auto ${(step === 2 && (!formData.name || !formData.email || !formData.phone || !formData.travelDate)) ||
-                                                            (step === 4 && (!paymentReference || paymentReference.length < 4))
-                                                            ? "bg-gray-700 text-gray-400 cursor-not-allowed"
-                                                            : "bg-gradient-to-r from-amber-500 to-orange-600 text-black hover:from-amber-400 hover:to-orange-500 hover:scale-105"
+                                                        (step === 4 && (!paymentReference || paymentReference.length < 4))
+                                                        ? "bg-gray-700 text-gray-400 cursor-not-allowed"
+                                                        : "bg-gradient-to-r from-amber-500 to-orange-600 text-black hover:from-amber-400 hover:to-orange-500 hover:scale-105"
                                                         }`}
                                                 >
                                                     {step === 4 ? "Verify & Continue" : "Continue"}
@@ -1101,14 +1218,14 @@ export default function BookingContent() {
                                                     <span>Package Price</span>
                                                     <span>{formatCurrency(selectedPackage.price)} × {formData.travelers}</span>
                                                 </div>
-                                                <div className="flex justify-between text-gray-300">
+                                                {/* <div className="flex justify-between text-gray-300">
                                                     <span>GST (5%)</span>
                                                     <span>{formatCurrency(selectedPackage.price * 0.05)}</span>
-                                                </div>
-                                                <div className="flex justify-between text-gray-300">
+                                                </div> */}
+                                                {/* <div className="flex justify-between text-gray-300">
                                                     <span>Convenience Fee</span>
                                                     <span>₹299</span>
-                                                </div>
+                                                </div> */}
                                                 <div className="h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent my-2" />
                                                 <div className="flex justify-between text-xl font-bold text-white">
                                                     <span>Total Amount</span>
@@ -1192,10 +1309,10 @@ export default function BookingContent() {
                             {/* Icon based on status */}
                             <div className="text-center mb-4">
                                 <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${invoiceStatus === "success"
-                                        ? "bg-gradient-to-r from-green-500 to-emerald-600"
-                                        : invoiceStatus === "error"
-                                            ? "bg-gradient-to-r from-red-500 to-pink-600"
-                                            : "bg-gradient-to-r from-amber-500 to-orange-600"
+                                    ? "bg-gradient-to-r from-green-500 to-emerald-600"
+                                    : invoiceStatus === "error"
+                                        ? "bg-gradient-to-r from-red-500 to-pink-600"
+                                        : "bg-gradient-to-r from-amber-500 to-orange-600"
                                     }`}>
                                     {invoiceStatus === "success" ? (
                                         <CheckCircle className="w-8 h-8 text-black" />
@@ -1212,10 +1329,10 @@ export default function BookingContent() {
 
                                 {/* Title based on status */}
                                 <h3 className={`text-xl font-bold mb-2 ${invoiceStatus === "success"
-                                        ? "text-green-400"
-                                        : invoiceStatus === "error"
-                                            ? "text-red-400"
-                                            : "text-amber-400"
+                                    ? "text-green-400"
+                                    : invoiceStatus === "error"
+                                        ? "text-red-400"
+                                        : "text-amber-400"
                                     }`}>
                                     {invoiceStatus === "success"
                                         ? "Success!"
@@ -1235,10 +1352,10 @@ export default function BookingContent() {
                                 <button
                                     onClick={() => setShowInvoicePopup(false)}
                                     className={`px-6 py-3 rounded-full font-bold transition-all hover:scale-105 ${invoiceStatus === "success"
-                                            ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-400 hover:to-emerald-500"
-                                            : invoiceStatus === "error"
-                                                ? "bg-gradient-to-r from-red-500 to-pink-600 text-white hover:from-red-400 hover:to-pink-500"
-                                                : "bg-gradient-to-r from-amber-500 to-orange-600 text-black hover:from-amber-400 hover:to-orange-500"
+                                        ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-400 hover:to-emerald-500"
+                                        : invoiceStatus === "error"
+                                            ? "bg-gradient-to-r from-red-500 to-pink-600 text-white hover:from-red-400 hover:to-pink-500"
+                                            : "bg-gradient-to-r from-amber-500 to-orange-600 text-black hover:from-amber-400 hover:to-orange-500"
                                         }`}
                                 >
                                     {invoiceStatus === "success"

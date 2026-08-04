@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Globe, Home, MapPin, Phone, Mail, Shield } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Home, Phone, Mail, Shield } from "lucide-react";
 import Image from "next/image";
 import LogoutButton from "./LogoutButton";
 import { useSession } from "next-auth/react";
@@ -16,26 +16,29 @@ const EMAIL = "mailto:ambaaritoursandtravels19@gmail.com";
 const FACEBOOK = "https://facebook.com";
 const INSTAGRAM = "https://instagram.com";
 
-export default function Navbar() {
+export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: boolean } = {}) {
   const [open, setOpen] = useState(false);
-  const [show, setShow] = useState(false);
   const [packageOpen, setPackageOpen] = useState(false);
   const pathname = usePathname();
   const { data: session } = useSession();
+  const isHome = pathname === "/";
 
+  // On the home page, the navbar stays hidden over the splash/hero and only
+  // appears once the user scrolls past them. The home page passes
+  // `hideUntilScrolled` explicitly (tied to its own splash state) so both stay
+  // perfectly in sync; every other page keeps the navbar visible immediately.
+  const [scrolled, setScrolled] = useState(false);
+  const controlledExternally = hideUntilScrolled !== undefined;
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY > 50) {
-  //       setShow(true);
-  //     } else {
-  //       setShow(false);
-  //     }
-  //   };
+  useEffect(() => {
+    if (!isHome || controlledExternally) return;
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome, controlledExternally]);
 
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+  const navVisible = controlledExternally ? !hideUntilScrolled : !isHome || scrolled;
 
   // Function to check if a link is active
   const isActive = (path: string) => {
@@ -51,7 +54,11 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        navVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+      }`}
+    >
       {/* Top contact bar */}
       <div className="bg-yellow-500 text-black text-xs px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
@@ -71,6 +78,13 @@ export default function Navbar() {
             >
               <Shield className="w-3 h-3" />
               Privacy Policy
+            </Link>
+            <Link
+              href="/Terms"
+              className="hidden md:flex items-center gap-1 hover:underline font-semibold"
+            >
+              <Shield className="w-3 h-3" />
+              Terms and Conditions
             </Link>
 
           </div>
@@ -166,57 +180,19 @@ export default function Navbar() {
                       </div>
                     </Link>
 
-                    {/* Domestic with Submenu */}
-                    <div className="relative group/sub mt-1">
-                      <Link
-                        href="/Packages?region=domestic"
-                        className="flex items-center justify-between px-4 py-3 text-gray-300 hover:bg-yellow-500/10 hover:text-yellow-400 rounded-lg transition-all group"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
-                            <Home className="w-4 h-4 text-green-400" />
-                          </div>
-                          <div>
-                            <div className="font-medium">Domestic</div>
-                            <div className="text-xs text-gray-500 group-hover:text-yellow-300/70">Explore India</div>
-                          </div>
-                        </div>
-                        <ChevronDown className="w-4 h-4 -rotate-90 group-hover/sub:rotate-0 transition-transform" />
-                      </Link>
-
-                      {/* Domestic Submenu (North & South India) */}
-                      <div className="absolute left-full top-0 ml-2 w-56 bg-gradient-to-b from-gray-900 to-black border border-yellow-500/20 rounded-xl shadow-2xl opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300">
-                        <div className="p-3">
-                          {/* North India Link */}
-                          <Link
-                            href="/Packages?region=domestic&zone=north"
-                            className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-yellow-500/10 hover:text-yellow-400 rounded-lg transition-all"
-                          >
-                            <div className="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center">
-                              <MapPin className="w-4 h-4 text-orange-400" />
-                            </div>
-                            <div>
-                              <div className="font-medium">North India</div>
-                              <div className="text-xs text-gray-500">Himalayas & Culture</div>
-                            </div>
-                          </Link>
-
-                          {/* South India Link */}
-                          <Link
-                            href="/Packages?region=domestic&zone=south"
-                            className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-yellow-500/10 hover:text-yellow-400 rounded-lg transition-all"
-                          >
-                            <div className="w-8 h-8 rounded-lg bg-teal-500/20 flex items-center justify-center">
-                              <MapPin className="w-4 h-4 text-teal-400" />
-                            </div>
-                            <div>
-                              <div className="font-medium">South India</div>
-                              <div className="text-xs text-gray-500">Temples & Beaches</div>
-                            </div>
-                          </Link>
-                        </div>
+                    {/* Domestic - Direct Link */}
+                    <Link
+                      href="/Packages?region=domestic"
+                      className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-yellow-500/10 hover:text-yellow-400 rounded-lg transition-all group mt-1"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
+                        <Home className="w-4 h-4 text-green-400" />
                       </div>
-                    </div>
+                      <div>
+                        <div className="font-medium">Domestic</div>
+                        <div className="text-xs text-gray-500 group-hover:text-yellow-300/70">Explore India</div>
+                      </div>
+                    </Link>
 
                     {/* View All Packages */}
                     <div className="mt-3 pt-3 border-t border-yellow-500/20">
@@ -266,7 +242,7 @@ export default function Navbar() {
               </Link>
 
 
-               {session ? (
+               {/* {session ? (
                 <div className="flex items-center gap-4">
                   <Link href="/dashboard" className="text-white hover:text-yellow-400 transition">
                     Dashboard
@@ -277,13 +253,13 @@ export default function Navbar() {
                 <Link href="/auth/login" className="text-white hover:text-yellow-400 transition">
                   Login
                 </Link>
-              )}
+              )} */}
 
-                {session?.user?.role === "ADMIN" && (
+                {/* {session?.user?.role === "ADMIN" && (
                 <Link href="/admin/dashboard" className="text-white hover:text-yellow-400 transition">
                   Admin
                 </Link>
-              )}
+              )} */}
 
             </div>
 
@@ -365,50 +341,22 @@ export default function Navbar() {
                         </div>
                       </Link>
 
-                      {/* Domestic with nested options */}
-                      <div className="ml-2">
-                        <Link
-                          href="/Packages?region=domestic"
-                          className="block px-6 py-3 text-gray-300 hover:bg-yellow-500/10 hover:text-yellow-400 rounded-lg transition-all"
-                          onClick={() => setOpen(false)}
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
-                              <Home className="w-4 h-4 text-green-400" />
-                            </div>
-                            <div>
-                              <div className="font-medium">All Domestic</div>
-                              <div className="text-xs text-gray-500">Explore India</div>
-                            </div>
+                      {/* Domestic */}
+                      <Link
+                        href="/Packages?region=domestic"
+                        className="block px-6 py-3 text-gray-300 hover:bg-yellow-500/10 hover:text-yellow-400 rounded-lg transition-all"
+                        onClick={() => setOpen(false)}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <Home className="w-4 h-4 text-green-400" />
                           </div>
-                        </Link>
-
-                        <div className="ml-12 mt-2 space-y-2">
-                          {/* North India */}
-                          <Link
-                            href="/Packages?region=domestic&zone=north"
-                            className="block px-4 py-2 text-gray-400 hover:bg-yellow-500/10 hover:text-yellow-400 rounded-lg transition-all text-sm"
-                            onClick={() => setOpen(false)}
-                          >
-                            <div className="flex items-center gap-2">
-                              <MapPin className="w-3 h-3 text-orange-400" />
-                              <span>North India</span>
-                            </div>
-                          </Link>
-
-                          {/* South India */}
-                          <Link
-                            href="/Packages?region=domestic&zone=south"
-                            className="block px-4 py-2 text-gray-400 hover:bg-yellow-500/10 hover:text-yellow-400 rounded-lg transition-all text-sm"
-                            onClick={() => setOpen(false)}
-                          >
-                            <div className="flex items-center gap-2">
-                              <MapPin className="w-3 h-3 text-teal-400" />
-                              <span>South India</span>
-                            </div>
-                          </Link>
+                          <div>
+                            <div className="font-medium">Domestic</div>
+                            <div className="text-xs text-gray-500">Explore India</div>
+                          </div>
                         </div>
-                      </div>
+                      </Link>
 
                       {/* View All Packages */}
                       <Link

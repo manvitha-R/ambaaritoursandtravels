@@ -24,6 +24,7 @@ export async function GET() {
   }
 }
 
+// app/api/admin/packages/route.ts - Updated POST handler
 export async function POST(request: Request) {
   try {
     const session = await getServerSession(authOptions);
@@ -33,28 +34,55 @@ export async function POST(request: Request) {
     }
     
     const body = await request.json();
+    
+    // Prepare data with defaults for required fields
+    const packageData = {
+      title: body.title,
+      slug: body.slug,
+      description: body.description || null,
+      shortDesc: body.shortDesc || null,
+      duration: body.duration,
+      destination: body.destination,
+      country: body.country || "Thailand",
+      price: parseFloat(body.price),
+      discountPrice: body.discountPrice ? parseFloat(body.discountPrice) : null,
+      bookingAmount: body.bookingAmount ? parseFloat(body.bookingAmount) : 20000,
+      gst: body.gst ? parseFloat(body.gst) : 5.0,
+      images: Array.isArray(body.images) ? body.images : [],
+      inclusions: Array.isArray(body.inclusions) ? body.inclusions : [],
+      exclusions: Array.isArray(body.exclusions) ? body.exclusions : [],
+      itinerary: body.itinerary || null,
+      startDate: body.startDate ? new Date(body.startDate) : null,
+      endDate: body.endDate ? new Date(body.endDate) : null,
+      isActive: body.isActive ?? true,
+      isOnSale: body.isOnSale ?? false,
+      totalSeats: body.totalSeats ? parseInt(body.totalSeats) : null,
+      bookedSeats: 0,
+      minAge: body.minAge ? parseInt(body.minAge) : 19,
+      accommodation: body.accommodation || null,
+      transportation: body.transportation || null,
+      meals: body.meals || null,
+      pickUpPoints: body.pickUpPoints || null,
+     whatToCarry: Array.isArray(body.whatToCarry) ? body.whatToCarry : [],// FIXED: Always provide array, default to []
+      additionalInfo: body.additionalInfo || null,
+      cancellationPolicy: body.cancellationPolicy || null,
+      termsConditions: body.termsConditions || null,
+    };
+    
     const newPackage = await prisma.package.create({
-      data: {
-        title: body.title,
-        slug: body.slug,
-        description: body.description,
-        shortDesc: body.shortDesc,
-        duration: body.duration,
-        destination: body.destination,
-        price: body.price,
-        discountPrice: body.discountPrice,
-        images: body.images || [],
-        inclusions: body.inclusions || [],
-        exclusions: body.exclusions || [],
-        totalSeats: body.totalSeats,
-        isActive: body.isActive ?? true,
-        isOnSale: body.isOnSale ?? false,
-      },
+      data: packageData,
     });
     
     return NextResponse.json(newPackage, { status: 201 });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error creating package:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    return NextResponse.json(
+      { 
+        error: "Internal server error", 
+        details: error.message,
+        code: error.code 
+      }, 
+      { status: 500 }
+    );
   }
 }

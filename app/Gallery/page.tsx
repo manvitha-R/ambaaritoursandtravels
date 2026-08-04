@@ -107,6 +107,26 @@ const galleryImages: GalleryImage[] = [
     src: "/Images/gallery/travel-18.jpeg",
     location: "Goa Beach"
   },
+   {
+    id: 19,
+    src: "/Images/gallery/travel-19.jpeg",
+    location: "Thailand"
+  },
+  {
+    id: 20,
+    src: "/Images/gallery/travel-20.jpeg",
+    location: "Thailand"
+  },
+  {
+    id: 21,
+    src: "/Images/gallery/travel-21.jpeg",
+    location: "Thailand"
+  },
+  {
+    id: 22,
+    src: "/Images/gallery/travel-22.jpeg",
+    location: "Thailand"
+  },
 //   {
 //     id: 19,
 //     src: "/Images/gallery/travel-19.jpeg",

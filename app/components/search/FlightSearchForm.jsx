@@ -51,12 +51,12 @@ export default function FlightSearchForm() {
   return (
     <div className="space-y-6">
       {/* Trip Type Selector */}
-      <div className="flex gap-4 mb-4">
+      <div className="flex flex-wrap gap-2 sm:gap-4 mb-4">
         {["roundtrip", "oneway", "multicity"].map((type) => (
           <button
             key={type}
             onClick={() => setTripType(type)}
-            className={`px-4 py-2 rounded-lg capitalize ${
+            className={`px-3 sm:px-4 py-2 rounded-lg capitalize text-sm sm:text-base ${
               tripType === type
                 ? "bg-yellow-500 text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"

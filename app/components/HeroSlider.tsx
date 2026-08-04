@@ -7,18 +7,18 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    src: "/Images/img17.jpg",
+    src: "/Images/international.png",
     heading: "Explore the World",
     sub: "Europe, Thailand, Sri Lanka & beyond",
     
   },
   {
-    src: "/Images/img15.jpg",
+    src: "/Images/domestic.png",
     heading: "Adventure Awaits",
     sub: "Discover breathtaking landscapes across India",
   },
   {
-    src: "/Images/img16.jpg",
+    src: "/Images/img15.jpg",
     heading: "International Escapes",
     sub: "Unforgettable journeys tailored just for you",
   },
@@ -65,16 +65,19 @@ export default function HeroSlider() {
         </div>
       ))}
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
+      {/* Overlay — only darkens the bottom where the text sits, keeps the image clear up top */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
       {/* Hero Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <div className="max-w-4xl">
-          <span className="inline-block bg-yellow-400/20 text-yellow-300 text-sm font-semibold px-4 py-1.5 rounded-full border border-yellow-400/30 mb-5 backdrop-blur-sm">
+      <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-4 pb-16 md:pb-20">
+        <div className="max-w-2xl">
+          <span className="inline-block bg-yellow-400/20 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full border border-yellow-400/30 mb-3 backdrop-blur-sm">
             ✈ Trusted by 5000+ Happy Travelers
           </span>
-          <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold mb-4 drop-shadow-2xl leading-tight">
+          <h1
+            className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2 leading-tight"
+            style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.8)" }}
+          >
             {slides[current].heading.split(" ").map((word, i, arr) =>
               i === arr.length - 1 ? (
                 <span key={i} className="text-amber-400"> {word}</span>
@@ -83,19 +86,22 @@ export default function HeroSlider() {
               )
             )}
           </h1>
-          <p className="text-gray-200 text-lg md:text-2xl mb-8 drop-shadow-lg max-w-2xl mx-auto">
+          <p
+            className="text-gray-200 text-sm md:text-base mb-5 max-w-xl mx-auto"
+            style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9)" }}
+          >
             {slides[current].sub}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/Packages"
-              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-8 py-4 rounded-full text-base font-bold hover:from-yellow-300 hover:to-yellow-500 transition-all duration-300 shadow-2xl shadow-amber-500/40 hover:scale-105"
+              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full text-xs sm:text-sm font-bold hover:from-yellow-300 hover:to-yellow-500 transition-all duration-300 shadow-xl shadow-amber-500/30 hover:scale-105"
             >
               Explore Packages
             </Link>
             <Link
               href="/Contact"
-              className="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-full text-base font-bold hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              className="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-4 py-2 rounded-full text-xs sm:text-sm font-bold hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
               Talk to an Expert
             </Link>
@@ -133,14 +139,6 @@ export default function HeroSlider() {
             }`}
           />
         ))}
-      </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/60 text-xs animate-bounce hidden md:flex">
-        <span>Scroll to explore</span>
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
       </div>
     </section>
   );

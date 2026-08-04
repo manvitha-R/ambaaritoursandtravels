@@ -82,7 +82,7 @@ export async function POST(request) {
             </div>
           </div>
           <div style="background:#111;padding:20px;text-align:center;color:#555;font-size:12px;">
-            <p style="margin:0">© ${new Date().getFullYear()} Ambaari Tours & Travels · Koramangala, Bangalore</p>
+            <p style="margin:0">© ${new Date().getFullYear()} Ambaari Tours & Travels · Nagarbhavi, Bangalore</p>
             <p style="margin:6px 0 0">You received this because you subscribed on our website.</p>
           </div>
         </div>

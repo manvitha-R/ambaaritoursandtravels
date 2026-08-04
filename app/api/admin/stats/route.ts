@@ -14,10 +14,10 @@ export async function GET() {
     
     const [totalLeads, totalBookings, totalPackages, pendingBookings, totalRevenue] = await Promise.all([
       prisma.lead.count(),
-      prisma.bookings.count(),
+      prisma.booking.count(),
       prisma.package.count(),
-      prisma.bookings.count({ where: { status: "PENDING" } }),
-      prisma.bookings.aggregate({ _sum: { totalAmount: true } }),
+      prisma.booking.count({ where: { status: "PENDING" } }),
+      prisma.booking.aggregate({ _sum: { totalAmount: true } }),
     ]);
     
     return NextResponse.json({

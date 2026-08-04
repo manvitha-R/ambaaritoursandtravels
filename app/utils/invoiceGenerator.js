@@ -34,8 +34,8 @@ export const generateInvoice = (bookingData) => {
   // Company Info
   doc.setFontSize(9);
   doc.text('AMBAARI TOURS AND TRAVELS', 20, 65);
-  doc.text('3rd Floor, No.879/e, next to Income tax office,', 20, 72);
-  doc.text('6th Block, Koramangala, Bengaluru, Karnataka 560034', 20, 79);
+  doc.text('1st A Main Rd, 2nd Bloack, Govindaraja Nagar Ward, Mudalapalya,', 20, 72);
+  doc.text('Nagarbhavi, Bengaluru, Karnataka 560072', 20, 79);
   doc.text('+91-80730 97430', 20, 86);
   doc.text('ambaaritoursandtravels09@gmail.com', 20, 93);
   

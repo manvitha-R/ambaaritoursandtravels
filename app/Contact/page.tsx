@@ -145,7 +145,7 @@ export default function ContactPage() {
                     {/* Header Section */}
                     <motion.div className="text-center mb-12" variants={itemVariants}>
                         <motion.h1
-                            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent"
+                            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent"
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
@@ -175,7 +175,7 @@ export default function ContactPage() {
                                     <Globe className="w-6 h-6" />
                                     Select Your Journey Type
                                 </h3>
-                                <div className="flex space-x-4">
+                                <div className="flex flex-col sm:flex-row gap-4">
                                     {[
                                         { id: "international", label: "International Travel", icon: Plane },
                                         { id: "local", label: "Local Getaways", icon: Building }
@@ -227,7 +227,7 @@ export default function ContactPage() {
                                             icon: MapPin,
                                             title: "Our Offices",
                                             items: [
-                                                "4th floor, No.879/e, next to Income tax office, 6th Block, Koramangala, Bengaluru, Karnataka 560034"
+                                                "1st A Main Rd, 2nd Block, Govindaraja Nagar Ward, Mudalapalya, Nagarbhavi, Bengaluru, Karnataka 560072"
                                             ]
                                         },
                                         {
@@ -236,13 +236,13 @@ export default function ContactPage() {
                                             items: [
                                                 "International Desk: 24/7",
                                                 "Local Desk: ",
-                                                "Mon-9AM-8PM",
-                                                "Tue-9AM-8PM",
+                                                "Mon-10AM-7PM",
+                                                "Tue-10AM-7PM",
                                                 "Wed-Holiday",
-                                                "Thu-9AM-8PM",
-                                                "Fri-9AM-8PM",
-                                                "Sat-9AM-8PM",
-                                                "Sund-10AM-7PM"
+                                                "Thu-10AM-7PM",
+                                                "Fri-10AM-7PM",
+                                                "Sat-10AM-7PM",
+                                                "Sun-10AM-7PM"
                                             ]
                                         }
                                     ].map((contact, index) => (

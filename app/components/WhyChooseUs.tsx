@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 
 const features = [
   {
-    icon: Shield,
+    // icon: Shield,
     title: "Safe & Secure",
     description: "All our travel partners are fully verified and certified for your complete peace of mind.",
     color: "from-blue-500 to-blue-700",
@@ -13,7 +13,7 @@ const features = [
     border: "hover:border-blue-400",
   },
   {
-    icon: Award,
+    // icon: Award,
     title: "Expert Curated Tours",
     description: "Travel experiences crafted by industry experts with 5+ years of excellence in tourism.",
     color: "from-yellow-400 to-yellow-600",
@@ -21,7 +21,7 @@ const features = [
     border: "hover:border-yellow-400",
   },
   {
-    icon: Headphones,
+    // icon: Headphones,
     title: "24/7 Support",
     description: "Round-the-clock dedicated assistance before, during, and after your journey.",
     color: "from-green-500 to-green-700",
@@ -132,7 +132,7 @@ export default function WhyChooseUs() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Why Choose{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-600">
-              AmbaariTours and Travels
+              Ambaari Tours and Travels
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -165,7 +165,7 @@ export default function WhyChooseUs() {
                 className={`group p-6 bg-gradient-to-br from-gray-800/40 to-gray-900/40 rounded-2xl border border-gray-700/50 ${feature.border} transition-all duration-300 hover:-translate-y-2 hover:shadow-xl`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div
+                {/* <div
                   className={`w-14 h-14 mb-5 rounded-2xl ${feature.bg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                 >
                   <div
@@ -173,7 +173,7 @@ export default function WhyChooseUs() {
                   >
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                </div>
+                </div> */}
                 <h3 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-300 transition-colors">
                   {feature.title}
                 </h3>
@@ -184,7 +184,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <p className="text-gray-400 mb-6 text-lg">
             Ready to explore the world with us?
           </p>
@@ -202,7 +202,7 @@ export default function WhyChooseUs() {
               Talk to an Expert
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

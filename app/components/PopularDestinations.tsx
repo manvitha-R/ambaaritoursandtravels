@@ -8,91 +8,94 @@ const destinations = [
   {
     id: "13",
     name: "Thailand",
-    image: "/Images/Thailand_pattaya.png",
+    image: "/Images/Thailand.png",
     description: "Sun, sand, and serenity on pristine beaches",
     rating: 4.9,
-    badge: "Best Seller",
+    // badge: "Best Seller",
     duration: "4 Nights / 5 Days",
     highlights: ["Tiger Park","Bangkok City Tour", "Pattaya Beach", "Coral Island", "Floating Market"],
     amenities: [ "hotel", "meals", "sightseeing", "transport"],
   },
-  {
-    id: "8",
-    name: "Spiti Valley",
-    image: "/Images/Spiti_Valley_.png",
-    description: "High-altitude adventure in the Himalayas",
-    rating: 4.8,
-    badge: "Adventure",
-    duration: "7 Nights / 8 Days",
-    highlights: ["Key Monastery", "Chandratal Lake", "Kaza Village", "Pin Valley"],
-    amenities: ["hotel", "meals", "sightseeing", "transport"],
-  },
-  {
-    id: "3",
-    name: "Varanasi",
-    image: "/Images/varanasi.png",
-    description: "Spirituality and timeless culture by the Ganges",
-    rating: 4.7,
-    badge: "Spiritual",
-    duration: "2 Nights / 3 Days",
-    highlights: ["Ganga Aarti", "Kashi Vishwanath", "Boat Ride", "Sarnath"],
-    amenities: ["hotel", "meals", "sightseeing", "transport"],
-  },
-  {
-    id: "7",
-    name: "Murdeshwara Scuba",
-    image: "/Images/MURDESHWRA_SCUBA.png",
-    description: "Vibrant marine life and underwater wonders",
-    rating: 4.8,
-    badge: "Water Sports",
-    duration: "1 Night / 2 Days",
-    highlights: ["Scuba Diving", "Murdeshwara Temple", "RN Beach", "Sunset View"],
-    amenities: ["hotel", "meals", "sightseeing", "transport"],
-  },
-  {
-    id: "europe",
-    name: "Europe",
-    image: "/Images/europe.png",
-    description: "Iconic cities, art, and European charm",
+   {
+    id: "24",
+    name: "Malaysia",
+    image: "/Images/Malaysia.png",
+    description: "Sun, sand, and serenity on pristine beaches",
     rating: 4.9,
-    badge: "International",
-    duration: "7 Nights / 8 Days",
-    highlights: ["Eiffel Tower", "Colosseum Rome", "Swiss Alps", "Amsterdam Canals"],
-    amenities: ["flights", "hotel", "meals", "sightseeing", "transport"],
+    // badge: "Best Seller",
+    duration: "2 Nights / 3 Days",
+    highlights: ["Kuala Lumpur","Batu Caves", "Petronas Twin Tower"],
+    amenities: [ "hotel", "meals", "sightseeing", "transport"],
+  },
+   {
+    id: "23",
+    name: "Vietnam",
+    image: "/Images/Vietnam.png",
+    description: "Sun, sand, and serenity on pristine beaches",
+    rating: 4.9,
+    // badge: "Best Seller",
+    duration: "3 Nights / 4 Days, 4 Nights / 5 Days, 6 Nights / 7 Days",
+    highlights: ["Golden Hand bridge","Hanoi ","Halong", " Da Nang", "Ba Na Hills"],
+    amenities: [ "hotel", "meals", "sightseeing", "transport"],
+  },
+   {
+    id: "16",
+    name: "Dubai",
+    image: "/Images/Dubai.png",
+    description: "Sun, sand, and serenity on pristine beaches",
+    rating: 4.9,
+    // badge: "Best Seller",
+    duration: "5 Nights / 6 Days",
+    highlights: ["Burj Khalifa","Museun of future", "Dubai Mall & Frame", "Desert Safari", "Abu Dhabi"],
+    amenities: [ "hotel", "meals", "sightseeing", "transport"],
   },
   {
-    id: "srilanka",
-    name: "Sri Lanka",
-    image: "/Images/Sri_Lanka.png",
+    id: "25",
+    name: "Puri-Jagannath",
+    image: "/Images/Puri.png",
+    description: "The Jagannath Temple is a Hindu temple dedicated to Jagannath, a form of Vishnu.",
+    rating: 4.9,
+    // badge: "Road Trip",
+    duration: "3 Nights / 4 Days",
+    highlights: ["Bhubaneshwar", "Puri", "Chilika Lake", "Konark Sun Temple"],
+    amenities: [ "hotel", "meals", "sightseeing", "transport"],
+  },
+
+ {
+    id: "26",
+    name: "Shirdi",
+    image: "/Images/Shirdi.png",
     description: "Tropical paradise with rich heritage",
     rating: 4.7,
-    badge: "Island Getaway",
-    duration: "4 Nights / 5 Days",
-    highlights: ["Sigiriya Rock", "Temple of Tooth", "Bentota Beach", "Pinnawala"],
-    amenities: ["flights", "hotel", "meals", "sightseeing", "transport"],
-  },
-  {
-    id: "ladakh",
-    name: "Ladakh",
-    image: "/Images/ladakh_7N-8D.jpg",
-    description: "Dramatic landscapes and monastery trails",
-    rating: 4.9,
-    badge: "Road Trip",
-    duration: "7 Nights / 8 Days",
-    highlights: ["Pangong Lake", "Nubra Valley", "Magnetic Hill", "Thiksey Monastery"],
-    amenities: ["flights", "hotel", "meals", "sightseeing", "transport"],
-  },
-  {
-    id: "dandeli",
-    name: "Dandeli",
-    image: "/Images/dandeli.png",
-    description: "Wildlife safaris and river rafting in the jungle",
-    rating: 4.6,
-    badge: "Wildlife",
+    // badge: "Island Getaway",
     duration: "1 Night / 2 Days",
-    highlights: ["River Rafting", "Jungle Safari", "Kayaking", "Nature Walk"],
+    highlights: ["Traimbakeshwar", "Shirdi", "Shani Singanapur", "Ellora Caves", "Gruhashnewar"],
+    amenities: [ "hotel", "meals", "sightseeing", "transport"],
+  },
+  {
+    id: "27",
+    name: "Panchabhoota Sthalams",
+    image: "/Images/Panchabhoota.png",
+    description: "Spirituality and timeless culture by the Ganges",
+    rating: 4.7,
+    // badge: "Spiritual",
+    duration: "3 Nights / 4 Days",
+    highlights: ["Kanchipuram ", "Thiruvanaikaval","Thiruvannamalai", "Kalahasthi", "Chidambaram"],
     amenities: ["hotel", "meals", "sightseeing", "transport"],
   },
+   {
+    id: "28",
+    name: "Do-Dham Yatra",
+    image: "/Images/Do-dham.png",
+    description: "Embark on a spiritual journey to the sacred shrines of Kedarnath and Badrinath.",
+    rating: 4.9,
+    // badge: "Best Seller",
+    duration: "7 Nights / 8 Days",
+    highlights: ["Haridwar","Rudra Prayag", "Guptakashi", "Kedarnath", "Joshimath", "Badrinath", "Mana Village"],
+    amenities: [ "hotel", "meals", "sightseeing", "transport"],
+  },
+ 
+ 
 ];
 
 const amenityConfig: Record<string, { icon: React.ReactNode; label: string }> = {
@@ -134,7 +137,7 @@ export default function PopularDestinations() {
               style={{ animationDelay: `${index * 0.08}s` }}
             >
               {/* Image */}
-              <div className="relative h-52 overflow-hidden flex-shrink-0">
+              <div className="relative aspect-square overflow-hidden flex-shrink-0">
                 <Image
                   src={dest.image}
                   alt={dest.name}
@@ -144,9 +147,9 @@ export default function PopularDestinations() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                 {/* Badge */}
-                <div className="absolute top-3 left-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-2.5 py-1 rounded-full text-xs font-bold shadow-lg">
+                {/* <div className="absolute top-3 left-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-2.5 py-1 rounded-full text-xs font-bold shadow-lg">
                   {dest.badge}
-                </div>
+                </div> */}
 
                 {/* Rating */}
                 <div className="absolute top-3 right-3 flex items-center gap-1 bg-black/60 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs">
@@ -199,7 +202,7 @@ export default function PopularDestinations() {
                 {/* Buttons */}
                 <div className="flex items-center gap-2 pt-2 border-t border-yellow-500/10">
                   <Link
-                    href={`/Packages?package=${dest.id}`}
+                    href={`/Booking?package=${dest.id}`}
                     className="flex-1 text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-2 rounded-full text-sm font-semibold hover:from-yellow-300 hover:to-yellow-400 transition-all shadow-lg"
                   >
                     Book Now

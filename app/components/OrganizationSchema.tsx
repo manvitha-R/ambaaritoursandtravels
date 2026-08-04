@@ -10,11 +10,11 @@ export default function OrganizationSchema() {
     "description": "Ambaari Tours and Travels organizes expertly guided treks, domestic travel packages, and custom group trips across India. We specialize in bringing people together through travel, offering specialized services for corporate team-building events and energetic college excursions.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "3rd Floor, No.879/e, next to Income tax office, 6th Block",
-      "addressLocality": "Koramangala",
+      "streetAddress": "1st A Main Rd, 2nd Block, Govindaraja Nagar Ward,Mudalapalya",
+      "addressLocality": "Nagarbhavi",
       "addressRegion": "Karnataka",
       "addressCountry": "IN",
-      "postalCode": "560034"
+      "postalCode": "560072"
     },
     "contactPoint": [
       {

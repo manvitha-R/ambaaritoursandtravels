@@ -98,7 +98,7 @@ export default function TripSearchForm() {
                   />
                   <MapPin className="absolute right-3 top-3 w-5 h-5 text-gray-400" />
                 </div>
-                <div className="w-32">
+                <div className="w-20 sm:w-32">
                   <input
                     type="number"
                     value={dest.duration}
@@ -106,7 +106,7 @@ export default function TripSearchForm() {
                     min="1"
                     max="30"
                     placeholder="Days"
-                    className="w-full px-4 py-3 text-gray-900 rounded-lg border-2 border-yellow-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 transition-all"
+                    className="w-full px-2 sm:px-4 py-3 text-gray-900 rounded-lg border-2 border-yellow-200 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 transition-all"
                     required
                   />
                 </div>
