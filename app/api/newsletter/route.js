@@ -76,8 +76,8 @@ export async function POST(request) {
             </div>` : ""}
             <div style="background:#111;border:1px solid rgba(245,158,11,0.15);border-radius:12px;padding:20px;margin-top:28px;">
               <p style="color:#f59e0b;font-weight:700;font-size:13px;margin:0 0 10px">Need help planning your trip?</p>
-              <p style="margin:0;font-size:13px">📞 <a href="tel:+918073097430" style="color:#f59e0b;text-decoration:none">+91 80730 97430</a></p>
-              <p style="margin:6px 0 0;font-size:13px">💬 <a href="https://wa.me/918073097430" style="color:#25D366;text-decoration:none">WhatsApp us</a></p>
+              <p style="margin:0;font-size:13px">📞 <a href="tel:+919686626428" style="color:#f59e0b;text-decoration:none">+91 96866 26428</a></p>
+              <p style="margin:6px 0 0;font-size:13px">💬 <a href="https://wa.me/919686626428" style="color:#25D366;text-decoration:none">WhatsApp us</a></p>
               <p style="margin:6px 0 0;font-size:13px">📧 <a href="mailto:ambaaritoursandtravels19@gmail.com" style="color:#f59e0b;text-decoration:none">ambaaritoursandtravels19@gmail.com</a></p>
             </div>
           </div>

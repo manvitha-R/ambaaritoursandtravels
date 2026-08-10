@@ -85,8 +85,8 @@ export async function POST(request) {
               </p>
               <div style="background:#111;border:1px solid rgba(245,158,11,0.2);border-radius:12px;padding:20px;margin:24px 0;">
                 <p style="color:#f59e0b;font-weight:700;font-size:14px;margin:0 0 10px">📞 Ready to plan your trip?</p>
-                <p style="margin:0;font-size:14px">Call: <a href="tel:+918073097430" style="color:#f59e0b;text-decoration:none">+91 80730 97430</a></p>
-                <p style="margin:6px 0 0;font-size:14px">WhatsApp: <a href="https://wa.me/918073097430" style="color:#25D366;text-decoration:none">Chat with us</a></p>
+                <p style="margin:0;font-size:14px">Call: <a href="tel:+919686626428" style="color:#f59e0b;text-decoration:none">+91 96866 26428</a></p>
+                <p style="margin:6px 0 0;font-size:14px">WhatsApp: <a href="https://wa.me/919686626428" style="color:#25D366;text-decoration:none">Chat with us</a></p>
               </div>
               <a href="https://ambaaritoursandtravels.com/Packages" style="display:inline-block;background:linear-gradient(135deg,#f59e0b,#d97706);color:#000;font-weight:700;padding:14px 28px;border-radius:50px;text-decoration:none;font-size:14px;">
                 Browse Packages →

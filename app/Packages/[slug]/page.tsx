@@ -7,15 +7,33 @@ import { ReadMoreText, ItineraryAccordion, PolicyAccordion, DownloadItineraryBut
 import ThailandExperience from "./ThailandExperience";
 import VietnamExperience from "./VietnamExperience";
 import MalaysiaExperience from "./MalaysiaExperience";
+import MalaysiaSingaporeExperience from "./MalaysiaSingaporeExperience";
+import DubaiExperience from "./DubaiExperience";
+import PanchabhootaExperience from "./PanchabhootaExperience";
+import DoDhamExperience from "./DoDhamExperience";
+import CharDhamExperience from "./CharDhamExperience";
+import ShirdiExperience from "./ShirdiExperience";
+import PuriExperience from "./PuriExperience";
+import UjjainExperience from "./UjjainExperience";
+import KashiExperience from "./KashiExperience";
 import Navbar from "@/app/components/Navbar";
 import { JSX } from "react";
 
 // These packages get a custom layout instead of the shared template —
-// see ThailandExperience.tsx / VietnamExperience.tsx / MalaysiaExperience.tsx.
+// see ThailandExperience.tsx / VietnamExperience.tsx / MalaysiaExperience.tsx / MalaysiaSingaporeExperience.tsx / DubaiExperience.tsx / PanchabhootaExperience.tsx / DoDhamExperience.tsx / CharDhamExperience.tsx / ShirdiExperience.tsx / PuriExperience.tsx / UjjainExperience.tsx / KashiExperience.tsx.
 const CUSTOM_EXPERIENCES: Record<string, (props: any) => JSX.Element> = {
   "thailand-4n-5d": ThailandExperience,
   "vietnam-grand-tour-6n-7d": VietnamExperience,
   "malaysia-kuala-lumpur-2n-3d-24": MalaysiaExperience,
+  "malaysia-singapore-combo-5n-6d-26": MalaysiaSingaporeExperience,
+  "dubai-5n-6d": DubaiExperience,
+  "panchabhoota-yatra-3n-4d-srikalahasti-kanchipuram-thiruvannamalai-chidambaram-trichy-27": PanchabhootaExperience,
+  "do-dham-yatra-7n-8d-kedarnath-badrinath-28": DoDhamExperience,
+  "char-dham-yatra-with-chopta-tunganath-14n-15d-yamunotri-gangotri-kedarnath-badrinath-29": CharDhamExperience,
+  "shirdi-sai-baba-yatra-1n-2d": ShirdiExperience,
+  "puri-jagannath-darshan-3n-4d": PuriExperience,
+  "ujjain-omkareshwar-darshan-3n-4d": UjjainExperience,
+  "kashi-yatra-8n-9d-lucknow-ayodhya-naimisharanya-prayagraj-chitrakoot-varanasi-gaya-baidyanath-30": KashiExperience,
 };
 
 async function getPackage(slug: string) {
@@ -32,9 +50,29 @@ async function getPackage(slug: string) {
   return pkg;
 }
 
-// The static /Packages list page encodes its legacy numeric id as the slug's
-// trailing "-N" so Book Now can keep using the existing /Booking?package=<id> flow.
+// Most package slugs encode their legacy id as the trailing "-N" (e.g.
+// "malaysia-kuala-lumpur-2n-3d-24" -> "24"), which /Booking still reads via
+// ?package=<id>. A handful of older packages don't follow that pattern, or —
+// worse — their trailing digits happen to match a *different* package's id in
+// the booking flow's hardcoded list. Those are mapped explicitly here so
+// "Book Now" never lands on the wrong trip. `null` forces the safe fallback.
+const SLUG_LEGACY_BOOKING_ID_OVERRIDES: Record<string, string | null> = {
+  "thailand-4n-5d": "13",
+  "vietnam-grand-tour-6n-7d": "23",
+  "shirdi-sai-baba-yatra-1n-2d": "32",
+  "dubai-5n-6d": "16",
+  "puri-jagannath-darshan-3n-4d": "puri",
+  "ujjain-omkareshwar-darshan-3n-4d": "33",
+  // Slug ends in "-16", but booking id 16 now belongs to the Dubai package
+  // above — without this override, Book Now here would silently start a
+  // Dubai booking instead.
+  "thailand-4n-5d-without-flight-package-16": null,
+};
+
 function getLegacyBookingId(slug: string) {
+  if (slug in SLUG_LEGACY_BOOKING_ID_OVERRIDES) {
+    return SLUG_LEGACY_BOOKING_ID_OVERRIDES[slug];
+  }
   const match = slug.match(/-(\d+)$/);
   return match ? match[1] : null;
 }
@@ -50,7 +88,9 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
   const itinerary = (pkg.itinerary as any[]) || [];
   const highlights = [...new Set(itinerary.flatMap((day) => day.activities || []))].filter(Boolean);
   const legacyBookingId = getLegacyBookingId(pkg.slug);
-  const bookNowHref = legacyBookingId ? `/Booking?package=${legacyBookingId}` : "/Packages";
+  // Even without a resolvable legacy id, send them into the booking flow
+  // (step 1 lets you pick a package) rather than bouncing back to the list.
+  const bookNowHref = legacyBookingId ? `/Booking?package=${legacyBookingId}` : "/Booking";
 
   const policySections = [
     { title: "Cancellation & Refund Policy", content: pkg.cancellationPolicy || "Please contact us for cancellation and refund details." },

@@ -255,8 +255,8 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-xs text-gray-500 mb-0.5">Call Us</p>
-                <a href="tel:+918073097430" className="text-gray-300 hover:text-yellow-400 text-sm transition-colors">
-                  +91 80730 97430
+                <a href="tel:+919686626428" className="text-gray-300 hover:text-yellow-400 text-sm transition-colors">
+                  +91 96866 26428
                 </a>
               </div>
             </li>
@@ -266,7 +266,10 @@ export default function Footer() {
               </div>
               <div className="min-w-0">
                 <p className="text-xs text-gray-500 mb-0.5">Email Us</p>
-                <a href="mailto:ambaaritoursandtravels19@gmail.com" className="text-gray-300 hover:text-yellow-400 text-sm transition-colors break-all">
+                <a
+                  href="mailto:ambaaritoursandtravels19@gmail.com"
+                  className="block text-gray-300 hover:text-yellow-400 text-xs sm:text-sm transition-colors whitespace-nowrap overflow-hidden"
+                >
                   ambaaritoursandtravels19@gmail.com
                 </a>
               </div>

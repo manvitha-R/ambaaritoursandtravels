@@ -118,7 +118,7 @@ const packages = [
     {
         id: "13",
         name: "THAILAND 4N/5D WITH FLIGHT",
-        price: 54000,
+        price: 53999,
         duration: "5 Days 4 Nights",
         category: "Adventure",
         image: "/Images/Thailand.png",
@@ -182,7 +182,7 @@ const packages = [
     {
         id: "23",
         name: "Vietnam Grand Tour 6N/7D ",
-        price: 105000,
+        price: 104999,
         duration: "7 Days 6 Nights",
         category: "International",
         image: "/Images/Vietnam.png"
@@ -190,7 +190,7 @@ const packages = [
     {
         id: "24",
         name: "Malaysia Kuala Lumpur 2N/3D",
-        price: 43000,
+        price: 42999,
         duration: "3 Days 2 Nights",
         category: "International",
         image: "/Images/Malaysia.png"
@@ -206,7 +206,7 @@ const packages = [
     {
         id: "26",
         name: "Malaysia & Singapore Combo 5N/6D",
-        price: 105000,
+        price: 119999,
         duration: "6 Days 5 Nights",
         category: "International",
         image: "/Images/Malaysia.png"
@@ -262,7 +262,7 @@ const packages = [
     {
         id: "33",
         name: "Ujjain Mahakal Yatra 2N/3D",
-        price: 30000,
+        price: 29999,
         duration: "3 Days 2 Nights",
         category: "Spiritual",
         image: "/Images/Ujjain.png"
@@ -270,7 +270,7 @@ const packages = [
     {
         id: "16",
         name: "Dubai Tour 5N/6D",
-        price: 95000,
+        price: 94999,
         duration: "6 Days 5 Nights",
         category: "Luxury",
         image: "/Images/Dubai.png"
@@ -278,7 +278,7 @@ const packages = [
     {
         id: "puri",
         name:"Puri-Jagannath Yatra 3N/4D",
-        price: 30000,
+        price: 29999,
         duration: "4 Days 3 Nights",
         category: "Spiritual",
         image: "/Images/Puri.png"

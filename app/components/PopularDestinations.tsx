@@ -216,7 +216,7 @@ export default function PopularDestinations() {
                     View Details
                   </Link>
                   <a
-                    href={`https://wa.me/918073097430?text=Hi%2C%20I%20am%20interested%20in%20the%20${encodeURIComponent(dest.name)}%20package.%20Please%20share%20details.`}
+                    href={`https://wa.me/919686626428?text=Hi%2C%20I%20am%20interested%20in%20the%20${encodeURIComponent(dest.name)}%20package.%20Please%20share%20details.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-9 h-9 rounded-full bg-green-500 hover:bg-green-400 flex items-center justify-center shadow-lg transition-all flex-shrink-0"

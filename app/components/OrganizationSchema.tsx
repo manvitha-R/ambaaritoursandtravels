@@ -19,19 +19,19 @@ export default function OrganizationSchema() {
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "telephone": "+91-8073097430",
+        "telephone": "+91-9686626428",
         "contactType": "customer service",
         "availableLanguage": ["English", "Hindi", "Kannada"]
       },
       {
         "@type": "ContactPoint",
-        "telephone": "+91-8073097430",
+        "telephone": "+91-9686626428",
         "contactType": "sales",
         "availableLanguage": ["English", "Hindi", "Kannada"]
       },
       {
         "@type": "ContactPoint",
-        "telephone": "+91-8073097430",
+        "telephone": "+91-9686626428",
         "contactType": "reservations",
         "availableLanguage": ["English", "Hindi", "Kannada"]
       }

@@ -48,6 +48,8 @@ export default function HeroSlider() {
   const next = () => setCurrent((p) => (p + 1) % slides.length);
 
   return (
+<>
+
     <section className="pt-0 h-screen relative overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
@@ -141,5 +143,6 @@ export default function HeroSlider() {
         ))}
       </div>
     </section>
+</>
   );
 }

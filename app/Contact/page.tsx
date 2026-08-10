@@ -211,7 +211,7 @@ export default function ContactPage() {
                                             title: "Phone Numbers",
                                             items: [
 
-                                                "+91-8073 097 430",
+                                                "+91-96866 26428",
                                                 "24/7 Emergency: +91-70195 23858"
                                             ]
                                         },
@@ -287,7 +287,7 @@ export default function ContactPage() {
                                     <div className="min-w-0">
                                         <h4 className="font-bold text-red-400">Emergency Travel Assistance</h4>
                                         <p className="text-sm text-gray-300">Available 24/7 for all travelers</p>
-                                        <p className="text-lg font-semibold text-white mt-1">+91-8073 097 430</p>
+                                        <p className="text-lg font-semibold text-white mt-1">+91-96866 26428</p>
                                         <p className="text-lg font-semibold text-white mt-1 break-all">support@ambaaritoursandtravels.com</p>
                                     </div>
                                 </div>

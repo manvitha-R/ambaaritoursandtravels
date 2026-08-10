@@ -22,7 +22,7 @@ export default function BackToTop() {
     <div className="fixed bottom-24 right-6 z-40 flex flex-col items-center gap-3">
       {/* WhatsApp Button — always visible */}
       <a
-        href="https://wa.me/918073097430?text=Hi%2C%20I%20am%20interested%20in%20your%20travel%20packages.%20Please%20share%20details."
+        href="https://wa.me/919686626428?text=Hi%2C%20I%20am%20interested%20in%20your%20travel%20packages.%20Please%20share%20details."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"

@@ -264,7 +264,7 @@ export default function PrivacyPolicyPage() {
 
                                 {/* Phone */}
                                 <a
-                                    href="tel:+918073097430"
+                                    href="tel:+919686626428"
                                     className="flex items-center gap-3 bg-yellow-500/8 hover:bg-yellow-500/15 border border-yellow-500/20 rounded-xl px-4 py-3 transition-colors group"
                                 >
                                     <div className="w-9 h-9 rounded-lg bg-yellow-500/15 border border-yellow-500/25 flex items-center justify-center flex-shrink-0">
@@ -275,7 +275,7 @@ export default function PrivacyPolicyPage() {
                                     <div>
                                         <p className="text-xs text-gray-500 mb-0.5">Phone</p>
                                         <p className="text-sm font-medium text-yellow-400 group-hover:text-yellow-300">
-                                            +91 80730 97430
+                                            +91 96866 26428
                                         </p>
                                     </div>
                                 </a>

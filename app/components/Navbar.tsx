@@ -3,15 +3,17 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Globe, Home, Phone, Mail, Shield } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Home, Phone, Mail, Shield, Search } from "lucide-react";
 import Image from "next/image";
 import LogoutButton from "./LogoutButton";
+import SiteSearch from "./SiteSearch";
+import NavSearchBar from "./NavSearchBar";
 import { useSession } from "next-auth/react";
 
 
 
-const WHATSAPP = "https://wa.me/918073097430";
-const PHONE = "tel:+918073097430";
+const WHATSAPP = "https://wa.me/919686626428";
+const PHONE = "tel:+919686626428";
 const EMAIL = "mailto:ambaaritoursandtravels19@gmail.com";
 const FACEBOOK = "https://facebook.com";
 const INSTAGRAM = "https://instagram.com";
@@ -19,6 +21,7 @@ const INSTAGRAM = "https://instagram.com";
 export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: boolean } = {}) {
   const [open, setOpen] = useState(false);
   const [packageOpen, setPackageOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
   const { data: session } = useSession();
   const isHome = pathname === "/";
@@ -54,6 +57,7 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
   };
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         navVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
@@ -66,7 +70,7 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
           <div className="flex items-center gap-4">
             <a href={PHONE} className="flex items-center gap-1 hover:underline font-semibold">
               <Phone className="w-3 h-3" />
-              +91 80730 97430
+              +91 96866 26428
             </a>
             <a href={EMAIL} className="hidden sm:flex items-center gap-1 hover:underline font-semibold">
               <Mail className="w-3 h-3" />
@@ -115,9 +119,9 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
       {/* Main nav */}
       <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 shadow-lg border-b border-yellow-500/20">
         <nav className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center h-20 gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center flex-shrink-0">
               <Image
                 src="/Images/logo_bg.png"
                 alt="Ambaari"
@@ -128,8 +132,13 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
               />
             </Link>
 
+            {/* Desktop Search Bar */}
+            <div className="hidden md:block flex-1 max-w-md">
+              <NavSearchBar />
+            </div>
+
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-8 flex-shrink-0 ml-auto">
               {/* Home Link */}
               <Link
                 href="/"
@@ -263,10 +272,20 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
 
             </div>
 
-            {/* Mobile Toggle */}
-            <button className="md:hidden text-yellow-400" onClick={() => setOpen(!open)}>
-              {open ? <X size={28} /> : <Menu size={28} />}
-            </button>
+            {/* Mobile Search + Toggle */}
+            <div className="flex items-center gap-4 md:hidden ml-auto">
+              <button
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                aria-label="Search the site"
+                className="text-yellow-400"
+              >
+                <Search size={24} />
+              </button>
+              <button className="text-yellow-400" onClick={() => setOpen(!open)}>
+                {open ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -415,5 +434,8 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
         </nav>
       </div>
     </header>
+
+    <SiteSearch open={searchOpen} onClose={() => setSearchOpen(false)} />
+    </>
   );
 }

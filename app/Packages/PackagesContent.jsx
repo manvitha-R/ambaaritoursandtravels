@@ -17,7 +17,7 @@ const packages = [
     slug: "thailand-4n-5d",
     title: "THAILAND 4N/5D WITH FLIGHT",
     description: "Perfect Thailand getaway with 3 nights in Pattaya and 1 night in Bangkok including flights and all major attractions",
-    price: "₹54,000",
+    price: "₹53,999",
     duration: "5 Days 4 Nights",
     // date: "August 23rd, 30th, September 6th, 13th, 20th, October 11th, 25th",                  // upcoming date
     // travelerCount: "20+ travellers can't be wrong – book your trip today!",
@@ -81,7 +81,7 @@ const packages = [
     slug: "vietnam-grand-tour-6n-7d",
     title: "Vietnam Grand Tour 6N/7D",
     description: "Explore Vietnam's icons from a Halong Bay day cruise and ancient Hoi An to the Golden Bridge at Ba Na Hills and the vibrant streets of Ho Chi Minh City",
-    price: "₹1,05,000",
+    price: "₹1,04,999",
     duration: "7 Days 6 Nights",
     date: "September 24th",
     group: "Max 20 People",
@@ -114,7 +114,7 @@ const packages = [
     slug: "malaysia-kuala-lumpur-2n-3d-24",
     title: "Malaysia Kuala Lumpur 2N/3D",
     description: "Explore Kuala Lumpur with a Putrajaya photo stop, the KL Tower, sacred Batu Caves, a Genting Highlands cable car adventure, and the iconic Petronas Twin Towers",
-    price: "₹45,000",
+    price: "₹44,999",
     duration: "3 Days 2 Nights",
     date: "September 20th, 27th, October 18th, 11th, 25th",
     group: "Max 25 People",
@@ -178,7 +178,7 @@ const packages = [
     slug: "malaysia-singapore-combo-5n-6d-26",
     title: "Malaysia & Singapore Combo 5N/6D",
     description: "Double-country adventure from Putrajaya and Genting Highlands in Malaysia to Sentosa Island, Universal Studios, and Gardens by the Bay in Singapore",
-    price: "₹1,20,000",
+    price: "₹1,19,999",
     duration: "6 Days 5 Nights",
     date: "September 22nd",
     group: "Max 25 People",
@@ -205,6 +205,66 @@ const packages = [
     category: "international",
     tags: ["malaysia", "singapore", "combo", "sentosa", "universal-studios", "gardens-by-the-bay"]
   },
+
+    {
+    id: 16 ,
+    slug: "dubai-5n-6d",
+    title: "Dubai 5N/6D",
+    description: "A luxurious getaway to Dubai, exploring the city's iconic landmarks, shopping destinations, and desert adventures.",
+    price: "₹94,999",
+    duration: "6 Days 5 Nights",
+    date: "September 22nd",
+    group: "Max 30 People",
+    highlight: "Luxury",
+    image: "/Images/Dubai.png",
+    color: "from-amber-500 to-orange-700",
+    places: ["Dubai", "Burj Khalifa", "Dubai Mall & Frame", "Museum of the Future", "Desert Safari", "Abu Dhabi"],
+    inclusions: [
+      { icon: Plane, text: "To & Fro Flights" },
+      { icon: Hotel, text: "4-Star & 3-Star Hotels" },
+      { icon: Utensils, text: "All Meals" },
+      { icon: Ticket, text: "Muktinath Darshan by Jeep" },
+    ],
+    details: [
+      "Daily Breakfast, Lunch & Dinner",
+      "All Major Sightseeing",
+      "Dhow Cruise with Dinner",
+      "Desert Safari with BBQ Dinner ",
+      "Abu Dhabi Full-Day Tour",
+    ],
+    region: "international",
+    country: "Dubai",
+    category: "luxury",
+    tags: ["dubai", "burj khalifa", "dubai mall", "museum of the future","desert safari", "abu dhabi"]
+  },
+  //   {
+  //   id: 16 ,
+  //   slug: "thailand&malaysia-5n-6d",
+  //   title: "Thailand & Malaysa 5N/6D",
+  //   description: "A luxurious getaway to Thailand and Malaysia, exploring the iconic Landmarks, shopping destination, and adventures",
+  //   price: "₹94,999",
+  //   duration: "6 Days 5 Nights",
+  //   date: "September 22nd",
+  //   group: "Max 30 People",
+  //   highlight: "Luxury",
+  //   image: "/Images/Thailand.png",
+  //   color: "from-amber-500 to-orange-700",
+  //   places: ["Thailand", "Malaysia"],
+  //   inclusions: [
+  //     { icon: Plane, text: "To & Fro Flights" },
+  //     { icon: Hotel, text: "4-Star & 3-Star Hotels" },
+  //     { icon: Utensils, text: "All Meals" },
+  //     // { icon: Ticket, text: "Muktinath Darshan by Jeep" },
+  //   ],
+  //   details: [
+  //     "Daily Breakfast, Lunch & Dinner",
+  //     "All Major Sightseeing",
+  //   ],
+  //   region: "international",
+  //   country: "Thailand & Malaysia",
+  //   category: "luxury",
+  //   tags: ["thailand", "malaysia", "luxury", "sightseeing"]
+  // },
   {
     id: 27,
     slug: "panchabhoota-yatra-3n-4d-srikalahasti-kanchipuram-thiruvannamalai-chidambaram-trichy-27",
@@ -337,37 +397,37 @@ const packages = [
     category: "spiritual",
     tags: ["kashi", "varanasi", "ayodhya", "baidyanath", "gaya", "pilgrimage"]
   },
-  {
-    id: 31,
-    slug: "muktinath-yatra-with-ayodhya-darshan-9n-10d-ayodhya-lumbini-pokhara-muktinath-kathmandu-janakpur-31",
-    title: "Muktinath Yatra 9N/10D",
-    description: "A Nepal spiritual pilgrimage combined with Ayodhya darshan — Lumbini, Pokhara, the sacred Muktinath Temple with its 108 water spouts, Kathmandu, and Janakpur, all in one journey",
-    price: "₹51,999",
-    duration: "10 Days 9 Nights",
-    group: "Max 35 People",
-    highlight: "Spiritual",
-    image: "/Images/Mukthinath-yatra.png",
-    color: "from-amber-500 to-orange-700",
-    places: ["Ayodhya", "Gorakhpur", "Lumbini", "Pokhara", "Muktinath", "Kathmandu", "Janakpur"],
-    inclusions: [
-      { icon: Plane, text: "To & Fro Flights" },
-      { icon: Hotel, text: "4-Star & 3-Star Hotels" },
-      { icon: Utensils, text: "All Meals" },
-      { icon: Ticket, text: "Muktinath Darshan by Jeep" },
-    ],
-    details: [
-      "Shree Rama Janma Bhoomi, Ayodhya",
-      "Lumbini World Heritage Site",
-      "Fewa Lake & Tal Barahi Temple, Pokhara",
-      "Muktinath Temple - 108 water spouts",
-      "Pashupatinath & Swyambhunath, Kathmandu",
-      "Janaki Temple, Janakpur"
-    ],
-    region: "international",
-    country: "Nepal",
-    category: "spiritual",
-    tags: ["muktinath", "nepal", "ayodhya", "pokhara", "kathmandu", "pilgrimage"]
-  },
+  // {
+  //   id: 31,
+  //   slug: "muktinath-yatra-with-ayodhya-darshan-9n-10d-ayodhya-lumbini-pokhara-muktinath-kathmandu-janakpur-31",
+  //   title: "Muktinath Yatra 9N/10D",
+  //   description: "A Nepal spiritual pilgrimage combined with Ayodhya darshan — Lumbini, Pokhara, the sacred Muktinath Temple with its 108 water spouts, Kathmandu, and Janakpur, all in one journey",
+  //   price: "₹51,999",
+  //   duration: "10 Days 9 Nights",
+  //   group: "Max 35 People",
+  //   highlight: "Spiritual",
+  //   image: "/Images/Mukthinath-yatra.png",
+  //   color: "from-amber-500 to-orange-700",
+  //   places: ["Ayodhya", "Gorakhpur", "Lumbini", "Pokhara", "Muktinath", "Kathmandu", "Janakpur"],
+  //   inclusions: [
+  //     { icon: Plane, text: "To & Fro Flights" },
+  //     { icon: Hotel, text: "4-Star & 3-Star Hotels" },
+  //     { icon: Utensils, text: "All Meals" },
+  //     { icon: Ticket, text: "Muktinath Darshan by Jeep" },
+  //   ],
+  //   details: [
+  //     "Shree Rama Janma Bhoomi, Ayodhya",
+  //     "Lumbini World Heritage Site",
+  //     "Fewa Lake & Tal Barahi Temple, Pokhara",
+  //     "Muktinath Temple - 108 water spouts",
+  //     "Pashupatinath & Swyambhunath, Kathmandu",
+  //     "Janaki Temple, Janakpur"
+  //   ],
+  //   region: "domestic",
+  //   country: "Nepal",
+  //   category: "spiritual",
+  //   tags: ["muktinath", "nepal", "ayodhya", "pokhara", "kathmandu", "pilgrimage"]
+  // },
   {
     id: 32,
     slug: "shirdi-sai-baba-yatra-1n-2d",
@@ -405,7 +465,7 @@ const packages = [
     title: "Ujjain Omkareshwar Darshan 3N/4D",
     description: "A spiritual journey to the holy city of Ujjain, dedicated to the revered Omkareshwar Jyotirlinga, combined with visits to other sacred sites",
     price: "₹24,999",
-    duration: "4 Days 3 Nights",
+    duration: "3 Days 2 Nights",
     date: "September 6th, 21st",
     group: "Max 30 People",
     highlight: "Spiritual",
@@ -430,43 +490,13 @@ const packages = [
     category: "spiritual",
     tags: ["ujjain", "omkareshwar", "ujjain corridor", "bhasmaarati darshan","mamaleshwar"]
   },
-  {
-    id: 16 ,
-    slug: "dubai-5n-6d",
-    title: "Dubai 5N/6D",
-    description: "A luxurious getaway to Dubai, exploring the city's iconic landmarks, shopping destinations, and desert adventures.",
-    price: "₹94,999",
-    duration: "6 Days 5 Nights",
-    date: "September 22nd",
-    group: "Max 30 People",
-    highlight: "Luxury",
-    image: "/Images/Dubai.png",
-    color: "from-amber-500 to-orange-700",
-    places: ["Dubai", "Burj Khalifa", "Dubai Mall & Frame", "Museum of the Future", "Desert Safari", "Abu Dhabi"],
-    inclusions: [
-      { icon: Plane, text: "To & Fro Flights" },
-      { icon: Hotel, text: "4-Star & 3-Star Hotels" },
-      { icon: Utensils, text: "All Meals" },
-      // { icon: Ticket, text: "Muktinath Darshan by Jeep" },
-    ],
-    details: [
-      "Daily Breakfast, Lunch & Dinner",
-      "All Major Sightseeing",
-      "Dhow Cruise with Dinner",
-      "Desert Safari with BBQ Dinner ",
-      "Abu Dhabi Full-Day Tour",
-    ],
-    region: "international",
-    country: "Dubai",
-    category: "luxury",
-    tags: ["dubai", "burj khalifa", "dubai mall", "museum of the future","desert safari", "abu dhabi"]
-  },
+
   {
     id: 25,
     slug: "puri-jagannath-darshan-3n-4d",
     title: "Puri-Jagannath Yatra 3N/4D",
     description: "Experience the spiritual essence of Puri and Jagannath Temple with this immersive yatra.",
-    price: "₹30,000",
+    price: "₹29,999",
     duration: "4 Days 3 Nights",
     date: "September 6th, 21st",
     group: "Max 30 People",
@@ -635,7 +665,7 @@ export default function PackagesContent() {
         {/* Buttons */}
         <div className="flex items-center gap-2 pt-2 border-t border-amber-500/10">
           <a
-            href="https://wa.me/918073097430"
+            href="https://wa.me/919686626428"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full bg-green-500 hover:bg-green-400 flex items-center justify-center shadow-lg transition-all flex-shrink-0"
