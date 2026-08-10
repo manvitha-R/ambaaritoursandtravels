@@ -129,7 +129,7 @@ export default function KashiExperience({
         )}
         {mosaicImages.length > 1 && (
           <div className="relative">
-            <div className="grid grid-cols-4 grid-rows-2 gap-2 md:gap-3 h-[300px] md:h-[440px] rounded-3xl overflow-hidden border border-amber-500/10 shadow-2xl shadow-black/50">
+            <div className="grid grid-cols-4 grid-rows-2 gap-2 md:gap-3 aspect-[8/3] rounded-3xl overflow-hidden border border-amber-500/10 shadow-2xl shadow-black/50">
               {mosaicImages.map((src, i) => {
                 const isPoster = src === images[0] && i === 0;
                 return (
