@@ -411,7 +411,7 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
               }`}
               onClick={() => setOpen(false)}
               >
-                Terms and Conditions
+               Privacy Policy
               </Link>
 
                 {/* Mobile Contact */}
