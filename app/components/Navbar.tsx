@@ -389,6 +389,31 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
                   )}
                 </div>
 
+                {/*Mobile terms*/}
+                <Link 
+                href="/Terms"
+              className={`block px-4 py-3 rounded transition-all ${isActive("/Terms")
+                ? "bg-yellow-500/20 text-yellow-400 font-bold"
+                : "text-gray-200 hover:bg-yellow-500/10 hover:text-yellow-400"
+              }`}
+              onClick={() => setOpen(false)}
+              >
+                Terms and Conditions
+              </Link>
+
+
+              {/* Mobile Privacy policy*/}
+              <Link 
+                href="/privacy-policy"
+              className={`block px-4 py-3 rounded transition-all ${isActive("/privacy-policy")
+                ? "bg-yellow-500/20 text-yellow-400 font-bold"
+                : "text-gray-200 hover:bg-yellow-500/10 hover:text-yellow-400"
+              }`}
+              onClick={() => setOpen(false)}
+              >
+                Terms and Conditions
+              </Link>
+
                 {/* Mobile Contact */}
                 <Link
                   href="/Contact"
@@ -416,7 +441,7 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
                 </Link>
               </div>
 
-              {session ? (
+              {/* {session ? (
                 <div className="flex items-center gap-4">
                   <Link href="/dashboard" className="text-white hover:text-yellow-400 transition">
                     Dashboard
@@ -427,7 +452,7 @@ export default function Navbar({ hideUntilScrolled }: { hideUntilScrolled?: bool
                 <Link href="/auth/login" className="text-white hover:text-yellow-400 transition">
                   Login
                 </Link>
-              )}
+              )} */}
 
             </div>
           )}

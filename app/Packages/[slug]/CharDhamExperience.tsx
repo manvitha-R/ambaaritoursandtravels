@@ -119,9 +119,9 @@ export default function CharDhamExperience({
       <section className="max-w-7xl mx-auto px-4 pt-4 pb-8">
         {mosaicImages.length <= 1 && (
           <div className="mb-5">
-            <p className="text-amber-400 tracking-[0.25em] text-[10px] md:text-[11px] uppercase mb-1">
+            {/* <p className="text-amber-400 tracking-[0.25em] text-[10px] md:text-[11px] uppercase mb-1">
               Ambaari Tours and Travels Presents
-            </p>
+            </p> */}
             <h1 className="text-lg md:text-2xl font-semibold text-white">
               Char Dham Yatra <span className="text-amber-200 font-normal text-sm md:text-base">· 14 Nights / 15 Days</span>
             </h1>
@@ -162,9 +162,9 @@ export default function CharDhamExperience({
               })}
             </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent rounded-b-3xl px-5 md:px-7 py-5">
-              <p className="text-amber-400 tracking-[0.25em] text-[10px] md:text-[11px] uppercase mb-1">
+              {/* <p className="text-amber-400 tracking-[0.25em] text-[10px] md:text-[11px] uppercase mb-1">
                 Ambaari Tours and Travels Presents
-              </p>
+              </p> */}
               <h1 className="text-lg md:text-2xl font-semibold text-white">
                 Char Dham Yatra <span className="text-amber-200 font-normal text-sm md:text-base">· 14 Nights / 15 Days</span>
               </h1>
