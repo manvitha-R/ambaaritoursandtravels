@@ -75,7 +75,35 @@ const testimonials = [
     trip: "Thailand Trip Package",
     initials: "MT",
     color: "from-yellow-500 to-yellow-600"
-  }
+  },
+  {
+    name: "Hamsa Chinnu",
+    Location: "Bangaloe",
+    rating: 5,
+    text: "Thank you for such a well-organized and memorable trip Everything from the itinerary and transportation to the accommodation and support was managed smoothly. Every destination was beautiful, and the entire experience was stress-free and enjoyable. Highly recommend this trip package to anyone looking for a wonderful travel experience. Looking forward to traveling with you again! 🌍✨",
+    initials: "HC",
+    trip: "Thailand Trip Package",
+    color: "from-pink-500 to-purple-600"
+  },
+  {
+    name: "Yash Koppal",
+    Location: "Mysore",
+    rating: 5,
+    text: "5-Star Review for Ambaari Tours & Travels along with Mr Akash. We had an amazing international vacation with Ambaari Tours & Travels, and the entire experience exceeded our expectations. A special thanks to our tour Manager, Mr. Akash, whose professionalism, dedication, and friendly nature made our journey truly memorable. He ensured everything was well organized, managed the itinerary efficiently, and was always available to assist us with a smile. His local knowledge, excellent coordination, and attention to every detail made the trip smooth, comfortable, and enjoyable. Thank you, Ambaari Tours & Travels, for delivering such a wonderful travel experience, and a heartfelt appreciation to Mr. Akash for making this trip so special. We highly recommend Ambaari Tours & Travels to anyone planning an international holiday. A well-deserved ⭐⭐⭐⭐⭐!",
+    initials: "YK",
+    trip: "Thailand Trip Package",
+    color: "from-blue-500 to-cyan-600"
+  },
+  {
+    name: "Chaturthy",
+    Location: "Bangalore",
+    rating: 5,
+    text: "Had an amazing trip to Thailand🇹🇭✨… The food🍛 …the stay🏘️… the tourist places we visited🏖️🛥️… everything was well arranged… Special mention to Akash😎 who took care of us like a family😊…",
+    initials: "C",
+    trip: "Thailand TRip Package",
+    color: "from-green-500 to-teal-600"
+  },
+  
 ];
 
 export default function Testimonials() {

@@ -2,15 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
+    src: "/Images/web.mp4",
+    type: "video" as const,
+    heading: "Explore the World",
+    sub: "Europe, Thailand, Sri Lanka & beyond",
+  },
+  {
     src: "/Images/international.png",
     heading: "Explore the World",
     sub: "Europe, Thailand, Sri Lanka & beyond",
-    
   },
   {
     src: "/Images/domestic.png",
@@ -36,13 +41,25 @@ const slides = [
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
+  const advance = () => setCurrent((prev) => (prev + 1) % slides.length);
+
+  // Image slides advance on a fixed timer; the video slide advances only
+  // once it actually finishes playing (see the video's onEnded handler
+  // below), so it's never cut off early or lingers awkwardly.
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    if (slides[current].type === "video") {
+      const videoEl = videoRef.current;
+      if (videoEl) {
+        videoEl.currentTime = 0;
+        videoEl.play().catch(() => {});
+      }
+      return;
+    }
+    const timeout = setTimeout(advance, 5000);
+    return () => clearTimeout(timeout);
+  }, [current]);
 
   const prev = () => setCurrent((p) => (p - 1 + slides.length) % slides.length);
   const next = () => setCurrent((p) => (p + 1) % slides.length);
@@ -57,59 +74,74 @@ export default function HeroSlider() {
           key={slide.src}
           className={`absolute inset-0 transition-opacity duration-1000 ${index === current ? "opacity-100" : "opacity-0"}`}
         >
-          <Image
-            src={slide.src}
-            alt={slide.heading}
-            fill
-            priority={index === 0}
-            className="object-cover"
-          />
+          {slide.type === "video" ? (
+            <video
+              ref={videoRef}
+              src={slide.src}
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              onEnded={advance}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src={slide.src}
+              alt={slide.heading}
+              fill
+              priority={index === 0}
+              className="object-cover"
+            />
+          )}
         </div>
       ))}
 
       {/* Overlay — only darkens the bottom where the text sits, keeps the image clear up top */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-      {/* Hero Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-4 pb-16 md:pb-20">
-        <div className="max-w-2xl">
-          <span className="inline-block bg-yellow-400/20 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full border border-yellow-400/30 mb-3 backdrop-blur-sm">
-            ✈ Trusted by 5000+ Happy Travelers
-          </span>
-          <h1
-            className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2 leading-tight"
-            style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.8)" }}
-          >
-            {slides[current].heading.split(" ").map((word, i, arr) =>
-              i === arr.length - 1 ? (
-                <span key={i} className="text-amber-400"> {word}</span>
-              ) : (
-                <span key={i}>{word} </span>
-              )
-            )}
-          </h1>
-          <p
-            className="text-gray-200 text-sm md:text-base mb-5 max-w-xl mx-auto"
-            style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9)" }}
-          >
-            {slides[current].sub}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/Packages"
-              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full text-xs sm:text-sm font-bold hover:from-yellow-300 hover:to-yellow-500 transition-all duration-300 shadow-xl shadow-amber-500/30 hover:scale-105"
+      {/* Hero Content — only on image slides, not the video slide */}
+      {slides[current].type !== "video" && (
+        <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-4 pb-16 md:pb-20">
+          <div className="max-w-2xl">
+            <span className="inline-block bg-yellow-400/20 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full border border-yellow-400/30 mb-3 backdrop-blur-sm">
+              ✈ Trusted by 5000+ Happy Travelers
+            </span>
+            <h1
+              className="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-2 leading-tight"
+              style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.8)" }}
             >
-              Explore Packages
-            </Link>
-            <Link
-              href="/Contact"
-              className="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-4 py-2 rounded-full text-xs sm:text-sm font-bold hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              {slides[current].heading.split(" ").map((word, i, arr) =>
+                i === arr.length - 1 ? (
+                  <span key={i} className="text-amber-400"> {word}</span>
+                ) : (
+                  <span key={i}>{word} </span>
+                )
+              )}
+            </h1>
+            <p
+              className="text-gray-200 text-sm md:text-base mb-5 max-w-xl mx-auto"
+              style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9)" }}
             >
-              Talk to an Expert
-            </Link>
+              {slides[current].sub}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/Packages"
+                className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-4 py-2 rounded-full text-xs sm:text-sm font-bold hover:from-yellow-300 hover:to-yellow-500 transition-all duration-300 shadow-xl shadow-amber-500/30 hover:scale-105"
+              >
+                Explore Packages
+              </Link>
+              <Link
+                href="/Contact"
+                className="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-4 py-2 rounded-full text-xs sm:text-sm font-bold hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              >
+                Talk to an Expert
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Prev / Next arrows */}
       <button

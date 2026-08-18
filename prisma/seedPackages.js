@@ -1843,7 +1843,7 @@ function buildPackageData(src) {
     country: src.country,
     price: parsePrice(src.price),
     bookingAmount: Math.round(parsePrice(src.price) * 0.5),
-    gst: 5,
+    // gst: 5,
     images,
     inclusions,
     exclusions,
