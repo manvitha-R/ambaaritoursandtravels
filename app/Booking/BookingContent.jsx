@@ -118,7 +118,7 @@ const packages = [
     {
         id: "13",
         name: "THAILAND 4N/5D WITH FLIGHT",
-        price: 53999,
+        price: 58666,
         duration: "5 Days 4 Nights",
         category: "Adventure",
         image: "/Images/Thailand.png",
@@ -182,7 +182,7 @@ const packages = [
     {
         id: "23",
         name: "Vietnam Grand Tour 6N/7D ",
-        price: 104999,
+        price: 109999,
         duration: "7 Days 6 Nights",
         category: "International",
         image: "/Images/Vietnam.png"
@@ -190,7 +190,7 @@ const packages = [
     {
         id: "24",
         name: "Malaysia Kuala Lumpur 2N/3D",
-        price: 42999,
+        price: 54999,
         duration: "3 Days 2 Nights",
         category: "International",
         image: "/Images/Malaysia.png"
@@ -206,7 +206,7 @@ const packages = [
     {
         id: "26",
         name: "Malaysia & Singapore Combo 5N/6D",
-        price: 119999,
+        price: 129999,
         duration: "6 Days 5 Nights",
         category: "International",
         image: "/Images/Malaysia.png"
@@ -214,7 +214,7 @@ const packages = [
     {
         id: "27",
         name: "Panchabhoota Yatra 3N/4D",
-        price: 14499,
+        price: 23599,
         duration: "4 Days 3 Nights",
         category: "Spiritual",
         image: "/Images/Panchabhoota.png"
@@ -222,7 +222,7 @@ const packages = [
     {
         id: "28",
         name: "Do Dham Yatra 7N/8D",
-        price: 42499,
+        price: 45999,
         duration: "8 Days 7 Nights",
         category: "Spiritual",
         image: "/Images/Do-dham.png"
@@ -230,7 +230,7 @@ const packages = [
     {
         id: "29",
         name: "Char Dham Yatra 14N/15D",
-        price: 61999,
+        price: 65999,
         duration: "15 Days 14 Nights",
         category: "Spiritual",
         image: "/Images/Char-dham.png"
@@ -238,7 +238,7 @@ const packages = [
     {
         id: "30",
         name: "Kashi Yatra 8N/9D",
-        price: 43999,
+        price: 40999,
         duration: "9 Days 8 Nights",
         category: "Spiritual",
         image: "/Images/Kashi.png"
@@ -262,7 +262,7 @@ const packages = [
     {
         id: "33",
         name: "Ujjain Mahakal Yatra 2N/3D",
-        price: 29999,
+        price: 34999,
         duration: "3 Days 2 Nights",
         category: "Spiritual",
         image: "/Images/Ujjain.png"
@@ -270,7 +270,7 @@ const packages = [
     {
         id: "16",
         name: "Dubai Tour 5N/6D",
-        price: 94999,
+        price: 97999,
         duration: "6 Days 5 Nights",
         category: "Luxury",
         image: "/Images/Dubai.png"
@@ -278,10 +278,18 @@ const packages = [
     {
         id: "puri",
         name:"Puri-Jagannath Yatra 3N/4D",
-        price: 29999,
+        price: 35999,
         duration: "4 Days 3 Nights",
         category: "Spiritual",
         image: "/Images/Puri.png"
+    },
+     {
+        id: "34",
+        name:"Andaman Yatra 4N/5D",
+        price: 44999,
+        duration: "5 Days 4 Nights",
+        category: "Domestic",
+        image: "/Images/Andaman.png"
     }
 ];
 
@@ -1265,7 +1273,7 @@ export default function BookingContent() {
                                         <div className="space-y-2">
                                             <div className="flex items-center gap-2 text-gray-300">
                                                 <Phone className="w-4 h-4 text-amber-400" />
-                                                <span>+91 8073 097 430</span>
+                                                <span>+91 9686626428</span>
                                             </div>
                                             <div className="flex items-center gap-2 text-gray-300 min-w-0">
                                                 <Mail className="w-4 h-4 text-amber-400 flex-shrink-0" />

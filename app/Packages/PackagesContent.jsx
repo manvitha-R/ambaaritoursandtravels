@@ -522,6 +522,37 @@ const packages = [
     category: "spiritual",
     tags: ["ujjain", "omkareshwar", "ujjain corridor", "bhasmaarati darshan","mamaleshwar"]
   },
+  {
+    id: 34,
+    slug: "andaman-4n-5d",
+    title: "Andaman 4N/5D",
+    description: "Explore the pristine beaches and rich marine life of Andaman with this exciting trip.",
+    price: "₹44,999",
+    duration: "5 Days 4 Nights",
+    // date: "September 6th, 21st",
+    group: "Max 30 People",
+    highlight: "Adventure",
+    image: "/Images/Andaman.png",
+    color: "from-amber-500 to-orange-700",
+    places: ["Andaman", "Port Blair", "Havelock Island", "Neil Island"],
+    inclusions: [
+      { icon: Plane, text: "To & Fro Flights" },
+      { icon: Hotel, text: "3-Star Hotels" },
+      { icon: Utensils, text: "All Meals" },
+      // { icon: Ticket, text: "Muktinath Darshan by Jeep" },
+    ],
+    details: [
+      "Corbyn's Cove Beach",
+      "Cellular Jail & Light & Sound Show",
+      "Havelock Island Cruise",
+      "Neil Island",
+      "Bharatpur & Laxmanpur Beach ",
+    ],
+    region: "domestic",
+    country: "India",
+    category: "adventure",
+    tags: ["andaman", "port blair", "havelock island", "neil island","snorkling"]
+  },
   
 ];
 

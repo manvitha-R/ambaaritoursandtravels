@@ -20,4 +20,5 @@ export const PUBLISHED_PACKAGE_SLUGS = [
   "shirdi-sai-baba-yatra-1n-2d",
   "ujjain-omkareshwar-darshan-3n-4d",
   "puri-jagannath-darshan-3n-4d",
+  "andaman-4n-5d",
 ];

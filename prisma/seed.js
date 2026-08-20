@@ -70,7 +70,7 @@ async function main() {
         shortDesc: 'Explore Bangkok and Pattaya with flights included',
         duration: '3N/4D',
         destination: 'Thailand',
-        price: 49999,
+        price: 58666,
         isOnSale: true,
         totalSeats: 40,
         images: ['/images/thailand-1.jpg', '/images/thailand-2.jpg'],

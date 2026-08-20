@@ -16,11 +16,12 @@ import ShirdiExperience from "./ShirdiExperience";
 import PuriExperience from "./PuriExperience";
 import UjjainExperience from "./UjjainExperience";
 import KashiExperience from "./KashiExperience";
+import AndamanExperience from "./AndamanExperience";
 import Navbar from "@/app/components/Navbar";
 import { JSX } from "react";
 
 // These packages get a custom layout instead of the shared template —
-// see ThailandExperience.tsx / VietnamExperience.tsx / MalaysiaExperience.tsx / MalaysiaSingaporeExperience.tsx / DubaiExperience.tsx / PanchabhootaExperience.tsx / DoDhamExperience.tsx / CharDhamExperience.tsx / ShirdiExperience.tsx / PuriExperience.tsx / UjjainExperience.tsx / KashiExperience.tsx.
+// see ThailandExperience.tsx / VietnamExperience.tsx / MalaysiaExperience.tsx / MalaysiaSingaporeExperience.tsx / DubaiExperience.tsx / PanchabhootaExperience.tsx / DoDhamExperience.tsx / CharDhamExperience.tsx / ShirdiExperience.tsx / PuriExperience.tsx / UjjainExperience.tsx / KashiExperience.tsx / AndamanExperience.tsx.
 const CUSTOM_EXPERIENCES: Record<string, (props: any) => JSX.Element> = {
   "thailand-4n-5d": ThailandExperience,
   "vietnam-grand-tour-6n-7d": VietnamExperience,
@@ -34,6 +35,7 @@ const CUSTOM_EXPERIENCES: Record<string, (props: any) => JSX.Element> = {
   "puri-jagannath-darshan-3n-4d": PuriExperience,
   "ujjain-omkareshwar-darshan-3n-4d": UjjainExperience,
   "kashi-yatra-8n-9d-lucknow-ayodhya-naimisharanya-prayagraj-chitrakoot-varanasi-gaya-baidyanath-30": KashiExperience,
+  "andaman-4n-5d": AndamanExperience,
 };
 
 async function getPackage(slug: string) {
