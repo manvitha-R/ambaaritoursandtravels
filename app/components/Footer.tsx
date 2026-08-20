@@ -19,15 +19,16 @@ const quickLinks = [
 ];
 
 const internationalPackages = [
-  { label: "Thailand Tours", href: "/Packages?region=international" },
-  { label: "Dubai", href: "/Packages?region=international" },
+  { label: "Thailand Tours", href: "/Packages/thailand-4n-5d" },
+  { label: "Dubai", href: "/Packages/dubai-5n-6d" },
+  {label: "Malaysia", href: "/Packages/malaysia-kuala-lumpur-2n-3d-24"},
   // { label: "Malaysia", href: "/Packages?region=international" },
-  { label: "Malaysia and Singapore", href: "/Packages?region=international" },
-  { label: "Vietnam", href: "Packages?region=international" },
+  { label: "Malaysia and Singapore", href: "/Packages/malaysia-singapore-combo-5n-6d-26" },
+  { label: "Vietnam", href: "/Packages/vietnam-grand-tour-6n-7d" },
   // { label: "Europe Tours", href: "/Packages?region=international" },
   // { label: "Sri Lanka Tours", href: "/Packages?region=international" },
   // { label: "Turkey Tours", href: "/Packages?region=international" },
-  { label: "Andaman Coastal", href: "/Packages?region=international" },
+  
 ];
 
 const domesticPackages = [
@@ -35,19 +36,22 @@ const domesticPackages = [
   // { label: "Spiti Valley", href: "/Packages?region=domestic&zone=north" },
   // { label : "Do Dham Yatra", href: "/Packages?region=domestic&zone=north" },
   // { label: "Assam-Meghalaya", href: "/Packages?region=domestic&zone=north" },
-  { label: "Shirdi", href: "/Packages?region=domestic&zone=north" },
-  { label: "Puri Jagannath", href: "/Packages?region=domestic&zone=north" },
-  { label: "Kashi", href: "/Packages?region=domestic&zone=north" },
-  { label: "Char Dham Yatra", href: "/Packages?region=domestic&zone=north" },
+  { label: "Shirdi", href: "/Packages/shirdi-sai-baba-yatra-1n-2d" },
+  { label: "Puri Jagannath", href: "/Packages/puri-jagannath-darshan-3n-4d" },
+  { label: "Kashi", href: "/Packages/kashi-yatra-8n-9d-lucknow-ayodhya-naimisharanya-prayagraj-chitrakoot-varanasi-gaya-baidyanath-30" },
+  { label: "Char Dham Yatra", href: "/Packages/char-dham-yatra-with-chopta-tunganath-14n-15d-yamunotri-gangotri-kedarnath-badrinath-29" },
+  { label: "Andaman Coastal", href: "/Packages/andaman-4n-5d" },
   // { label: "Navashakthi Peetha", href: "/Packages?region=domestic&zone=north" },
   // { label: "Rajasthan", href: "/Packages?region=domestic&zone=north" },
   // { label: "Gujarat", href: "/Packages?region=domestic&zone=north" },
+  // Vaishno Devi has no package page yet — keeps the filtered listing until one exists.
   { label: "Vaishno Devi", href: "/Packages?region=domestic&zone=north" },
   // { label: "Odisha", href: "/Packages?region=domestic&zone=north" },
-  { label: "Panchabhootha Yaatra", href: "/Packages?region=domestic&zone=north" },
+  { label: "Panchabhootha Yaatra", href: "/Packages/panchabhoota-yatra-3n-4d-srikalahasti-kanchipuram-thiruvannamalai-chidambaram-trichy-27" },
   // { label: "Varanasi", href: "/Packages?region=domestic&zone=north" },
   // { label: "Dandeli", href: "/Packages?region=domestic&zone=south" },
-  { label: "Murdeshwara", href: "/Packages?region=domestic&zone=south" },
+  { label: "Murdeshwara", href: "/Packages/murdeshwara-scuba-package-1n-2d-18" },
+
   // { label: "Dharmasthala", href: "/Packages?region=domestic&zone=south" },
 ];
 
