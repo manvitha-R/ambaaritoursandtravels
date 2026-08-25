@@ -5,10 +5,15 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const slides = [
+const slides: { src: string; heading: string; sub: string; type?: "video" }[] = [
+  // {
+  //   src: "/Images/web.mp4",
+  //   type: "video" as const,
+  //   heading: "Explore the World",
+  //   sub: "Europe, Thailand, Sri Lanka & beyond",
+  // },
   {
-    src: "/Images/web.mp4",
-    type: "video" as const,
+    src: "/Images/raksha-bandan.png",
     heading: "Explore the World",
     sub: "Europe, Thailand, Sri Lanka & beyond",
   },
@@ -100,8 +105,8 @@ export default function HeroSlider() {
       {/* Overlay — only darkens the bottom where the text sits, keeps the image clear up top */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-      {/* Hero Content — only on image slides, not the video slide */}
-      {slides[current].type !== "video" && (
+      {/* Hero Content — hidden on the first slide and on the video slide */}
+      {current !== 0 && slides[current].type !== "video" && (
         <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-4 pb-16 md:pb-20">
           <div className="max-w-2xl">
             <span className="inline-block bg-yellow-400/20 text-yellow-300 text-xs font-semibold px-3 py-1 rounded-full border border-yellow-400/30 mb-3 backdrop-blur-sm">
