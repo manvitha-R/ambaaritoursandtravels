@@ -45,12 +45,12 @@ const domesticPackages = [
   // { label: "Rajasthan", href: "/Packages?region=domestic&zone=north" },
   // { label: "Gujarat", href: "/Packages?region=domestic&zone=north" },
   // Vaishno Devi has no package page yet — keeps the filtered listing until one exists.
-  { label: "Vaishno Devi", href: "/Packages?region=domestic&zone=north" },
+  // { label: "Vaishno Devi", href: "/Packages?region=domestic&zone=north" },
   // { label: "Odisha", href: "/Packages?region=domestic&zone=north" },
   { label: "Panchabhootha Yaatra", href: "/Packages/panchabhoota-yatra-3n-4d-srikalahasti-kanchipuram-thiruvannamalai-chidambaram-trichy-27" },
   // { label: "Varanasi", href: "/Packages?region=domestic&zone=north" },
   // { label: "Dandeli", href: "/Packages?region=domestic&zone=south" },
-  { label: "Murdeshwara", href: "/Packages/murdeshwara-scuba-package-1n-2d-18" },
+  // { label: "Murdeshwara", href: "/Packages/murdeshwara-scuba-package-1n-2d-18" },
 
   // { label: "Dharmasthala", href: "/Packages?region=domestic&zone=south" },
 ];
