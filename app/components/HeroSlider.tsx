@@ -6,17 +6,17 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides: { src: string; heading: string; sub: string; type?: "video" }[] = [
-  // {
-  //   src: "/Images/web.mp4",
-  //   type: "video" as const,
-  //   heading: "Explore the World",
-  //   sub: "Europe, Thailand, Sri Lanka & beyond",
-  // },
   {
-    src: "/Images/raksha-bandan.png",
+    src: "/Images/web.mp4",
+    type: "video" as const,
     heading: "Explore the World",
     sub: "Europe, Thailand, Sri Lanka & beyond",
   },
+  // {
+  //   src: "/Images/raksha-bandan.png",
+  //   heading: "Explore the World",
+  //   sub: "Europe, Thailand, Sri Lanka & beyond",
+  // },
   {
     src: "/Images/international.png",
     heading: "Explore the World",
