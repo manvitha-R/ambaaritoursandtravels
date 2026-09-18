@@ -305,7 +305,7 @@ const packages = [
         price: 304000,
         duration: "8 Days 7 Nights",
         category: "International",
-        image: "/Images/Japan.jpg"
+        image: "/Images/japan.png"
     }
 ];
 

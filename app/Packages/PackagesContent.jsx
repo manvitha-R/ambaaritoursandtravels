@@ -592,7 +592,7 @@ const packages = [
     duration: "8 Days 7 Nights",
     group: "Max 25 People",
     highlight: "Signature",
-    image: "/Images/Japan.jpg",
+    image: "/Images/japan.png",
     color: "from-pink-500 to-rose-600",
     places: ["Tokyo", "Hakone", "Kyoto", "Nara", "Osaka"],
     inclusions: [
