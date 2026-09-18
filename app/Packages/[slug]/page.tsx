@@ -17,11 +17,13 @@ import PuriExperience from "./PuriExperience";
 import UjjainExperience from "./UjjainExperience";
 import KashiExperience from "./KashiExperience";
 import AndamanExperience from "./AndamanExperience";
+import ThailandShortExperience from "./ThailandShortExperience";
+import JapanExperience from "./JapanExperience";
 import Navbar from "@/app/components/Navbar";
 import { JSX } from "react";
 
 // These packages get a custom layout instead of the shared template —
-// see ThailandExperience.tsx / VietnamExperience.tsx / MalaysiaExperience.tsx / MalaysiaSingaporeExperience.tsx / DubaiExperience.tsx / PanchabhootaExperience.tsx / DoDhamExperience.tsx / CharDhamExperience.tsx / ShirdiExperience.tsx / PuriExperience.tsx / UjjainExperience.tsx / KashiExperience.tsx / AndamanExperience.tsx.
+// see ThailandExperience.tsx / VietnamExperience.tsx / MalaysiaExperience.tsx / MalaysiaSingaporeExperience.tsx / DubaiExperience.tsx / PanchabhootaExperience.tsx / DoDhamExperience.tsx / CharDhamExperience.tsx / ShirdiExperience.tsx / PuriExperience.tsx / UjjainExperience.tsx / KashiExperience.tsx / AndamanExperience.tsx / ThailandShortExperience.tsx / JapanExperience.tsx.
 const CUSTOM_EXPERIENCES: Record<string, (props: any) => JSX.Element> = {
   "thailand-4n-5d": ThailandExperience,
   "vietnam-grand-tour-6n-7d": VietnamExperience,
@@ -36,6 +38,8 @@ const CUSTOM_EXPERIENCES: Record<string, (props: any) => JSX.Element> = {
   "ujjain-omkareshwar-darshan-3n-4d": UjjainExperience,
   "kashi-yatra-8n-9d-lucknow-ayodhya-naimisharanya-prayagraj-chitrakoot-varanasi-gaya-baidyanath-30": KashiExperience,
   "andaman-4n-5d": AndamanExperience,
+  "thailand-3n-4d-with-flight": ThailandShortExperience,
+  "japan-cherry-blossom-7n-8d": JapanExperience,
 };
 
 async function getPackage(slug: string) {
@@ -69,6 +73,11 @@ const SLUG_LEGACY_BOOKING_ID_OVERRIDES: Record<string, string | null> = {
   // above — without this override, Book Now here would silently start a
   // Dubai booking instead.
   "thailand-4n-5d-without-flight-package-16": null,
+  // These slugs end in a letter ("-5d", "-flight"), not a plain number, so
+  // the regex fallback below can't derive a legacy id for them at all.
+  "andaman-4n-5d": "34",
+  "thailand-3n-4d-with-flight": "35",
+  "japan-cherry-blossom-7n-8d": "36",
 };
 
 function getLegacyBookingId(slug: string) {

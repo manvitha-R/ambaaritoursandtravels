@@ -46,6 +46,36 @@ const packages = [
     category: "beach",
     tags: ["thailand", "pattaya", "bangkok", "flights-included"]
   },
+  {
+    id: 35,
+    slug: "thailand-3n-4d-with-flight",
+    title: "Thailand 3N/4D With Flight",
+    description: "A compact Thailand getaway with 2 nights in Pattaya and 1 night in Bangkok, flights included",
+    price: "₹44,999",
+    duration: "4 Days 3 Nights",
+    group: "Max 25 People",
+    highlight: "New",
+    image: "/Images/Thailand_3N-4D.png",
+    color: "from-sky-500 to-blue-600",
+    places: ["Pattaya", "Bangkok", "Coral Island"],
+    inclusions: [
+      { icon: Plane, text: "Return Flights" },
+      { icon: Hotel, text: "3-Star Hotels" },
+      { icon: Utensils, text: "Indian Meals" },
+      { icon: Ticket, text: "All Entry Tickets" },
+    ],
+    details: [
+      "Tiger Topia & Alcazar Cabaret Show",
+      "Coral Island speedboat tour",
+      "Gems Gallery & Big Buddha Temple",
+      "Chao Phraya Dinner Cruise",
+      "Bangkok shopping tour"
+    ],
+    region: "international",
+    country: "Thailand",
+    category: "beach",
+    tags: ["thailand", "pattaya", "bangkok", "flights-included", "short-trip"]
+  },
   // {
   //   id: 14,
   //   slug: "budget-thailand-3n-4d-without-flight-package-14",
@@ -81,7 +111,7 @@ const packages = [
     slug: "vietnam-grand-tour-6n-7d",
     title: "Vietnam Grand Tour 6N/7D",
     description: "Explore Vietnam's icons from a Halong Bay day cruise and ancient Hoi An to the Golden Bridge at Ba Na Hills and the vibrant streets of Ho Chi Minh City",
-    price: "₹1,09,999",
+    price: "₹1,29,999",
     duration: "7 Days 6 Nights",
     date: "September 24th",
     group: "Max 20 People",
@@ -367,35 +397,35 @@ const packages = [
   {
     id: 30,
     slug: "kashi-yatra-8n-9d-lucknow-ayodhya-naimisharanya-prayagraj-chitrakoot-varanasi-gaya-baidyanath-30",
-    title: "Kashi Yatra 8N/9D",
-    description: "A spiritual circuit across Uttar Pradesh and Bihar covering Naimisharanya, Ayodhya (birthplace of Lord Rama), Prayagraj (Triveni Sangam), Chitrakoot, Varanasi (Kashi Vishwanath), Bodhgaya, Gaya, and the Baidyanath Jyotirlinga at Deogarh",
+    title: "Kashi Yatra 4N/5D",
+    description: "A spiritual circuit across Bihar and Uttar Pradesh covering the sacred temples of Gaya and Bodh Gaya, Kashi Vishwanath and the Ganga Aarti in Varanasi, the Triveni Sangam in Prayagraj, and the Shri Ram Janmabhoomi Mandir in Ayodhya",
     price: "₹40,999",
-    duration: "9 Days 8 Nights",
+    duration: "5 Days 4 Nights",
     date: "October 12th",
     group: "All Age Groups",
     highlight: "Spiritual",
     image: "/Images/Kashi.png",
     color: "from-orange-600 to-amber-700",
-    places: ["Lucknow", "Ayodhya", "Naimisharanya", "Prayagraj", "Chitrakoot", "Varanasi", "Gaya", "Baidyanath"],
+    places: ["Patna", "Gaya", "Bodh Gaya", "Varanasi", "Prayagraj", "Ayodhya", "Lucknow"],
     inclusions: [
-      { icon: Plane, text: "Flights 2 Way" },
-      { icon: Users, text: "Transportation" },
-      { icon: Utensils, text: "All Meals (Pure Veg)" },
-      { icon: Ticket, text: "VIP Darshan at Temple" },
+      { icon: Plane, text: "Patna Pickup / Lucknow Drop" },
+      { icon: Users, text: "Private Vehicle Throughout" },
+      { icon: Utensils, text: "Meals as per Itinerary" },
+      { icon: Ticket, text: "3-Star Hotel Accommodation" },
     ],
     details: [
-      "Sri Rama Janmabhoomi & Sarayu Aarti, Ayodhya",
-      "Triveni Sangam, Prayagraj",
-      "Kamadgiri Parikrama, Chitrakoot",
+      "Vishnupad Temple & Mahabodhi Temple, Gaya/Bodh Gaya",
       "Kashi Vishwanath Darshan & Ganga Aarti, Varanasi",
-      "Maha Bodhi Vruksha, Bodhgaya",
-      "Baidyanath Jyotirlinga, Deogarh"
+      "Sunrise Ganga Boat Ride, Varanasi",
+      "Triveni Sangam, Prayagraj",
+      "Shri Ram Janmabhoomi Mandir, Ayodhya",
+      "Banarasi Silk Shopping"
     ],
     region: "domestic",
     zone: "north",
     subType: "pilgrimage",
     category: "spiritual",
-    tags: ["kashi", "varanasi", "ayodhya", "baidyanath", "gaya", "pilgrimage"]
+    tags: ["kashi", "varanasi", "ayodhya", "prayagraj", "gaya", "pilgrimage"]
   },
   // {
   //   id: 31,
@@ -553,7 +583,37 @@ const packages = [
     category: "adventure",
     tags: ["andaman", "port blair", "havelock island", "neil island","snorkling"]
   },
-  
+  {
+    id: 36,
+    slug: "japan-cherry-blossom-7n-8d",
+    title: "Japan Cherry Blossom Special 7N/8D",
+    description: "A Cherry Blossom season journey through Japan — Mt. Fuji, Hakone, Tokyo, Kyoto, Nara and Osaka with a reserved bullet train transfer",
+    price: "₹3,04,000",
+    duration: "8 Days 7 Nights",
+    group: "Max 25 People",
+    highlight: "Signature",
+    image: "/Images/Japan.jpg",
+    color: "from-pink-500 to-rose-600",
+    places: ["Tokyo", "Hakone", "Kyoto", "Nara", "Osaka"],
+    inclusions: [
+      { icon: Hotel, text: "3/4-Star Hotels" },
+      { icon: Utensils, text: "Meal Plan as per Package" },
+      { icon: Users, text: "Tour Guide & Private Coach" },
+      { icon: Ticket, text: "Bullet Train Tokyo-Osaka" },
+    ],
+    details: [
+      "Mt. Fuji & Hakone Tour",
+      "Tokyo City Tour",
+      "Kyoto Cultural Tour",
+      "Nara Park with Deer",
+      "Amanohashidate Sandbar & Ine Village",
+      "Cherry Blossom Sightseeing"
+    ],
+    region: "international",
+    country: "Japan",
+    category: "signature",
+    tags: ["japan", "tokyo", "kyoto", "osaka", "cherry blossom", "sakura"]
+  },
 ];
 
 export default function PackagesContent() {

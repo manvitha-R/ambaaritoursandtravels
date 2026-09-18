@@ -37,7 +37,10 @@ interface DayItinerary {
 // 3 Hanoi Train Street, 4 Lady Buddha/Marble Mountains, 5 Dragon Bridge,
 // 6 Hoi An Ancient Town, 7 Hoi An Lantern Street, 8 Ba Na Hills cable car,
 // 9 Notre Dame Cathedral, 10 Mekong Delta boat ride, 11 Cu Chi Tunnels.
-const DAY_IMAGE_INDEX: Record<number, number> = { 1: 1, 2: 2, 3: 4, 4: 8, 5: 9, 6: 10, 7: 11 };
+// Day themes re-mapped for the day-cruise itinerary: day 1 is now the Hanoi
+// city tour (Temple of Literature), day 2 the Ha Long Bay day cruise (Pearl
+// Farm), day 3 Hoi An Ancient Town; days 4-7 are unchanged.
+const DAY_IMAGE_INDEX: Record<number, number> = { 1: 2, 2: 1, 3: 6, 4: 8, 5: 9, 6: 10, 7: 11 };
 
 export default function VietnamExperience({
   pkg,

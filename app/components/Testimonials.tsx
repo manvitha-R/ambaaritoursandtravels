@@ -1,17 +1,81 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
+
   {
-    name: "Manvitha Rajeev",
-    location: "Shivamogga",
+    name: "Prabha",
+    location: "Mysore",
     rating: 5,
-    text: "Me and my friends went on a trip to Madikeri, which was well organized by Ambaari tours and travels. It was a great experience and I recommend others as well. And they also guide you for the international packages.",
-    trip: "Madikeri",
-    initials: "MR",
+    text: "Good experience..Sharath and Bhuvan u both r giving good guidance and next level family bonding.Thank you so much. Ambaari tour and travels packages r friendly packages...jai jagannath.",
+    trip: "Puri-Jagannath",
+    initials: "P",
     color: "from-pink-500 to-rose-600",
+    image: "/Images/puri.webp",
+  },
+  
+  {
+    name: "Ramanjianappa Ramu",
+    location: "Bangalore",
+    rating: 5,
+    text: "Super really great, I liked the guide, he is like a good best friend, very much supporting like a homely person. I really had a great experience with Ambaari Tours and Travels.",
+    trip: "Thailand Trip Package",
+    initials: "RR",
+    color: "from-purple-500 to-violet-600",
+    image: "/Images/thailand.webp",
+  },
+   {
+    name: "Madhusudana",
+    location: "Bangalore",
+    rating: 5,
+    text: "Nice guide ella places on time ge cover madidru friendly haage idru.Thank you Ambaari Tours and Travels.",
+    trip: "Malaysia Trip Package",
+    initials: "MS",
+    color: "from-purple-500 to-violet-600",
+    image: "/Images/malaysia.webp",
+  },
+  {
+    name: "Radhika",
+    location: "Bangalore",
+    rating: 5,
+    text: "Nice and very good guidance 💯",
+    trip: "Puri-Jagannath",
+    initials: "R",
+    color: "from-purple-500 to-violet-600",
+    image: "/Images/puri-2.webp",
+  },
+  {
+    name: "Nanda Gopal",
+    location: "Bangalore",
+    rating: 5,
+    text: "Thank you very much,Mr. Sharath for your help and good guidance.",
+    trip: "Puri-Jagannath",
+    initials: "NG",
+    color: "from-purple-500 to-violet-600",
+    // image: "/Images/puri-2.webp",
+  },
+   {
+    name: "Tejaswini",
+    location: "Mysore",
+    rating: 5,
+    text: "Sharath and Bhuvan it was really fantastic journey.  Jai Jagannath ⭕️❗️⭕️",
+    trip: "Puri-Jagannath",
+    initials: "TW",
+    color: "from-purple-500 to-violet-600",
+    // image: "/Images/puri-2.webp",
+  },
+   {
+    name: "Bhoomika",
+    location: "Bangalore",
+    rating: 5,
+    text: "Had an amazing travel experience with Ambaari Tours & Travels! Everything was perfectly organized, from transportation to sightseeing and hotel arrangements. A special thanks to our tour guide Akash for his excellent support, friendly nature, and guidance throughout the trip. He made the journey even more enjoyable and comfortable. Thank you Ambaari Tours & Travels & Akash for making our trip truly memorable! Highly recommended. ❤️✈️",
+    trip: "Thailand Trip Package",
+    initials: "B",
+    color: "from-purple-500 to-violet-600",
+    // image: "/Images/malaysia.webp",
   },
   {
     name: "Abhishek Shetty",
@@ -78,7 +142,7 @@ const testimonials = [
   },
   {
     name: "Hamsa Chinnu",
-    Location: "Bangaloe",
+    location: "Bangalore",
     rating: 5,
     text: "Thank you for such a well-organized and memorable trip Everything from the itinerary and transportation to the accommodation and support was managed smoothly. Every destination was beautiful, and the entire experience was stress-free and enjoyable. Highly recommend this trip package to anyone looking for a wonderful travel experience. Looking forward to traveling with you again! 🌍✨",
     initials: "HC",
@@ -87,7 +151,7 @@ const testimonials = [
   },
   {
     name: "Yash Koppal",
-    Location: "Mysore",
+    location: "Mysore",
     rating: 5,
     text: "5-Star Review for Ambaari Tours & Travels along with Mr Akash. We had an amazing international vacation with Ambaari Tours & Travels, and the entire experience exceeded our expectations. A special thanks to our tour Manager, Mr. Akash, whose professionalism, dedication, and friendly nature made our journey truly memorable. He ensured everything was well organized, managed the itinerary efficiently, and was always available to assist us with a smile. His local knowledge, excellent coordination, and attention to every detail made the trip smooth, comfortable, and enjoyable. Thank you, Ambaari Tours & Travels, for delivering such a wonderful travel experience, and a heartfelt appreciation to Mr. Akash for making this trip so special. We highly recommend Ambaari Tours & Travels to anyone planning an international holiday. A well-deserved ⭐⭐⭐⭐⭐!",
     initials: "YK",
@@ -100,7 +164,7 @@ const testimonials = [
     rating: 5,
     text: "Had an amazing trip to Thailand🇹🇭✨… The food🍛 …the stay🏘️… the tourist places we visited🏖️🛥️… everything was well arranged… Special mention to Akash😎 who took care of us like a family😊…",
     initials: "C",
-    trip: "Thailand TRip Package",
+    trip: "Thailand Trip Package",
     color: "from-green-500 to-teal-600"
   },
   
@@ -217,32 +281,15 @@ export default function Testimonials() {
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
     <div className="relative p-6 md:p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 hover:border-yellow-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-yellow-500/10">
+
+
       {/* Quote icon */}
       <div className="absolute top-6 right-6 opacity-10">
         <Quote className="w-10 h-10 text-yellow-400" />
       </div>
 
-      {/* Stars */}
-      <div className="flex gap-1 mb-4">
-        {Array.from({ length: testimonial.rating }).map((_, i) => (
-          <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-        ))}
-      </div>
-
-      {/* Text */}
-      <p className="text-gray-300 text-sm leading-relaxed mb-6 italic">
-        &ldquo;{testimonial.text}&rdquo;
-      </p>
-
-      {/* Trip badge */}
-      <div className="mb-5">
-        <span className="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 px-3 py-1 rounded-full">
-          {testimonial.trip}
-        </span>
-      </div>
-
-      {/* Author */}
-      <div className="flex items-center gap-3">
+      {/* Author — name + rating up top */}
+      <div className="flex items-center gap-3 mb-4">
         <div
           className={`w-11 h-11 rounded-full bg-gradient-to-br ${testimonial.color} flex items-center justify-center text-white font-bold text-sm shadow-lg flex-shrink-0`}
         >
@@ -253,6 +300,35 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] 
           <div className="text-gray-500 text-xs">{testimonial.location}</div>
         </div>
       </div>
+
+      {/* Stars */}
+      <div className="flex gap-1 mb-4">
+        {Array.from({ length: testimonial.rating }).map((_, i) => (
+          <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+        ))}
+      </div>
+
+      {/* Text */}
+      <p className="text-gray-300 text-sm leading-relaxed mb-4 italic">
+        &ldquo;{testimonial.text}&rdquo;
+      </p>
+
+      {/* Attached photo, if the reviewer shared one — small thumbnail below the text */}
+      {testimonial.image && (
+        <div className="relative w-20 h-20 rounded-lg overflow-hidden border border-gray-600 mb-5">
+          <Image
+            src={testimonial.image}
+            alt={`Photo shared by ${testimonial.name}`}
+            fill
+            className="object-cover"
+          />
+        </div>
+      )}
+
+      {/* Trip badge */}
+      <span className="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 px-3 py-1 rounded-full">
+        {testimonial.trip}
+      </span>
     </div>
   );
 }

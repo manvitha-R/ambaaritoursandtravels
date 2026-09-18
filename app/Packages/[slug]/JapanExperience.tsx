@@ -32,16 +32,13 @@ interface DayItinerary {
   accommodation?: string;
 }
 
-// Curated to match the uploaded photos, in this order:
-// 0 Puri.png poster (cover tile), 1 Jagannath Temple (Puri), 2 Chilika Lake,
-// 3 Konark Sun Temple, 4 Mukteshwar Temple (Bhubaneswar), 5 Omkareshwar
-// Temple, 6 Ram Mandir (Bhubaneswar) — one dominant photo per day, matched to
-// the itinerary's day 1 (Konark) / day 2 (Jagannath darshan) / day 3
-// (Bhubaneswar temple tour) structure. Day 4 (Kala Bhoomi, caves, shopping,
-// departure) has no dedicated photo, so it falls back to the poster.
-const DAY_IMAGE_INDEX: Record<number, number> = { 1: 3, 2: 1, 3: 4, 4: 0 };
+// Only one photo is available for this package (the brochure flyer used as
+// the poster/cover tile), so every day falls back to it — same pattern as
+// any other single-image package (see the mosaicImages.length <= 1 branch
+// below).
+const DAY_IMAGE_INDEX: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 };
 
-export default function PuriExperience({
+export default function JapanExperience({
   pkg,
   itinerary,
   highlights,
@@ -54,7 +51,7 @@ export default function PuriExperience({
   bookNowHref: string;
   policySections: { title: string; content: string }[];
 }) {
-  const images: string[] = pkg.images?.length ? pkg.images : ["/Images/Puri.png"];
+  const images: string[] = pkg.images?.length ? pkg.images : ["/Images/Japan.jpg"];
   const mosaicImages = images.slice(0, 5);
 
   const imageForDay = (day: number) => {
@@ -118,11 +115,8 @@ export default function PuriExperience({
       <section className="max-w-7xl mx-auto px-4 pt-4 pb-8">
         {mosaicImages.length <= 1 && (
           <div className="mb-5">
-            {/* <p className="text-amber-400 tracking-[0.25em] text-[10px] md:text-[11px] uppercase mb-1">
-              Ambaari Tours and Travels Presents
-            </p> */}
             <h1 className="text-lg md:text-2xl font-semibold text-white">
-              Puri Jagannath Darshan <span className="text-amber-200 font-normal text-sm md:text-base">· 3 Nights / 4 Days</span>
+              Japan Cherry Blossom Special <span className="text-amber-200 font-normal text-sm md:text-base">· 7 Nights / 8 Days</span>
             </h1>
           </div>
         )}
@@ -161,11 +155,8 @@ export default function PuriExperience({
               })}
             </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent rounded-b-3xl px-5 md:px-7 py-5">
-              {/* <p className="text-amber-400 tracking-[0.25em] text-[10px] md:text-[11px] uppercase mb-1">
-                Ambaari Tours and Travels Presents
-              </p> */}
               <h1 className="text-lg md:text-2xl font-semibold text-white">
-                Puri Jagannath Darshan <span className="text-amber-200 font-normal text-sm md:text-base">· 3 Nights / 4 Days</span>
+                Japan Cherry Blossom Special <span className="text-amber-200 font-normal text-sm md:text-base">· 7 Nights / 8 Days</span>
               </h1>
             </div>
           </div>
@@ -471,7 +462,7 @@ export default function PuriExperience({
                     <Sparkles className="w-4 h-4 text-amber-400" /> Need Help?
                   </h4>
                   <p className="text-gray-300 text-sm">
-                    Call +91 8073 097 430 or write to ambaaritoursandtravels19@gmail.com for a custom quote or
+                    Call +91 9686 626 428 or write to ambaaritoursandtravels19@gmail.com for a custom quote or
                     group booking.
                   </p>
                 </div>

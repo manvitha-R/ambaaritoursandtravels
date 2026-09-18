@@ -21,4 +21,6 @@ export const PUBLISHED_PACKAGE_SLUGS = [
   "ujjain-omkareshwar-darshan-3n-4d",
   "puri-jagannath-darshan-3n-4d",
   "andaman-4n-5d",
+  "thailand-3n-4d-with-flight",
+  "japan-cherry-blossom-7n-8d",
 ];

@@ -33,15 +33,12 @@ interface DayItinerary {
 }
 
 // Curated to match the uploaded photos, in this order:
-// 0 Puri.png poster (cover tile), 1 Jagannath Temple (Puri), 2 Chilika Lake,
-// 3 Konark Sun Temple, 4 Mukteshwar Temple (Bhubaneswar), 5 Omkareshwar
-// Temple, 6 Ram Mandir (Bhubaneswar) — one dominant photo per day, matched to
-// the itinerary's day 1 (Konark) / day 2 (Jagannath darshan) / day 3
-// (Bhubaneswar temple tour) structure. Day 4 (Kala Bhoomi, caves, shopping,
-// departure) has no dedicated photo, so it falls back to the poster.
-const DAY_IMAGE_INDEX: Record<number, number> = { 1: 3, 2: 1, 3: 4, 4: 0 };
+// 0 Thailand_3N-4D.png poster (cover tile), 1 Tiger Topia, 2 Coral Island,
+// 3 Big Buddha Temple. Day 4 (shopping & departure) has no dedicated photo,
+// so it falls back to the poster.
+const DAY_IMAGE_INDEX: Record<number, number> = { 1: 1, 2: 2, 3: 3, 4: 0 };
 
-export default function PuriExperience({
+export default function ThailandShortExperience({
   pkg,
   itinerary,
   highlights,
@@ -54,7 +51,7 @@ export default function PuriExperience({
   bookNowHref: string;
   policySections: { title: string; content: string }[];
 }) {
-  const images: string[] = pkg.images?.length ? pkg.images : ["/Images/Puri.png"];
+  const images: string[] = pkg.images?.length ? pkg.images : ["/Images/Thailand_3N-4D.png"];
   const mosaicImages = images.slice(0, 5);
 
   const imageForDay = (day: number) => {
@@ -65,6 +62,8 @@ export default function PuriExperience({
   const [openDay, setOpenDay] = useState<number | null>(null);
 
   const availableDates: any[] = pkg.availableDates || [];
+  // All upcoming departures (strictly after today) — the compact card grid
+  // wraps onto extra rows on its own, so nothing gets cut off (e.g. October).
   const upcomingDates = availableDates.filter((d) => new Date(d.startDate) > new Date());
   const [selectedDateId, setSelectedDateId] = useState<string>(upcomingDates[0]?.id || "");
 
@@ -122,7 +121,7 @@ export default function PuriExperience({
               Ambaari Tours and Travels Presents
             </p> */}
             <h1 className="text-lg md:text-2xl font-semibold text-white">
-              Puri Jagannath Darshan <span className="text-amber-200 font-normal text-sm md:text-base">· 3 Nights / 4 Days</span>
+              Thailand <span className="text-amber-200 font-normal text-sm md:text-base">· 3 Nights / 4 Days</span>
             </h1>
           </div>
         )}
@@ -165,7 +164,7 @@ export default function PuriExperience({
                 Ambaari Tours and Travels Presents
               </p> */}
               <h1 className="text-lg md:text-2xl font-semibold text-white">
-                Puri Jagannath Darshan <span className="text-amber-200 font-normal text-sm md:text-base">· 3 Nights / 4 Days</span>
+                Thailand <span className="text-amber-200 font-normal text-sm md:text-base">· 3 Nights / 4 Days</span>
               </h1>
             </div>
           </div>
@@ -189,7 +188,7 @@ export default function PuriExperience({
         <div className="max-w-7xl mx-auto px-4 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-10">
-              {/* Itinerary — collapsed by default; expanding a day reveals a photo + description + activities */}
+              {/* Itinerary — collapsed by default; expanding a day reveals the same photo + description + activities as before */}
               {itinerary.length > 0 && (
                 <section>
                   <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">

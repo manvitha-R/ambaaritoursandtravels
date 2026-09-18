@@ -32,14 +32,13 @@ interface DayItinerary {
   accommodation?: string;
 }
 
-// Curated to match the uploaded photos, in this order:
-// 0 Kashi.png poster (cover tile), 1 Naimisharanya, 2 Ayodhya, 3 Prayagraj
-// (Triveni Sangam), 4 Chitrakoot, 5 Kashi Vishwanath (Varanasi), 6 Bodhgaya,
-// 7 Baidyanath Jyotirlinga (Deoghar). Day 5 (arrival in Varanasi — Sarnath/
-// BHU) and day 9 (departure) have no dedicated photo, so they fall back to
-// the poster.
+// Curated to match the uploaded photos, in this order (re-mapped for the
+// 4N/5D Patna-Gaya-Bodh Gaya-Varanasi-Prayagraj-Ayodhya route):
+// 0 Kashi.png poster (cover tile), 1 Bodhgaya, 2 Kashi Vishwanath (Varanasi),
+// 3 Prayagraj (Triveni Sangam), 4 Ayodhya. Day 5 (departure) has no
+// dedicated photo, so it falls back to the poster.
 const DAY_IMAGE_INDEX: Record<number, number> = {
-  1: 1, 2: 2, 3: 3, 4: 4, 5: 0, 6: 5, 7: 6, 8: 7, 9: 0,
+  1: 1, 2: 2, 3: 3, 4: 4, 5: 0,
 };
 
 export default function KashiExperience({
@@ -123,7 +122,7 @@ export default function KashiExperience({
               Ambaari Tours and Travels Presents
             </p> */}
             <h1 className="text-lg md:text-2xl font-semibold text-white">
-              Kashi Yatra <span className="text-amber-200 font-normal text-sm md:text-base">· 8 Nights / 9 Days</span>
+              Kashi Yatra <span className="text-amber-200 font-normal text-sm md:text-base">· 4 Nights / 5 Days</span>
             </h1>
           </div>
         )}
@@ -166,7 +165,7 @@ export default function KashiExperience({
                 Ambaari Tours and Travels Presents
               </p> */}
               <h1 className="text-lg md:text-2xl font-semibold text-white">
-                Kashi Yatra <span className="text-amber-200 font-normal text-sm md:text-base">· 8 Nights / 9 Days</span>
+                Kashi Yatra <span className="text-amber-200 font-normal text-sm md:text-base">· 4 Nights / 5 Days</span>
               </h1>
             </div>
           </div>

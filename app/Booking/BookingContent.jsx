@@ -182,7 +182,7 @@ const packages = [
     {
         id: "23",
         name: "Vietnam Grand Tour 6N/7D ",
-        price: 109999,
+        price: 129999,
         duration: "7 Days 6 Nights",
         category: "International",
         image: "/Images/Vietnam.png"
@@ -237,9 +237,9 @@ const packages = [
     },
     {
         id: "30",
-        name: "Kashi Yatra 8N/9D",
+        name: "Kashi Yatra 4N/5D",
         price: 40999,
-        duration: "9 Days 8 Nights",
+        duration: "5 Days 4 Nights",
         category: "Spiritual",
         image: "/Images/Kashi.png"
     },
@@ -290,6 +290,22 @@ const packages = [
         duration: "5 Days 4 Nights",
         category: "Domestic",
         image: "/Images/Andaman.png"
+    },
+    {
+        id: "35",
+        name: "Thailand 3N/4D With Flight",
+        price: 44999,
+        duration: "4 Days 3 Nights",
+        category: "International",
+        image: "/Images/Thailand_3N-4D.png"
+    },
+    {
+        id: "36",
+        name: "Japan Cherry Blossom Special 7N/8D",
+        price: 304000,
+        duration: "8 Days 7 Nights",
+        category: "International",
+        image: "/Images/Japan.jpg"
     }
 ];
 

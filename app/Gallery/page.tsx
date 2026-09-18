@@ -15,148 +15,41 @@ interface GalleryImage {
   location: string;
 }
 
-// Sample gallery images - just add your images here
+// Gallery photos, grouped by destination.
+//
+// To add more photos for an existing destination (e.g. more Thailand shots),
+// just append a new entry below with a unique `id` and the same `location`
+// string — it'll automatically show up under that destination's filter tab.
+// To add a brand-new destination (e.g. "Puri"), do the same with a new
+// `location` name; a tab for it appears automatically, no other code needed.
 const galleryImages: GalleryImage[] = [
-  {
-    id: 1,
-    src: "/Images/gallery/travel-1.jpeg",
-    location: "Thailand"
-  },
-  {
-    id: 2,
-    src: "/Images/gallery/travel-2.jpeg",
-    location: "Thailand"
-  },
-  {
-    id: 3,
-    src: "/Images/gallery/travel-3.jpeg",
-    location: ""
-  },
-  {
-    id: 4,
-    src: "/Images/gallery/travel-4.jpeg",
-    location: ""
-  },
-  {
-    id: 5,
-    src: "/Images/gallery/travel-5.jpeg",
-    location: ""
-  },
-  {
-    id: 6,
-    src: "/Images/gallery/travel-6.jpeg",
-    location: ""
-  },
-  {
-    id: 7,
-    src: "/Images/gallery/travel-7.jpeg",
-    location: ""
-  },
-  {
-    id: 8,
-    src: "/Images/gallery/travel-8.jpeg",
-    location: ""
-  },
-  {
-    id: 9,
-    src: "/Images/gallery/travel-9.jpeg",
-    location: ""
-  },
-  {
-    id: 10,
-    src: "/Images/gallery/travel-10.jpeg",
-    location: ""
-  },
-  {
-    id: 11,
-    src: "/Images/gallery/travel-11.jpeg",
-    location: ""
-  },
-  {
-    id: 12,
-    src: "/Images/gallery/travel-12.jpeg",
-    location: ""
-  },
-  {
-    id: 13,
-    src: "/Images/gallery/travel-13.jpeg",
-    location: ""
-  },
-  {
-    id: 14,
-    src: "/Images/gallery/travel-14.jpeg",
-    location: ""
-  },
-  {
-    id: 15,
-    src: "/Images/gallery/travel-15.jpeg",
-    location: ""
-  },
-  {
-    id: 16,
-    src: "/Images/gallery/travel-16.jpeg",
-    location: ""
-  },
-  {
-    id: 17,
-    src: "/Images/gallery/travel-17.jpeg",
-    location: "Goa Beach"
-  },
-  {
-    id: 18,
-    src: "/Images/gallery/travel-18.jpeg",
-    location: "Goa Beach"
-  },
-   {
-    id: 19,
-    src: "/Images/gallery/travel-19.jpeg",
-    location: "Thailand"
-  },
-  {
-    id: 20,
-    src: "/Images/gallery/travel-20.jpeg",
-    location: "Thailand"
-  },
-  {
-    id: 21,
-    src: "/Images/gallery/travel-21.jpeg",
-    location: "Thailand"
-  },
-  {
-    id: 22,
-    src: "/Images/gallery/travel-22.jpeg",
-    location: "Thailand"
-  },
-//   {
-//     id: 19,
-//     src: "/Images/gallery/travel-19.jpeg",
-//     location: "Kaziranga"
-//   },
-//   {
-//     id: 20,
-//     src: "/Images/gallery/travel-20.jpeg",
-//     location: "Kodaikanal"
-//   },
-//   {
-//     id: 21,
-//     src: "/Images/gallery/travel-21.jpeg",
-//     location: "Gulmarg"
-//   },
-//   {
-//     id: 22,
-//     src: "/Images/gallery/travel-22.jpeg",
-//     location: "Khajuraho"
-//   },
-//   {
-//     id: 23,
-//     src: "/Images/gallery/travel-23.jpeg",
-//     location: "Spiti Valley"
-//   },
-//   {
-//     id: 24,
-//     src: "/Images/gallery/travel-24.jpeg",
-//     location: "Alleppey"
-//   }
+  { id: 1, src: "/Images/gallery/travel-1.jpeg", location: "Thailand" },
+  { id: 2, src: "/Images/gallery/travel-2.jpeg", location: "Thailand" },
+  { id: 19, src: "/Images/gallery/travel-19.jpeg", location: "Thailand" },
+  { id: 20, src: "/Images/gallery/travel-20.jpeg", location: "Thailand" },
+  { id: 21, src: "/Images/gallery/travel-21.jpeg", location: "Thailand" },
+  { id: 22, src: "/Images/gallery/travel-22.jpeg", location: "Thailand" },
+
+  { id: 3, src: "/Images/gallery/travel-3.jpeg", location: "Malaysia" },
+  { id: 4, src: "/Images/gallery/travel-4.jpeg", location: "Malaysia" },
+  { id: 5, src: "/Images/gallery/travel-5.jpeg", location: "Malaysia" },
+  { id: 6, src: "/Images/gallery/travel-6.jpeg", location: "Malaysia" },
+  { id: 7, src: "/Images/gallery/travel-7.jpeg", location: "Malaysia" },
+  { id: 8, src: "/Images/gallery/travel-8.jpeg", location: "Malaysia" },
+  { id: 9, src: "/Images/gallery/travel-9.jpeg", location: "Malaysia" },
+  { id: 10, src: "/Images/gallery/travel-10.jpeg", location: "Malaysia" },
+  { id: 11, src: "/Images/gallery/travel-11.jpeg", location: "Malaysia" },
+  { id: 12, src: "/Images/gallery/travel-12.jpeg", location: "Malaysia" },
+  { id: 13, src: "/Images/gallery/travel-13.jpeg", location: "Malaysia" },
+  { id: 14, src: "/Images/gallery/travel-14.jpeg", location: "Malaysia" },
+  { id: 15, src: "/Images/gallery/travel-15.jpeg", location: "Malaysia" },
+  { id: 16, src: "/Images/gallery/travel-16.jpeg", location: "Malaysia" },
+
+  { id: 17, src: "/Images/gallery/travel-17.jpeg", location: "Goa" },
+  { id: 18, src: "/Images/gallery/travel-18.jpeg", location: "Goa" },
+
+
+  {id: 23, src: "/Images/gallery/24.png", location: "Puri"},
 ];
 
 // Animation variants
@@ -209,15 +102,33 @@ const lightboxVariants: Variants = {
   }
 };
 
+// Unique destinations, in the order each first appears, with a photo count
+// for the tab label — derived from the data above so a new `location` value
+// automatically gets its own tab with no other code changes needed.
+const destinations = Array.from(new Set(galleryImages.map((img) => img.location))).map(
+  (name) => ({ name, count: galleryImages.filter((img) => img.location === name).length })
+);
+
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [likedImages, setLikedImages] = useState<number[]>([]);
+  const [activeDestination, setActiveDestination] = useState<string>("All");
   const [visibleImages, setVisibleImages] = useState<number>(12);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const observerRef = useRef<HTMLDivElement | null>(null);
 
-  const displayedImages = galleryImages.slice(0, visibleImages);
-  const hasMore = visibleImages < galleryImages.length;
+  const filteredImages =
+    activeDestination === "All"
+      ? galleryImages
+      : galleryImages.filter((img) => img.location === activeDestination);
+
+  const displayedImages = filteredImages.slice(0, visibleImages);
+  const hasMore = visibleImages < filteredImages.length;
+
+  const selectDestination = (name: string) => {
+    setActiveDestination(name);
+    setVisibleImages(12); // reset pagination whenever the filter changes
+  };
 
   // Lazy load more images
   useEffect(() => {
@@ -226,7 +137,7 @@ export default function Gallery() {
         if (entries[0].isIntersecting && hasMore && !isLoading) {
           setIsLoading(true);
           setTimeout(() => {
-            setVisibleImages(prev => Math.min(prev + 8, galleryImages.length));
+            setVisibleImages(prev => Math.min(prev + 8, filteredImages.length));
             setIsLoading(false);
           }, 500);
         }
@@ -239,7 +150,7 @@ export default function Gallery() {
     }
 
     return () => observer.disconnect();
-  }, [hasMore, isLoading]);
+  }, [hasMore, isLoading, filteredImages.length]);
 
   const handleImageClick = (image: GalleryImage) => {
     setSelectedImage(image);
@@ -286,8 +197,41 @@ export default function Gallery() {
           </p>
         </motion.div>
 
+        {/* Destination Filter Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="flex flex-wrap items-center justify-center gap-3 mb-12"
+        >
+          <button
+            onClick={() => selectDestination("All")}
+            className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-300 ${
+              activeDestination === "All"
+                ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-black border-transparent shadow-lg shadow-yellow-500/30"
+                : "bg-white/5 text-gray-300 border-gray-700 hover:border-yellow-500/50 hover:text-yellow-400"
+            }`}
+          >
+            All ({galleryImages.length})
+          </button>
+          {destinations.map((dest) => (
+            <button
+              key={dest.name}
+              onClick={() => selectDestination(dest.name)}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-300 ${
+                activeDestination === dest.name
+                  ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-black border-transparent shadow-lg shadow-yellow-500/30"
+                  : "bg-white/5 text-gray-300 border-gray-700 hover:border-yellow-500/50 hover:text-yellow-400"
+              }`}
+            >
+              {dest.name} ({dest.count})
+            </button>
+          ))}
+        </motion.div>
+
         {/* Gallery Grid */}
         <motion.div
+          key={activeDestination}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -378,7 +322,8 @@ export default function Gallery() {
           transition={{ delay: 0.5 }}
           className="text-center mt-8 text-gray-400"
         >
-          Showing {displayedImages.length} of {galleryImages.length} photos
+          Showing {displayedImages.length} of {filteredImages.length} photos
+          {activeDestination !== "All" && <> from {activeDestination}</>}
         </motion.div>
 
         {/* Lightbox Modal */}
