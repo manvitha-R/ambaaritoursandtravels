@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight, Heart, Maximize2 } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Heart, Maximize2, Play } from "lucide-react";
 import BackToTop from "../components/BackToTop";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -13,24 +13,47 @@ interface GalleryImage {
   id: number;
   src: string;
   location: string;
+  type?: "image" | "video";
 }
 
-// Gallery photos, grouped by destination.
+// Gallery photos (and videos), grouped by destination.
 //
 // To add more photos for an existing destination (e.g. more Thailand shots),
 // just append a new entry below with a unique `id` and the same `location`
 // string — it'll automatically show up under that destination's filter tab.
 // To add a brand-new destination (e.g. "Puri"), do the same with a new
 // `location` name; a tab for it appears automatically, no other code needed.
+// To add a video, set `type: "video"` — it plays inline (in its destination's
+// grid and the lightbox) and also automatically appears in the standalone
+// "Videos" section further down the page.
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: "/Images/gallery/travel-1.jpeg", location: "Thailand" },
-  { id: 2, src: "/Images/gallery/travel-2.jpeg", location: "Thailand" },
+  { id: 52, src: "/videos/thailand-review-video.mp4", location: "Thailand", type: "video" },
+ 
+  // { id: 2, src: "/Images/gallery/travel-2.jpeg", location: "Thailand" },
   { id: 19, src: "/Images/gallery/travel-19.jpeg", location: "Thailand" },
   { id: 20, src: "/Images/gallery/travel-20.jpeg", location: "Thailand" },
   { id: 21, src: "/Images/gallery/travel-21.jpeg", location: "Thailand" },
   { id: 22, src: "/Images/gallery/travel-22.jpeg", location: "Thailand" },
+  { id: 16, src: "/Images/gallery/travel-16.jpeg", location: "Thailand" },
+  //  { id: 16, src: "/Images/gallery/travel-16.jpeg", location: "Thailand" },
+{ id: 38, src: "/Images/gallery/35.png", location: "Thailand" },
+{ id: 39, src: "/Images/gallery/36.png", location: "Thailand" },
+{ id: 40, src: "/Images/gallery/40.png", location: "Thailand" },
+{ id: 41, src: "/Images/gallery/41.png", location: "Thailand" },
+{ id: 42, src: "/Images/gallery/42.png", location: "Thailand" },
+{ id: 43, src: "/Images/gallery/43.png", location: "Thailand" },
+{ id: 44, src: "/Images/gallery/44.png", location: "Thailand" },
+{ id: 45, src: "/Images/gallery/45.png", location: "Thailand" },
+{ id: 46, src: "/Images/gallery/46.png", location: "Thailand" },
+{ id: 47, src: "/Images/gallery/47.png", location: "Thailand" },
+{ id: 48, src: "/Images/gallery/48.png", location: "Thailand" },
+{ id: 49, src: "/Images/gallery/49.png", location: "Thailand" },
+{ id: 50, src: "/Images/gallery/53.png", location: "Thailand" },
+{ id: 51, src: "/Images/gallery/54.png", location: "Thailand" },
 
-  { id: 3, src: "/Images/gallery/travel-3.jpeg", location: "Malaysia" },
+
+  { id: 53, src: "/videos/malaysia-review.mp4", location: "Malaysia", type: "video" },
+  // { id: 3, src: "/Images/gallery/travel-3.jpeg", location: "Malaysia" },
   { id: 4, src: "/Images/gallery/travel-4.jpeg", location: "Malaysia" },
   { id: 5, src: "/Images/gallery/travel-5.jpeg", location: "Malaysia" },
   { id: 6, src: "/Images/gallery/travel-6.jpeg", location: "Malaysia" },
@@ -43,13 +66,30 @@ const galleryImages: GalleryImage[] = [
   { id: 13, src: "/Images/gallery/travel-13.jpeg", location: "Malaysia" },
   { id: 14, src: "/Images/gallery/travel-14.jpeg", location: "Malaysia" },
   { id: 15, src: "/Images/gallery/travel-15.jpeg", location: "Malaysia" },
-  { id: 16, src: "/Images/gallery/travel-16.jpeg", location: "Malaysia" },
+  { id: 31, src: "/Images/gallery/10.png", location: "Malaysia" },
+  { id: 32, src: "/Images/gallery/13.png", location: "Malaysia" },
+  { id: 33, src: "/Images/gallery/14.png", location: "Malaysia" },
+  { id: 34, src: "/Images/gallery/15(1).png", location: "Malaysia" },
+  { id: 35, src: "/Images/gallery/18.png", location: "Malaysia" },
+  { id: 36, src: "/Images/gallery/19.png", location: "Malaysia" },
+  { id: 37, src: "/Images/gallery/21.png", location: "Malaysia" },
+  
+   { id: 1, src: "/Images/gallery/travel-1.jpeg", location: "Malaysia" },
 
   { id: 17, src: "/Images/gallery/travel-17.jpeg", location: "Goa" },
   { id: 18, src: "/Images/gallery/travel-18.jpeg", location: "Goa" },
 
 
+  { id: 54, src: "/videos/puri-review.mp4", location: "Puri", type: "video" },
+  { id: 55, src: "/videos/puri-review-2.mp4", location: "Puri", type: "video" },
   {id: 23, src: "/Images/gallery/24.png", location: "Puri"},
+  {id: 24, src: "/Images/gallery/25.png", location: "Puri"},
+  {id: 25, src: "/Images/gallery/26.png", location: "Puri"},
+  {id: 26, src: "/Images/gallery/27.png", location: "Puri"},
+  {id: 27, src: "/Images/gallery/28.png", location: "Puri"},
+  {id: 28, src: "/Images/gallery/29.png", location: "Puri"},
+  {id: 29, src: "/Images/gallery/30.png", location: "Puri"},
+  {id: 30, src: "/Images/gallery/31.png", location: "Puri"},
 ];
 
 // Animation variants
@@ -108,6 +148,9 @@ const lightboxVariants: Variants = {
 const destinations = Array.from(new Set(galleryImages.map((img) => img.location))).map(
   (name) => ({ name, count: galleryImages.filter((img) => img.location === name).length })
 );
+
+// Every video, regardless of destination, also gets its own standalone section.
+const galleryVideos = galleryImages.filter((img) => img.type === "video");
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
@@ -197,6 +240,45 @@ export default function Gallery() {
           </p>
         </motion.div>
 
+        {/* Videos Section — every item with type: "video" in galleryImages, regardless of destination */}
+        {galleryVideos.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-14"
+          >
+            <h3 className="text-2xl font-bold text-white mb-5 flex items-center gap-2">
+              <Play className="w-5 h-5 text-yellow-400 fill-yellow-400" /> Videos
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {galleryVideos.map((video) => (
+                <div
+                  key={video.id}
+                  className="group relative aspect-video overflow-hidden rounded-2xl cursor-pointer border border-gray-800"
+                  onClick={() => handleImageClick(video)}
+                >
+                  <video
+                    src={video.src}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform">
+                      <Play className="w-6 h-6 text-white fill-white ml-0.5" />
+                    </div>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                    <p className="text-white font-semibold text-sm">{video.location}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
         {/* Destination Filter Tabs */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -249,20 +331,39 @@ export default function Gallery() {
               transition={{ duration: 0.3 }}
               onClick={() => handleImageClick(image)}
             >
-              {/* Image */}
+              {/* Image or video thumbnail */}
               <div className="absolute inset-0">
-                <Image
-                  src={image.src}
-                  alt={image.location}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
+                {image.type === "video" ? (
+                  <video
+                    src={image.src}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+                ) : (
+                  <Image
+                    src={image.src}
+                    alt={image.location}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                )}
               </div>
 
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Play Badge for videos */}
+              {image.type === "video" && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform">
+                    <Play className="w-6 h-6 text-white fill-white ml-0.5" />
+                  </div>
+                </div>
+              )}
 
               {/* Location Overlay */}
               <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
@@ -375,15 +476,25 @@ export default function Gallery() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="relative w-full h-full flex items-center justify-center">
-                  <Image
-                    src={selectedImage.src}
-                    alt={selectedImage.location}
-                    width={1200}
-                    height={800}
-                    className="object-contain max-h-full max-w-full"
-                    quality={100}
-                    priority
-                  />
+                  {selectedImage.type === "video" ? (
+                    <video
+                      src={selectedImage.src}
+                      className="max-h-full max-w-full"
+                      controls
+                      autoPlay
+                      playsInline
+                    />
+                  ) : (
+                    <Image
+                      src={selectedImage.src}
+                      alt={selectedImage.location}
+                      width={1200}
+                      height={800}
+                      className="object-contain max-h-full max-w-full"
+                      quality={100}
+                      priority
+                    />
+                  )}
                 </div>
 
                 {/* Location Info */}

@@ -33,12 +33,13 @@ interface DayItinerary {
 }
 
 // Curated to match the uploaded photos, in this order (re-mapped for the
-// 4N/5D Patna-Gaya-Bodh Gaya-Varanasi-Prayagraj-Ayodhya route):
+// 4N/5D Gaya-Bodh Gaya-Varanasi-Prayagraj-Ayodhya route, where Varanasi now
+// spans two days - Kashi darshan, then a separate boat-ride/local-darshan
+// day with no distinct photo of its own):
 // 0 Kashi.png poster (cover tile), 1 Bodhgaya, 2 Kashi Vishwanath (Varanasi),
-// 3 Prayagraj (Triveni Sangam), 4 Ayodhya. Day 5 (departure) has no
-// dedicated photo, so it falls back to the poster.
+// 3 Prayagraj (Triveni Sangam), 4 Ayodhya.
 const DAY_IMAGE_INDEX: Record<number, number> = {
-  1: 1, 2: 2, 3: 3, 4: 4, 5: 0,
+  1: 1, 2: 2, 3: 0, 4: 3, 5: 4,
 };
 
 export default function KashiExperience({

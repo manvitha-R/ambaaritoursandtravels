@@ -238,7 +238,7 @@ const packages = [
     {
         id: "30",
         name: "Kashi Yatra 4N/5D",
-        price: 40999,
+        price: 47999,
         duration: "5 Days 4 Nights",
         category: "Spiritual",
         image: "/Images/Kashi.png"
@@ -285,8 +285,8 @@ const packages = [
     },
      {
         id: "34",
-        name:"Andaman Yatra 4N/5D",
-        price: 44999,
+        name:"Andaman 4N/5D",
+        price: 55999,
         duration: "5 Days 4 Nights",
         category: "Domestic",
         image: "/Images/Andaman.png"
