@@ -32,11 +32,15 @@ interface DayItinerary {
   accommodation?: string;
 }
 
-// Only one photo is available for this package (the brochure flyer used as
-// the poster/cover tile), so every day falls back to it — same pattern as
-// any other single-image package (see the mosaicImages.length <= 1 branch
-// below).
-const DAY_IMAGE_INDEX: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 };
+// Curated to match the uploaded photos, in this order:
+// 0 japan-poster.jpg (cover tile), 1 Bullet Train (Mt. Fuji backdrop),
+// 2 Mt. Fuji (Kawaguchiko), 3 Kyoto (Yasaka Pagoda street), 4 Nara (deer park),
+// 5 Hiroshima (Peace Memorial / Atomic Bomb Dome). Days 1 (arrival), 7
+// (Amanohashidate & Ine Village) and 8 (departure) have no dedicated photo,
+// so they fall back to the poster.
+const DAY_IMAGE_INDEX: Record<number, number> = {
+  1: 0, 2: 2, 3: 1, 4: 3, 5: 4, 6: 5, 7: 0, 8: 0,
+};
 
 export default function JapanExperience({
   pkg,
@@ -51,7 +55,7 @@ export default function JapanExperience({
   bookNowHref: string;
   policySections: { title: string; content: string }[];
 }) {
-  const images: string[] = pkg.images?.length ? pkg.images : ["/Images/Japan.jpg"];
+  const images: string[] = pkg.images?.length ? pkg.images : ["/Images/japan-poster.jpg"];
   const mosaicImages = images.slice(0, 5);
 
   const imageForDay = (day: number) => {
