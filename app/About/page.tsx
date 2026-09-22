@@ -123,23 +123,25 @@ export default function AboutPage() {
       role: "MANAGER",
       bio: "Skilled in strategic planning and team leadership."
     },
-
-    {
-      id: 4,
-      name: "Shivaram M S",
-      role: "DOMESTIC TEAM HEAD",
-      bio: "Specializing in the domestic market, excels at aligning localized team strategies with broader corporate objectives."
-    },
+    
     {
       id: 5,
       name: "Akash R",
       role: "INTERNATIONAL TEAM HEAD",
       bio: "Driving cross-border initiatives and scaling high-performing, multicultural teams."
     },
+
+       {
+      id: 4,
+      name: "Shashank",
+      role: "DMC SUPPORT EXECUTIVE",
+      bio: "Specializing in the DMC, excels at aligning localized team strategies with broader corporate objectives."
+    },
+    
     {
       id: 3,
       name: "Srinath",
-      role: "VIDEO EDITOR",
+      role: "CONTENT & EDITING HEAD",
       bio: "Expert in editing and content creation of all travel itineraries."
     },
 
